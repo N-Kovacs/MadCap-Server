@@ -64,7 +64,7 @@ export default function AnswerList(props) {
               round={props.round}
             />
           
-          <Notice lastMessage={props.lastMessage} />
+          <Notice lastMessage={props.lastMessage} timer={props.timer} />
         </div>
       )}
       {props.phase === "vote" &&
