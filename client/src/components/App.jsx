@@ -161,6 +161,7 @@ export default function App(props) {
 
       {mode === LOBBY && (
         <Lobby
+          host={cookies.host}
           url={full_url}
           url_path={url_path}
           handleStart={handleStart}
