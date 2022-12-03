@@ -4,8 +4,9 @@ import OptionsBox from "./OptionsBox";
 import CategoriesBox from "./CategoriesBox";
 import LinkBox from "./LinkBox";
 import StartButton from './StartButton';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Tooltip } from '@mui/material';
 
 export default function GameSettings(props) {
 
@@ -17,13 +18,18 @@ export default function GameSettings(props) {
     }
     );
     
+    const [noCategories, setNoCategories] = useState(false);
+
     // console.log("settings in Lobby ~~~~~~~~~~: ", settings)
     // const playerCount = num;
     // const waitToStart = () => {
-    //   // if "waiting..."
-    // }
-
-  const [currentCategories, setCurrentCategories] = useState([])
+      //   // if "waiting..."
+      // }
+      
+      const [currentCategories, setCurrentCategories] = useState([])
+      useEffect(() => {
+        setNoCategories(currentCategories.length === 0);
+      }, [currentCategories.length])
 
   const gamesPutRequest =  (settings, currentCategories) => (
     axios.put(`api/games/${props.url_path}`, {
@@ -86,10 +92,20 @@ export default function GameSettings(props) {
         }}>
         <LinkBox url={props.url} />
 
-        <StartButton handleStart={handleGameStart}
-          message={buttonText}
-          disabled={(!currentCategories)||(currentCategories.length === 0)}
-        />
+        {noCategories
+          ? <Tooltip title="Please select at least one category before starting round">
+              <div style={{width: '93%'}}>
+                <StartButton
+                  message={buttonText}
+                  disabled
+                />
+              </div>
+            </Tooltip>
+          :
+            <StartButton handleStart={handleGameStart}
+              message={buttonText}
+              />
+        }
       </Box>
     </div>
   );
