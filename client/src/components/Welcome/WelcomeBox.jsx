@@ -8,6 +8,7 @@ import UserName from './UserName';
 import ActionButton from "./ActionButton";
 import axios from "axios";
 import { generateRandomString } from "../../helpers/helpers";
+import { Alert } from "@mui/material";
 
 export default function WelcomeBox(props) {
 
@@ -65,20 +66,30 @@ export default function WelcomeBox(props) {
   }
 
   const joinGame = () => {
-     
+  
+    axios.get(`/api/games/${props.url_path}`)
+    .then(response => response.data)
+    .then(({ users, maxPlayers }) => {
+      if (users.length >= maxPlayers) {
+        props.setLobbyIsFull(true)
+        throw new Error("Lobby is full");
+      }
+    })
+    .then(() => {
       axios.post(`/api/games/${props.url_path}/users`, {
         name,
         color,
         avatar_url,
         host: false
       })
-      .then((response) => {
-        props.setCurrentUser(response.data.id)
-      })
-      .then(() => {
-        props.transition("LOBBY")
-        props.checkedIn()
-      })
+    })
+    .then((response) => {
+      props.setCurrentUser(response.data.id)
+    })
+    .then(() => {
+      props.transition("LOBBY")
+      props.checkedIn()
+    })
     .catch((err) => console.error(err));
   }
 
@@ -114,15 +125,22 @@ export default function WelcomeBox(props) {
           handleSubmit={handleSubmit}
           name={name} 
         />
-        {btnState === MAKE && <ActionButton
-          message="Make New Game"
-          onClick={makeGame}
-        />}
-        {btnState === JOIN && <ActionButton
-          message="Join the Game!"
-          onClick={joinGame}
-        />}
+        {btnState === MAKE && (
+          <ActionButton onClick={makeGame}>
+            Make New Game
+          </ActionButton>
+        )}
+        {btnState === JOIN && (
+          <ActionButton onClick={joinGame}> 
+            Join the Game!
+          </ActionButton>
+        )}
       </Box>
+        {props.lobbyIsFull && (
+          <Alert icon={false} severity="error">
+            Can't Join Game. Lobby is Full.
+          </Alert>
+            )}
     </Fragment>
   );
 }
