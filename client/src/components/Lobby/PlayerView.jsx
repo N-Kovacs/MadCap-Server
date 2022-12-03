@@ -19,7 +19,7 @@ return (
       <div className="player-view-header">
         <h2 className="player-view-header" >Waiting for Host to Start Round</h2>
       </div>
-        <CircularProgress sx={{mb: '80px'}}/>
+        <CircularProgress sx={{mb: '65px'}}/>
     </Box>
     {/* <Box
       sx={{
