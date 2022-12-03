@@ -56,7 +56,8 @@ export default function Clock(props) {
                   color: color,
                   // transition: 'font-size 150ms',
                   width: 'fit-content',
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  letterSpacing: '2px'
                 }}
               >
                 {remainingTime}
