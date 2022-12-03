@@ -9,7 +9,7 @@ import Game from "./Game";
 
 import useVisualMode from "../hooks/useVisualMode";
 
-import "./App.css";
+import "./App.scss";
 
 const SERVER = "http://127.0.0.1:8001";
 //Temporary fix?

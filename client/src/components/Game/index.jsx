@@ -6,8 +6,8 @@ import Box from "@mui/material/Box";
 import GameBoard from "./GameBoard";
 import StatusBox from "./StatusBox";
 
-import "./styles.css";
-import axios from "axios";
+import "./styles.scss";
+// import axios from "axios";
 
 const SERVER = "http://127.0.0.1:8001";
 //Temporary fix?
@@ -19,8 +19,8 @@ const romanAlpha = [
   {
     id: 1,
     letter: "A",
-    answer: "art",
-    captureColour: "red",
+    answer: "",
+    captureColour: "",
     votesAgainst: 0,
   },
   {
@@ -250,19 +250,6 @@ export default function Game(props) {
     round: 1
   });
 
-
-  // useEffect(() => {
-  //   axios.get(`/api/games/${props.url_path}/subcategories/1`)
-  //     .then((response) => response.data)
-  //     .then(({ category, subcategory }) => {
-  //       setState((prev) => ({
-  //         ...prev,
-  //         category,
-  //         subcategory
-  //       }));
-  //     });
-  // }, []);
-
   // fn setphase to results
   // in timer pass down props.phase result
   const setStatePhase = (phase) => {
@@ -280,8 +267,11 @@ export default function Game(props) {
   const getNextSubcategory = () => {
     setState(prev => (
       { ...prev,
-        category: props.gameData.subcategories[state.round].category,
-        subcategory: props.gameData.subcategories[state.round].subcategory,
+        category: 
+        props.gameData.subcategories[(state.round - 1) % 
+          props.gameData.subcategories.length].category,
+        subcategory: props.gameData.subcategories[(state.round - 1) % 
+          props.gameData.subcategories.length].subcategory,
       }
     ));
   };
@@ -546,9 +536,10 @@ export default function Game(props) {
           justifyContent: "center",
           alignItems: "center",
           maxWidth: 435,
-          height: "100%",
+          height: "fit-content",
           width: "100%",
-          px: 0, my: '24px',
+          px: 0, pt: '2px',
+          border: '2px solid black',
           backgroundColor: "#f0f2ff",
         }}
       >
@@ -557,17 +548,17 @@ export default function Game(props) {
           nextRound={nextRound}
           round={state.round}
           getNextSubcategory={getNextSubcategory}
+          category={state.category}
+          subcategory={state.subcategory}
+          playerCount={state.players.length}
+          players={state.players}
 
           setStatePhase={setStatePhase}
           phase={state.phase}
           isConnected={state.isConnected}
           lastMessage={state.lastMessage}
-          category={state.category}
-          subcategory={state.subcategory}
           answers={state.answers}
           sendVote={sendVote}
-          playerCount={state.players.length}
-          players={state.players}
           clearBoard={clearBoard}
         />
         <StatusBox

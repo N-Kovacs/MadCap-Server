@@ -20,7 +20,7 @@ export default function GamePlayersList(props) {
   const PlayerListItems = props.players.map((player) =>
   !player.host && (
     <ListItem key={player.id}
-      style={{ padding: 0 }}
+      style={{ paddingTop: '10px', paddingBottom: 0 }}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -55,7 +55,7 @@ export default function GamePlayersList(props) {
   return (
     <Fragment>
       <Box className="players-box"
-        sx={{ height: '100%', width: '34%', pl: '4px', pb: '4px' }}>
+        sx={{ height: '100%', width: '34%', pl: '4px', pb: '2px' }}>
         <Paper className="player-box-inner" 
         style={{ height: '100%', width: '100%', paddingRight: '10px', overflow: 'auto' }} 
         elevation={3} sx={{ pl: '8px' }}>
@@ -77,7 +77,7 @@ export default function GamePlayersList(props) {
                     flexDirection: 'column',
                     alignItems: 'flex-start',
                     backgroundColor: (host && host.id === props.currentPlayerID) 
-                    && 'hwb(222deg 93% 0%)', width: '109%', paddingTop: '6px', 
+                    && 'hwb(222deg 93% 0%)', width: '109%', pt: '6px', pb: 0, 
                     borderTopLeftRadius: '26px'
                   }}>
                     <ListItemAvatar sx={{ display: 'flex', alignItems: 'center' }}>

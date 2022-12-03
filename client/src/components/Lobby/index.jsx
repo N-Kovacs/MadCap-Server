@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import GameSettings from "./GameSettings";
 import PlayersList from "./PlayersList";
 
-import "./styles.css";
+import "./styles.scss";
 
 export default function Lobby(props) {
   const [categories, setCategories] = useState(null);

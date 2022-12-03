@@ -20,7 +20,7 @@ export default function StatusBox(props) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          pr: 0, pl: '4px', pb: '3px',
+          pr: 0, pl: '4px', pb: '2px',
           m: 0,
           width: '71.5%',
           height: '100%'

@@ -1,7 +1,7 @@
 import WelcomeBox from './WelcomeBox';
 import HowToPlay from './HowToPlay';
 
-import './styles.css';
+import './styles.scss';
 
 export default function Welcome(props) {
 
