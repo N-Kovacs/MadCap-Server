@@ -7,7 +7,6 @@ import PlayersList from "./PlayersList";
 import PlayerView from "./PlayerView";
 
 import "./styles.scss";
-import "./playerView.css"
 
 export default function Lobby(props) {
   const [view, setView] = useState("PLAYER")
