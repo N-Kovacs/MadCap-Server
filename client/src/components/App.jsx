@@ -21,7 +21,7 @@ export default function App(props) {
   const { full_url, url_path, btnState } = useLoaderData();
   console.log("Button State", btnState);
 
-  const [gameData, setGameData] = useState([]);
+  const [gameData, setGameData] = useState({});
   const [name, setName] = useState("");
   const [cookies, setCookies, removeCookies] = useCookies(["host", "user"]);
   const [lobbyIsFull, setLobbyIsFull] = useState(false)
@@ -142,6 +142,16 @@ export default function App(props) {
     socket.emit("joined-game", url_path);
   };
 
+  const isHost = () => {
+    console.log("Game Users", gameData.users);
+    console.log("Current User");
+    return gameData.users
+      && cookies.user
+      && gameData.users
+          .find(user => user.id === cookies.user)
+          .host
+  }
+
   return (
     <div className="App">
       {mode === WELCOME && (
@@ -150,7 +160,7 @@ export default function App(props) {
           // remove slash from url path
           url_path={url_path.substring(1)}
           name={name}
-          host={cookies.host}
+          host={isHost}
           btnState={btnState}
           // avatar={avatar}
           setCurrentUser={setCurrentUser}
