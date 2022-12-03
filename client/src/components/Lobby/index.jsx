@@ -6,8 +6,7 @@ import GameSettings from "./GameSettings";
 import PlayersList from "./PlayersList";
 import PlayerView from "./PlayerView";
 
-import "./styles.css";
-import "./playerView.css"
+import "./styles.scss";
 
 export default function Lobby(props) {
   const [view, setView] = useState("PLAYER")
@@ -47,7 +46,7 @@ export default function Lobby(props) {
         sx={{
           px: 2.5,
           display: "flex",
-          maxWidth: 435,
+          maxWidth: '490px',
           width: "100%",
         }}
       >

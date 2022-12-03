@@ -4,15 +4,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .lobby-header {
   margin-top: 0.1em;
-  width: 70%;
+  width: 100%;
 }
 
 .lobby-header h1 {
   margin-bottom: 15px;
+  margin-top: 0;
 }
 
 .settings-header h2 {
@@ -21,7 +23,6 @@
   padding-left: 10px;
   padding-top: 12px;
 }
-
 
 .game-settings-main {
   height: 600px;
@@ -32,8 +33,27 @@
   justify-content: space-between;
 }
 
+.player-view-header h2 {
+  font-size: 19px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  word-wrap: normal;
+  text-align: center;
+}
+
+.player-view-main {
+  height: 700px;
+  width: 67%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+//
+
 /* for the Select button in Game Setings */
-.MuiSelect-select{
+.MuiSelect-select {
   height: 100% !important;
   padding: 5px !important;
 }
@@ -41,18 +61,23 @@
 /* for the Categories in Game Setings */
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
   font-size: 20px !important;
-  color: #393939 !important;
-  background-color: #cce2ff;
-  height: 30px;
-  width: 115px;
+  color: #525252 !important;
+  // background-color: #d7e8fe8c;
+  // border: 1px solid #bbd9ff;
+  // box-shadow: 0px 0px 9px 9px #d7e8fe8c;
+  height: 53px;
+  width: 39%;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 5px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 /* for the Select tiny Categories in Game Setings */
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
   font-size: 14px !important;
-  background-color: #e4effe;
+  background-color: #e4effeef;
   height: 20px;
   width: 80px;
   text-align: center;
@@ -61,11 +86,11 @@
 
 /* for the Select dropdown */
 .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
-      max-height: 404px !important;
-      width: 60% !important;
-      min-width: 16px !important;
-      top: 245px !important;
-      left: 151px !important;
+  max-height: 404px !important;
+  width: 60% !important;
+  min-width: 16px !important;
+  top: 245px !important;
+  left: 151px !important;
 }
 /* inner category width */
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
@@ -74,6 +99,6 @@
 
 /* copy link banner */
 .css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root {
-background-color: rgb(50 50 50 / 67%) !important;
-height: 53px !important;
+  background-color: rgb(50 50 50 / 67%) !important;
+  height: 53px !important;
 }

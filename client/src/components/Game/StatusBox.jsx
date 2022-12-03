@@ -20,10 +20,11 @@ export default function StatusBox(props) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          pr: 0, pl: '4px', pb: '3px',
+          pr: 0, pl: '4px', pb: '2px',
           m: 0,
           width: '71.5%',
-          maxHeight: '308px'
+          height: '100%'
+          // maxHeight: '277px'
         }}>
         <Box className="chat-box"
           sx={{

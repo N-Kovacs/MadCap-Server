@@ -31,7 +31,8 @@ export default function PlayersList(props) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        backgroundColor: (player.id === props.currentUser) && '#e0e5ef'
+        backgroundColor: (player.id === props.currentUser) && 'hwb(222deg 93% 0%)',
+        width: '113%', paddingTop: '10px', borderTopLeftRadius: '26px'
 
       }}>
       <ListItemAvatar sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -64,7 +65,7 @@ export default function PlayersList(props) {
           }}
           >
             <Grid item xs={12} md={6}>
-              <Typography sx={{ mt: 0, mb: 2 }} variant="h6" component="div">
+              <Typography sx={{ mt: 0, mb: '9px' }} variant="h6" component="div">
                 Players
               </Typography>
 
@@ -74,7 +75,9 @@ export default function PlayersList(props) {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'flex-start',
-                    backgroundColor: (host && host.id === props.currentUser) && '#e0e5ef',
+                    backgroundColor: 
+                    (host && host.id === props.currentUser) && 'hwb(222deg 93% 0%)',
+                    width: '113%', paddingTop: '10px', borderTopLeftRadius: '26px'
                   }}>
                     <ListItemAvatar sx={{ display: 'flex', alignItems: 'center', justifyItems: 'space-around' }}>
                       <Avatar src={host && host.avatar_url}sx={{}}>
