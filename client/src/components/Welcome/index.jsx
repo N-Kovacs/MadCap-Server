@@ -20,6 +20,8 @@ export default function Welcome(props) {
         setHost={props.setHost}
         transition={props.transition}
         checkedIn = {props.checkedIn}
+        setLobbyIsFull={props.setLobbyIsFull}
+        lobbyIsFull={props.lobbyIsFull}
       />
       <HowToPlay />
     </div>

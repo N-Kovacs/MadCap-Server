@@ -24,6 +24,7 @@ export default function App(props) {
   const [gameData, setGameData] = useState([]);
   const [name, setName] = useState("");
   const [cookies, setCookies, removeCookies] = useCookies(["host", "user"]);
+  const [lobbyIsFull, setLobbyIsFull] = useState(false)
   const [reqUpdate, setReqUpdate] = useState(false);
 
   const WELCOME = "WELCOME";
@@ -156,6 +157,8 @@ export default function App(props) {
           handleName={handleName}
           setHost={setHost}
           checkedIn={checkedIn}
+          setLobbyIsFull={setLobbyIsFull}
+          lobbyIsFull={lobbyIsFull}
         />
       )}
 
