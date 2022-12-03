@@ -8,7 +8,7 @@
 
 .lobby-header {
   margin-top: 0.1em;
-  width: 70%;
+  width: 100%;
 }
 
 .lobby-header h1 {
@@ -32,7 +32,7 @@
 }
 
 /* for the Select button in Game Setings */
-.MuiSelect-select{
+.MuiSelect-select {
   height: 100% !important;
   padding: 5px !important;
 }
@@ -40,18 +40,21 @@
 /* for the Categories in Game Setings */
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
   font-size: 20px !important;
-  color: #393939 !important;
-  background-color: #cce2ff;
-  height: 30px;
-  width: 115px;
+  color: #6e6e6e !important;
+  background-color: #d7e8fe;
+  height: 53px;
+  width: 155px;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 5px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 /* for the Select tiny Categories in Game Setings */
 .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
   font-size: 14px !important;
-  background-color: #e4effe;
+  background-color: #e4effeef;
   height: 20px;
   width: 80px;
   text-align: center;
@@ -60,11 +63,11 @@
 
 /* for the Select dropdown */
 .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
-      max-height: 404px !important;
-      width: 60% !important;
-      min-width: 16px !important;
-      top: 245px !important;
-      left: 151px !important;
+  max-height: 404px !important;
+  width: 60% !important;
+  min-width: 16px !important;
+  top: 245px !important;
+  left: 151px !important;
 }
 /* inner category width */
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
@@ -73,6 +76,6 @@
 
 /* copy link banner */
 .css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root {
-background-color: rgb(50 50 50 / 67%) !important;
-height: 53px !important;
+  background-color: rgb(50 50 50 / 67%) !important;
+  height: 53px !important;
 }

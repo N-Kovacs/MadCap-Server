@@ -31,7 +31,8 @@ export default function PlayersList(props) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        backgroundColor: (player.id === props.currentUser) && 'rgba(0, 139, 139, 0.2)'
+        backgroundColor: (player.id === props.currentUser) && 'hwb(222deg 93% 0%)',
+        width: '113%', paddingTop: '10px', borderTopLeftRadius: '26px'
 
       }}>
       <ListItemAvatar sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>

@@ -40,7 +40,7 @@ export default function Lobby(props) {
         sx={{
           px: 2.5,
           display: "flex",
-          maxWidth: 435,
+          maxWidth: '490px',
           width: "100%",
         }}
       >

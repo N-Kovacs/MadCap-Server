@@ -25,8 +25,8 @@ export default function GamePlayersList(props) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        backgroundColor: (player.id === props.currentPlayerID) && 'rgba(0, 139, 139, 0.2)'
-
+        backgroundColor: (player.id === props.currentPlayerID) && 'hwb(222deg 93% 0%)', 
+        width: '109%', paddingTop: '6px', borderTopLeftRadius: '26px'
       }}>
       <ListItemAvatar
         sx={{
@@ -34,7 +34,8 @@ export default function GamePlayersList(props) {
           flexDirection: 'row',
           alignItems: 'center',
       }}>
-        <Avatar src={player.avatar_url} alt={player.label} sx={{ maxWidth: '30%', height: 'auto' }}>
+        <Avatar src={player.avatar_url} alt={player.label} 
+        sx={{ maxWidth: '30%', height: 'auto' }}>
         </Avatar>
         <CircleIcon sx={{ pl: 1, color: player.color }} />
         <Typography sx={{ fontSize: "10px", pl: 1 }}>
@@ -56,7 +57,8 @@ export default function GamePlayersList(props) {
       <Box className="players-box"
         sx={{ height: '100%', width: '34%', pl: '4px', pb: '4px' }}>
         <Paper className="player-box-inner" 
-        style={{ height: '100%', width: '100%', paddingRight: '10px', overflow: 'auto' }} elevation={3} sx={{ pl: '8px' }}>
+        style={{ height: '100%', width: '100%', paddingRight: '10px', overflow: 'auto' }} 
+        elevation={3} sx={{ pl: '8px' }}>
           <Box sx={{
             flexGrow: 1,
             maxWidth: 752,
@@ -79,7 +81,8 @@ export default function GamePlayersList(props) {
                     borderTopLeftRadius: '26px'
                   }}>
                     <ListItemAvatar sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Avatar src={host && host.avatar_url} alt={host && host.label} sx={{ maxWidth: '32%', height: 'auto' }}>
+                      <Avatar src={host && host.avatar_url} alt={host && host.label} 
+                      sx={{ maxWidth: '30%', height: 'auto' }}>
                       </Avatar>
                       <CircleIcon sx={{ pl: 1, color: host && host.color }} />
                       <Typography sx={{ fontSize: "12px", pl: 1 }}>
@@ -87,7 +90,9 @@ export default function GamePlayersList(props) {
                         {host && host.score} 
                       </Typography>
                     </ListItemAvatar>
-                    <ListItemText primary={host && host.name} />
+                    <ListItemText primary={host && host.name} 
+                       sx={{ '.MuiTypography-root': { fontSize: "12px"} }}
+                    />
                   </ListItem>
                 </List>
                 <List>

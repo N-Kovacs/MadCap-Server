@@ -277,10 +277,7 @@ export default function Game(props) {
     }
   };
 
-  // console.log("gameData in Game ~~~~~~~~~~~: ", props.gameData);
-  
   const getNextSubcategory = () => {
-    // const random = Math.floor(Math.random() * props.gameData.subcategories.length);
     setState(prev => (
       { ...prev,
         category: props.gameData.subcategories[state.round].category,
@@ -288,11 +285,6 @@ export default function Game(props) {
       }
     ));
   };
-
-  console.log("~~~~~~~~~~~~~~~~~~~ state.category: ", state.category);
-  console.log("~~~~~~~~~~~~~~~~~~~ state.subcategory: ", state.subcategory);
-
-  // console.log("~~~~~~~~~~~~~~ ~~~~~~ : ", props.gameData.subcategories[4]);
 
   const setAnswer = (message, store) => {
     //sets the details of the letter in game
