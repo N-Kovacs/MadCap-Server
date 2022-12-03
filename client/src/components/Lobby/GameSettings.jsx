@@ -95,16 +95,15 @@ export default function GameSettings(props) {
         {noCategories
           ? <Tooltip title="Please select at least one category before starting round">
               <div style={{width: '93%'}}>
-                <StartButton
-                  message={buttonText}
-                  disabled
-                />
+                <StartButton disabled>
+                {buttonText}
+                </StartButton>
               </div>
             </Tooltip>
           :
-            <StartButton handleStart={handleGameStart}
-              message={buttonText}
-              />
+            <StartButton handleStart={handleGameStart}>
+              {buttonText}
+            </StartButton>
         }
       </Box>
     </div>

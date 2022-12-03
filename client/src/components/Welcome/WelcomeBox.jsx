@@ -114,14 +114,16 @@ export default function WelcomeBox(props) {
           handleSubmit={handleSubmit}
           name={name} 
         />
-        {btnState === MAKE && <ActionButton
-          message="Make New Game"
-          onClick={makeGame}
-        />}
-        {btnState === JOIN && <ActionButton
-          message="Join the Game!"
-          onClick={joinGame}
-        />}
+        {btnState === MAKE && (
+          <ActionButton onClick={makeGame}>
+            Make New Game
+          </ActionButton>
+        )}
+        {btnState === JOIN && (
+          <ActionButton onClick={joinGame}> 
+            Join the Game!
+          </ActionButton>
+        )}
       </Box>
     </Fragment>
   );

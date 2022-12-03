@@ -21,7 +21,7 @@ export default function StartButton (props) {
           }
         }}
         disabled={props.disabled}
-        >{props.message}
+        >{props.children}
         </Button>
   );
 };
