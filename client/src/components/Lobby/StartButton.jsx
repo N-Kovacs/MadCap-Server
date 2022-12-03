@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import Button from '@mui/material/Button';
-import { lightGreen } from '@mui/material/colors';
+// import { lightGreen } from '@mui/material/colors';
 
 export default function StartButton(props) {
 
@@ -14,10 +14,10 @@ export default function StartButton(props) {
         sx={{
           width: '93%',
           height: 65,
-          fontSize: '21px',
+          fontSize: '19px',
           '&.Mui-disabled': {
-           bgcolor: lightGreen[100],
-           color:lightGreen[700]
+           bgcolor: '#29722c4a',
+           color: '#93ac94'
           }
         }}
         disabled={props.disabled}

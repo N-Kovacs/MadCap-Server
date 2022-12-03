@@ -68,17 +68,18 @@ export default function GamePlayersList(props) {
                 Players
               </Typography>
 
-              <CustomStyle sx={{ '& .MuiList-root': { p: 0, pt: 1 } }}>
+              <CustomStyle sx={{ '& .MuiList-root': { p: 0, pt: '2px' } }}>
                 <List dense={true} >
                   <ListItem sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'flex-start',
-                    backgroundColor: (host && host.id === props.currentPlayerID) && 'rgba(0, 139, 139, 0.2)',
-                    p: 0
+                    backgroundColor: (host && host.id === props.currentPlayerID) 
+                    && 'hwb(222deg 93% 0%)', width: '109%', paddingTop: '6px', 
+                    borderTopLeftRadius: '26px'
                   }}>
                     <ListItemAvatar sx={{ display: 'flex', alignItems: 'center' }}>
-                      <Avatar src={host && host.avatar_url} alt={host && host.label} sx={{ maxWidth: '40%', height: 'auto' }}>
+                      <Avatar src={host && host.avatar_url} alt={host && host.label} sx={{ maxWidth: '32%', height: 'auto' }}>
                       </Avatar>
                       <CircleIcon sx={{ pl: 1, color: host && host.color }} />
                       <Typography sx={{ fontSize: "12px", pl: 1 }}>
