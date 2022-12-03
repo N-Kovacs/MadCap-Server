@@ -11,7 +11,7 @@ import useVisualMode from "../hooks/useVisualMode";
 
 import "./App.css";
 
-const SERVER = "http://127.0.0.1:8001";
+const SERVER = "https://madcap.onrender.com";
 //Temporary fix?
 const socket = io(SERVER, {
   transports: ["websocket"],
@@ -80,7 +80,7 @@ export default function App(props) {
       console.log("host start game");
       console.log(modeRef.current);
       axios
-        .get(`http://localhost:8001/api/games/${url_pathRef.current}`)
+        .get(`https://madcap.onrender.com/api/games/${url_pathRef.current}`)
         .then((gameResponse) => {
           setGameData(gameResponse.data);
         })
@@ -96,7 +96,7 @@ export default function App(props) {
       console.log("playerjoined");
       // console.log(hostCookieRef.current.host)
       axios
-        .get(`http://localhost:8001/api/games/${url_pathRef.current}`)
+        .get(`https://madcap.onrender.com/api/games/${url_pathRef.current}`)
         .then((gameResponse) => {
           setGameData(gameResponse.data);
         })

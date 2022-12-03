@@ -9,7 +9,7 @@ import StatusBox from "./StatusBox";
 import "./styles.css";
 import axios from "axios";
 
-const SERVER = "http://127.0.0.1:8001";
+const SERVER = "https://madcap.onrender.com";
 //Temporary fix?
 const socket = io(SERVER, {
   transports: ["websocket"],

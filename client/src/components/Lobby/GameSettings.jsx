@@ -26,7 +26,7 @@ export default function GameSettings(props) {
   const [currentCategories, setCurrentCategories] = useState([])
 
   const gamesPutRequest =  (settings, currentCategories) => (
-    axios.put(`http://localhost:8001/api/games${props.url_path}`, {
+    axios.put(`https://madcap.onrender.com${props.url_path}`, {
       settings,
       categories: currentCategories
     })

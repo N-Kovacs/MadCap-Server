@@ -39,9 +39,9 @@ export default function WelcomeBox(props) {
 
   const makeGame = () => {
    
-      axios.post("http://localhost:8001/api/games", { url })
+      axios.post("https://madcap.onrender.com/api/games", { url })
       .then(() => (
-        axios.post(`http://localhost:8001/api/games/${url}/users`, {
+        axios.post(`https://madcap.onrender.com/api/games/${url}/users`, {
           name,
           color,
           avatar_url,
@@ -67,7 +67,7 @@ export default function WelcomeBox(props) {
   const joinGame = () => {
     console.log("JOINGAMEFUNCTION")
      
-      axios.post(`http://localhost:8001/api/games/${props.url_path}/users`, {
+      axios.post(`https://madcap.onrender.com/api/games/${props.url_path}/users`, {
         name,
         color,
         avatar_url,
