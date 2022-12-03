@@ -57,13 +57,13 @@ export default function AnswerList(props) {
 
       {props.phase === "game" && (
         <div className="game-board-inner-center">
-          <Box className="clock">
+        
             <Clock
               setStatePhase={props.setStatePhase}
               gameData={props.gameData}
               round={props.round}
             />
-          </Box>
+          
           <Notice lastMessage={props.lastMessage} />
         </div>
       )}

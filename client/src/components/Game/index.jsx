@@ -539,7 +539,7 @@ export default function Game(props) {
           height: "fit-content",
           width: "100%",
           px: 0, pt: '2px',
-          border: '2px solid black',
+          // border: '2px solid black',
           backgroundColor: "#f0f2ff",
         }}
       >
