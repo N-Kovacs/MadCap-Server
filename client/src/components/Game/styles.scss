@@ -103,7 +103,7 @@
   height: 24vh;
   width: 24vh;
   margin-bottom: 9px;
-  margin-top: 65px;
+  margin-top: 93px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,6 +118,14 @@
   align-content: center;
   justify-content: center;
   align-items: center;
+}
+.game-clock-counter {
+  text-shadow: -1px -1px 1.5px #000, 1px -1px 1.5px #000, 
+  -1px 1px 1.5px #000, 5px 1px 2px rgb(86, 86, 86);
+}
+.results-clock {
+  text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, 
+  -1px 1px 1px #000, 1px 1px 1px rgb(86, 86, 86);
 }
 
 

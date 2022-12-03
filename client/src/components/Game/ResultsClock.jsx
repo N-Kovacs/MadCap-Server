@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment } from "react";
 
 export default function ResultsClock(props) {
-  const [voteTimer, setVoteTimer] = useState(3);
+  const [voteTimer, setVoteTimer] = useState(15);
 
   useEffect(() => {
     let timer = 0;
@@ -21,7 +21,7 @@ export default function ResultsClock(props) {
 
   return (
     <Fragment>
-      <span className="results-clock" style={{ color: "greenyellow", paddingLeft: '10px' }}>
+      <span className="results-clock" style={{ color: "red", paddingLeft: '10px' }}>
         {voteTimer}
       </span>
     </Fragment>

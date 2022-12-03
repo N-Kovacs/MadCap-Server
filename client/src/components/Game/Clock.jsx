@@ -7,7 +7,7 @@ export default function Clock(props) {
   const seconds = props.gameData.timer;
   const [gameTimer, setGameTimer] = useState(seconds);
   const [color, setColor] = useState('none');
-  const [fontSize, setFontSize] = useState('32px');
+  const [fontSize, setFontSize] = useState('40px');
 
   const colors = [
     '#FFA1A1',
@@ -38,31 +38,31 @@ export default function Clock(props) {
           // transition: 'background-color 90ms',
         }}
       >
-        <CountdownCircleTimer
+        <CountdownCircleTimer className="circle-timer"
           isPlaying
           duration={seconds}
-          colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-          colorsTime={[7, 5, 2, 0]}
+          colors={[...colors]}
+          colorsTime={[seconds, 10, 8, 7, 5, 2, 0]}
         >
           {({ remainingTime }) => {
 
-             setColor(colors[remainingTime % colors.length]);
-             if (remainingTime === 0) props.setStatePhase("vote");
+            setColor(colors[remainingTime % colors.length]);
+            if (remainingTime === 0) props.setStatePhase("vote");
 
-            return <div className="game-clock-inner">
-              <h1 className="game-clock-counter" 
-              style={{
-                fontSize: fontSize,
-                color: color,
-                // transition: 'font-size 150ms',
-                textShadow: ' #000000 -2px 0px 2px',
-                width: 'fit-content',
-                textAlign: 'center'
-              }}
+            return (<div className="game-clock-inner">
+              <h1 className="game-clock-counter"
+                style={{
+                  fontSize: fontSize,
+                  color: color,
+                  // transition: 'font-size 150ms',
+                  width: 'fit-content',
+                  textAlign: 'center'
+                }}
               >
                 {remainingTime}
               </h1>
-            </div>;
+            </div>
+            );
           }}
         </CountdownCircleTimer>
       </Box>
