@@ -92,15 +92,16 @@ export default function WelcomeBox(props) {
         throw new Error("Lobby is full");
       }
     })
-    .then(() => {
+    .then(() => (
       axios.post(`/api/games/${props.url_path}/users`, {
         name,
         color,
         avatar_url,
         host: false
       })
-    })
+    ))
     .then((response) => {
+      console.log("Server Response", response)
       props.setCurrentUser(response.data.id)
     })
     .then(() => {
