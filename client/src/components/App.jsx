@@ -23,7 +23,7 @@ export default function App() {
 
   const [gameData, setGameData] = useState({});
   const [name, setName] = useState("");
-  const [cookies, setCookies, removeCookies] = useCookies(["host", "user"]);
+  const [cookies, setCookies, removeCookies] = useCookies(["user"]);
   const [lobbyIsFull, setLobbyIsFull] = useState(false)
   const [reqUpdate, setReqUpdate] = useState(false);
 
@@ -49,8 +49,6 @@ export default function App() {
     return currentUser && currentUser.host
   }
 
-  console.log("isHost outside", isHost())
-
   useEffect(() => {
     transition(isHost() ? LOBBY : WELCOME);
   }, []);
@@ -60,10 +58,6 @@ export default function App() {
 
   const handleName = (e) => {
     setName(e.target.value);
-  };
-
-  const setHost = () => {
-    setCookies("host", true, { path: "/" });
   };
 
   const setCurrentUser = (id) => {
@@ -170,7 +164,6 @@ export default function App() {
           // avatar={avatar}
           setCurrentUser={setCurrentUser}
           handleName={handleName}
-          setHost={setHost}
           checkedIn={checkedIn}
           setLobbyIsFull={setLobbyIsFull}
           lobbyIsFull={lobbyIsFull}
