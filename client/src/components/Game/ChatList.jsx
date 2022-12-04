@@ -19,7 +19,7 @@ export default function ChatList(props) {
   
 
   return <ul className="chat-list">
-    {chats}
+    {chats.reverse()}
 
   </ul>;
 }
