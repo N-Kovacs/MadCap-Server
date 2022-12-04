@@ -60,21 +60,20 @@ export default function WelcomeBox(props) {
       ))
       .then((response) => {
         const user = response.data
-        console.log("Current user", user)
         props.setGameData((prev) => (
          { ...prev, users: [{...user}]}
         ))
         return user.id
       })
       .then((userID) => {
-        console.log("User Id", userID)
         props.setCurrentUser(userID)
       })
       .then(() => {
         navigate(`/${url}`)
       })
       .then(() => {
-        props.setHost();
+        props.transition("LOBBY")
+        console.log("State transition")
       })
       .catch((err) => {
         console.log(url)

@@ -180,7 +180,7 @@ export default function App() {
 
       {mode === LOBBY && (
         <Lobby
-          host={cookies.host}
+          host={isHost()}
           url={full_url}
           url_path={url_path}
           handleStart={handleStart}

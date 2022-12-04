@@ -17,7 +17,6 @@ export default function Welcome(props) {
         handleName={props.handleName}
         newPlayer={props.newPlayer}
         onClick={props.onClick}
-        setHost={props.setHost}
         transition={props.transition}
         checkedIn = {props.checkedIn}
         setLobbyIsFull={props.setLobbyIsFull}
