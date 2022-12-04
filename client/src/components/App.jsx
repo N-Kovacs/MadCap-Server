@@ -37,13 +37,25 @@ export default function App(props) {
     if (url_path === "/") {
       console.log("URL path", url_path);
       removeCookies("user", { path: "/" });
-      removeCookies("host", { path: "/" });
+      // removeCookies("host", { path: "/" });
     }
   }, [url_path]);
 
+  const isHost = () => {
+    console.log("GameData users", gameData.users)
+   const currentUser = gameData.users
+      && cookies.user
+      && gameData.users
+          .find(user => (user.id === Number(cookies.user)))
+    return currentUser && currentUser.host
+  }
+
+  console.log("isHost outside", isHost())
+
   useEffect(() => {
-    transition(cookies.host ? LOBBY : WELCOME);
-  }, [cookies.host, props.mode]);
+    console.log("isHost", isHost())
+    transition(isHost() ? LOBBY : WELCOME);
+  }, [isHost(), props.mode]);
 
   console.log("loader_url:", full_url);
   console.log("url_path:", url_path);
@@ -132,6 +144,10 @@ export default function App(props) {
     }
   }, [reqUpdate]);
 
+  useEffect(() => {
+    console.log("Game Data change", gameData)
+  }, [gameData.id])
+
   const checkedIn = () => {
     socket.emit("set-room", url_path);
     console.log("checked in", url_path);
@@ -142,15 +158,6 @@ export default function App(props) {
     socket.emit("joined-game", url_path);
   };
 
-  const isHost = () => {
-    console.log("Game Users", gameData.users);
-    console.log("Current User");
-    return gameData.users
-      && cookies.user
-      && gameData.users
-          .find(user => user.id === cookies.user)
-          .host
-  }
 
   return (
     <div className="App">
@@ -169,6 +176,7 @@ export default function App(props) {
           checkedIn={checkedIn}
           setLobbyIsFull={setLobbyIsFull}
           lobbyIsFull={lobbyIsFull}
+          setGameData={setGameData}
         />
       )}
 

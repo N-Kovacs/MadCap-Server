@@ -41,6 +41,15 @@ export default function WelcomeBox(props) {
   const makeGame = () => {
    
       axios.post("/api/games", { url })
+      .then(({ data }) => {
+        props.setGameData(() => (
+          {
+            ...data,
+            users: [],
+            categories: [],
+            subcategories: []
+          })
+        )})
       .then(() => (
         axios.post(`/api/games/${url}/users`, {
           name,
@@ -50,8 +59,16 @@ export default function WelcomeBox(props) {
         })
       ))
       .then((response) => {
-        console.log("Current user id", response.data.id)
-        props.setCurrentUser(response.data.id)
+        const user = response.data
+        console.log("Current user", user)
+        props.setGameData((prev) => (
+         { ...prev, users: [{...user}]}
+        ))
+        return user.id
+      })
+      .then((userID) => {
+        console.log("User Id", userID)
+        props.setCurrentUser(userID)
       })
       .then(() => {
         navigate(`/${url}`)

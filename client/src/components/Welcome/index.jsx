@@ -22,6 +22,7 @@ export default function Welcome(props) {
         checkedIn = {props.checkedIn}
         setLobbyIsFull={props.setLobbyIsFull}
         lobbyIsFull={props.lobbyIsFull}
+        setGameData={props.setGameData}
       />
       <HowToPlay />
     </div>
