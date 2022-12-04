@@ -7,8 +7,6 @@ import ChatList from './ChatList';
 
 export default function StatusBox(props) {
   
-  // console.log('prop.scurrentPlayerID', props.currentPlayer.id)
-
   return (
     <Box className="status-box" >
 

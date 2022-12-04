@@ -17,13 +17,13 @@ const socket = io(SERVER, {
   transports: ["websocket"],
 });
 
-export default function App(props) {
+export default function App() {
   const { full_url, url_path, btnState } = useLoaderData();
   console.log("Button State", btnState);
 
-  const [gameData, setGameData] = useState([]);
+  const [gameData, setGameData] = useState({});
   const [name, setName] = useState("");
-  const [cookies, setCookies, removeCookies] = useCookies(["host", "user"]);
+  const [cookies, setCookies, removeCookies] = useCookies(["user"]);
   const [lobbyIsFull, setLobbyIsFull] = useState(false)
   const [reqUpdate, setReqUpdate] = useState(false);
 
@@ -37,23 +37,27 @@ export default function App(props) {
     if (url_path === "/") {
       console.log("URL path", url_path);
       removeCookies("user", { path: "/" });
-      removeCookies("host", { path: "/" });
     }
   }, [url_path]);
 
+  const isHost = () => {
+    console.log("GameData users", gameData.users)
+   const currentUser = gameData.users
+      && cookies.user
+      && gameData.users
+          .find(user => (user.id === Number(cookies.user)))
+    return currentUser && currentUser.host
+  }
+
   useEffect(() => {
-    transition(cookies.host ? LOBBY : WELCOME);
-  }, [cookies.host, props.mode]);
+    transition(isHost() ? LOBBY : WELCOME);
+  }, []);
 
   console.log("loader_url:", full_url);
   console.log("url_path:", url_path);
 
   const handleName = (e) => {
     setName(e.target.value);
-  };
-
-  const setHost = () => {
-    setCookies("host", true, { path: "/" });
   };
 
   const setCurrentUser = (id) => {
@@ -132,6 +136,10 @@ export default function App(props) {
     }
   }, [reqUpdate]);
 
+  useEffect(() => {
+    console.log("Game Data change", gameData)
+  }, [gameData.id])
+
   const checkedIn = () => {
     socket.emit("set-room", url_path);
     console.log("checked in", url_path);
@@ -142,6 +150,7 @@ export default function App(props) {
     socket.emit("joined-game", url_path);
   };
 
+
   return (
     <div className="App">
       {mode === WELCOME && (
@@ -150,21 +159,21 @@ export default function App(props) {
           // remove slash from url path
           url_path={url_path.substring(1)}
           name={name}
-          host={cookies.host}
+          host={isHost}
           btnState={btnState}
           // avatar={avatar}
           setCurrentUser={setCurrentUser}
           handleName={handleName}
-          setHost={setHost}
           checkedIn={checkedIn}
           setLobbyIsFull={setLobbyIsFull}
           lobbyIsFull={lobbyIsFull}
+          setGameData={setGameData}
         />
       )}
 
       {mode === LOBBY && (
         <Lobby
-          host={cookies.host}
+          host={isHost()}
           url={full_url}
           url_path={url_path}
           handleStart={handleStart}

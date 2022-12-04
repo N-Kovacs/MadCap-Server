@@ -41,6 +41,15 @@ export default function WelcomeBox(props) {
   const makeGame = () => {
    
       axios.post("/api/games", { url })
+      .then(({ data }) => {
+        props.setGameData(() => (
+          {
+            ...data,
+            users: [],
+            categories: [],
+            subcategories: []
+          })
+        )})
       .then(() => (
         axios.post(`/api/games/${url}/users`, {
           name,
@@ -50,14 +59,21 @@ export default function WelcomeBox(props) {
         })
       ))
       .then((response) => {
-        console.log("Current user id", response.data.id)
-        props.setCurrentUser(response.data.id)
+        const user = response.data
+        props.setGameData((prev) => (
+         { ...prev, users: [{...user}]}
+        ))
+        return user.id
+      })
+      .then((userID) => {
+        props.setCurrentUser(userID)
       })
       .then(() => {
         navigate(`/${url}`)
       })
       .then(() => {
-        props.setHost();
+        props.transition("LOBBY")
+        console.log("State transition")
       })
       .catch((err) => {
         console.log(url)
@@ -75,14 +91,14 @@ export default function WelcomeBox(props) {
         throw new Error("Lobby is full");
       }
     })
-    .then(() => {
-      return axios.post(`/api/games/${props.url_path}/users`, {
+    .then(() => (
+      axios.post(`/api/games/${props.url_path}/users`, {
         name,
         color,
         avatar_url,
         host: false
       })
-    })
+    ))
     .then((response) => {
       props.setCurrentUser(response.data.id)
     })
