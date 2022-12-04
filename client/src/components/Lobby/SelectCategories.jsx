@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
+import Close from '@mui/icons-material/Close'
 
 
 export default function SelectCategories(props) {
@@ -95,6 +96,14 @@ export default function SelectCategories(props) {
             {selected.map((value) => (
               <Chip key={value} label={CategoryIDToValue(value)}
                 sx={{ '&.MuiChip-root': { fontSize: '12px' } }}
+                deleteIcon={
+                  <Close
+                    onMouseDown={(event) => event.stopPropagation()}
+                  />
+                }
+                onDelete={(e) => {
+                  setCurrentCategories((prev) => [...prev].filter((ids) => ids !== value))
+                }}
               />
             ))}
           </Box>
