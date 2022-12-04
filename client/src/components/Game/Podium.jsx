@@ -1,11 +1,10 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
+
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { ListItemAvatar, Avatar } from '@mui/material';
@@ -21,11 +20,10 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Podium(props) {
 
-  const [cookies, setCookies, removeCookies] = useCookies(["host", "user"]);
 
   const handleHome = () => {
-    removeCookies("user", { path: "/" });
-      removeCookies("host", { path: "/" });
+    props.removeCookies("user", { path: "/" });
+      props.removeCookies("host", { path: "/" });
     props.transition("WELCOME")
   }
 

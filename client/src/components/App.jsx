@@ -192,7 +192,7 @@ export default function App() {
           gameData={gameData}
           currentUser={Number(cookies.user)}
           url_path={url_path}
-          removeCookies={props.removeCookies}
+          removeCookies={removeCookies}
           transition={transition}
         />
       )}
