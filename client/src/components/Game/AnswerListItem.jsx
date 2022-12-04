@@ -49,7 +49,7 @@ export default function AnswerListItem(props) {
       setDisabled(false);
       setButtonState(false);
     }
-  }, [props.voteAgainst]);
+  }, [props.votesAgainst]);
 
   let buttonsColour = props.votesAgainst * (1 / votesToEliminate);
   // setButtonState(buttonClick < (playerCount / 2) - 1 ? false : true)
