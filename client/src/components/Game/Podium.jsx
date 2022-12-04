@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { ListItemAvatar, Avatar } from '@mui/material';
 
+
 const Item = styled(Paper)(({ theme }) => ({
   // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -15,12 +16,12 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+
 export default function Podium(props) {
 
-  console.log(props.gameData)
+  console.log(props.gameData);
 
-  const [ease, setEase] = useState(0);
-
+  const [opacity, setOpacity] = useState(0);
   const [players, setPlayers] = useState(
     props.players.map(player => (
       { ...player, score: 0 }
@@ -31,7 +32,7 @@ export default function Podium(props) {
     const timer =
       setTimeout(() => {
         setPlayers(props.players);
-        setEase(100);
+        setOpacity(100);
       }, 0);
 
     return () => clearTimeout(timer);
@@ -40,8 +41,8 @@ export default function Podium(props) {
 
   const playerScoreItems = players.map(player => (
     <div className="podium-list-withpoint" style={{ marginTop: '8px' }}>
-      <Item className="podium-list-item" 
-      key={player.id}
+      <Item className="podium-list-item"
+        key={player.id}
         sx={{
           backgroundColor: player.color,
           width: `${player.score / 5}px`,
@@ -56,7 +57,7 @@ export default function Podium(props) {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            opacity: ease, transition: 'opacity 2s ease-in'
+            opacity: opacity, transition: 'opacity 2s ease-in'
           }}
         >
           <Avatar src={player.avatar_url} alt={player.label}
@@ -71,7 +72,7 @@ export default function Podium(props) {
       </Item>
       <Typography sx={{
         pl: '6px', fontSize: '13px',
-        opacity: ease, transition: 'opacity 5s ease-in'
+        opacity: opacity, transition: 'opacity 5s ease-in'
       }}
       >
         {player.score}
@@ -90,6 +91,3 @@ export default function Podium(props) {
     </div>
   );
 }
-
-
-

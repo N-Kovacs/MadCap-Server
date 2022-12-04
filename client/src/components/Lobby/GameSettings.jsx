@@ -13,7 +13,7 @@ export default function GameSettings(props) {
   const [settings, setSettings] = useState(
     {
       timer: 60,
-      maxPlayers: 5,
+      maxPlayers: 4,
       rounds: 3
     }
     );
