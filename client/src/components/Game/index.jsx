@@ -364,15 +364,18 @@ export default function Game(props) {
     });
 
     socket.on("message", (message) => {
-      console.log(stateRef.current);
+      console.log(message);
+      const alp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
       if (
         message.type === "capture" &&
-        !confirmUsed(message, stateRef.current)
+        !confirmUsed(message, stateRef.current) &&
+        alp.includes(message.message[0])
       ) {
+        //set players to update score
         let playerSet = setPlayerScore(message.userId, stateRef.current, 100);
-        console.log(playerSet);
-
+        //set answers to update answers
         let answerSet = setAnswer(message, stateRef.current);
+        //set chat to update chat
         let chatSet = [
           ...stateRef.current.chats,
           { type: "capture", user: message.user, message: message.message[0] },
@@ -384,6 +387,20 @@ export default function Game(props) {
           lastMessage: message.message,
           players: playerSet,
         }));
+      } else if (
+        message.type === "capture" &&
+        confirmUsed(message, stateRef.current) &&
+        alp.includes(message.message[0])
+      ) {
+        let chatSet = [
+          ...stateRef.current.chats,
+          { type: "status", message: `${message.user} tried to capture ${message.message[0]} but failed!`},
+        ];
+        setState((prev) => ({
+          ...prev,
+          chats: chatSet,
+        }));
+
       }
       if (message.type === "chat") {
         let chatSet = [
