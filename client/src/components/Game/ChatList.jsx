@@ -12,7 +12,7 @@ export default function ChatList(props) {
         message={chat.message}
         user={chat.user}
         type={chat.type}
-        currentPlayer={props.currentplayer}
+        // currentPlayer={props.currentplayer}
       />
     );
   });

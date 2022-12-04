@@ -57,7 +57,7 @@ export default function Podium(props) {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            opacity: opacity, transition: 'opacity 2s ease-in'
+            opacity: opacity, transition: 'opacity 1.5s ease-in'
           }}
         >
           <Avatar src={player.avatar_url} alt={player.label}
@@ -72,7 +72,7 @@ export default function Podium(props) {
       </Item>
       <Typography sx={{
         pl: '6px', fontSize: '13px',
-        opacity: opacity, transition: 'opacity 5s ease-in'
+        opacity: opacity, transition: 'opacity 4s ease-in'
       }}
       >
         {player.score}

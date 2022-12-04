@@ -42,7 +42,7 @@ export default function StatusBox(props) {
           }}>
           <ChatList
             chats={props.chats}
-            players
+            // currentPlayer={props.currentplayer}
           />
         </Box>
         <Entry
