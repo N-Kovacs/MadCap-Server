@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-// import Container from '@mui/material/Container';
 
 import GamePlayersList from "./GamePlayersList";
 import Entry from "./Entry";
@@ -7,8 +6,8 @@ import ChatList from './ChatList';
 
 
 export default function StatusBox(props) {
-
   
+  // console.log('prop.scurrentPlayerID', props.currentPlayer.id)
 
   return (
     <Box className="status-box" >
@@ -42,7 +41,7 @@ export default function StatusBox(props) {
           }}>
           <ChatList
             chats={props.chats}
-            // currentPlayer={props.currentplayer}
+            currentPlayer={props.currentPlayer}
           />
         </Box>
         <Entry

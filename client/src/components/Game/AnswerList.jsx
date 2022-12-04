@@ -1,6 +1,5 @@
 import classNames from "classnames";
 
-import Box from "@mui/material/Box";
 import AnswerListItem from "./AnswerListItem";
 import Clock from './Clock';
 import Notice from './Notice';

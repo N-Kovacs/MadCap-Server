@@ -2,7 +2,7 @@ import ChatListItem from "./ChatListItem";
 
 export default function ChatList(props) {
 
-  console.log("~~~~~~~~~~~~~~~~~~: ", props.chats)
+  // console.log("~~~~~~~~~~~~~~~~~~: ", props.chats)
   const chats = props.chats.map((chat, index) => {
     
   
@@ -12,7 +12,7 @@ export default function ChatList(props) {
         message={chat.message}
         user={chat.user}
         type={chat.type}
-        // currentPlayer={props.currentplayer}
+        currentPlayer={props.currentPlayer}
       />
     );
   });

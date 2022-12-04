@@ -184,6 +184,7 @@ export default function App(props) {
           currentUser={Number(cookies.user)}
           url_path={url_path}
           removeCookies={props.removeCookies}
+          transition={transition}
         />
       )}
     </div>

@@ -42,7 +42,10 @@ export default function PlayersList(props) {
           }}>
 
           </Avatar>
-          <CircleIcon sx={{ pl: '2px', fontSize: '15px', color: player.color }} />
+          <CircleIcon 
+          sx={{ pl: '2px', fontSize: '17px', ml: '2px', color: player.color }} 
+
+          />
         </ListItemAvatar>
         <ListItemText primary={player.name}
           sx={{
@@ -71,7 +74,7 @@ export default function PlayersList(props) {
         >
           <Grid item xs={12} md={6}>
             <Typography variant="h6" component="div"
-            sx={{ mt: 0, mb: '9px', pl: '7px', pt: '15px' }}
+              sx={{ mt: 0, mb: '9px', pl: '7px', pt: '15px' }}
             >
               Players
             </Typography>
@@ -90,15 +93,18 @@ export default function PlayersList(props) {
                   <ListItemAvatar sx={{ display: 'flex', alignItems: 'center', justifyItems: 'space-around' }}>
                     <Avatar src={host && host.avatar_url} sx={{}}>
                     </Avatar>
-                    <CircleIcon sx={{ pl: '2px', fontSize: '15px', color: host && host.color }} />
+                    <CircleIcon
+                      sx={{ pl: '4px', fontSize: '17px', ml: '2px', color: host && host.color }}
+                    />
                     <Typography sx={{ fontSize: "12px", pl: '4px' }}>
                       Host
                     </Typography>
                   </ListItemAvatar>
 
                   <ListItemText primary={host && host.name}
-                    sx={{ width: '100%', overflowWrap: 'break-word', 
-                    '.MuiTypography-root': { fontSize: "12px" } 
+                    sx={{
+                      width: '100%', overflowWrap: 'break-word',
+                      '.MuiTypography-root': { fontSize: "12px" }
                     }}
                   />
                 </ListItem>

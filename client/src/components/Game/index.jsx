@@ -561,6 +561,7 @@ export default function Game(props) {
           sendVote={sendVote}
           clearBoard={clearBoard}
           removeCookies={props.removeCookies}
+          transition={props.transition}
         />
         <StatusBox
           isConnected={state.isConnected}
@@ -568,6 +569,7 @@ export default function Game(props) {
           sendMessage={sendMessage}
           chats={state.chats}
           players={state.players}
+          currentPlayer={state.player}
         />
       </Box>
     </div>
