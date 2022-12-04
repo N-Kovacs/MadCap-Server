@@ -97,10 +97,9 @@ export default function SelectCategories(props) {
               <Chip key={value} label={CategoryIDToValue(value)}
                 sx={{ '&.MuiChip-root': { fontSize: '12px' } }}
                 deleteIcon={
-                  <Close
-                    onMouseDown={(event) => event.stopPropagation()}
-                  />
+                  <Close/>
                 }
+                onMouseDown={(event) => event.stopPropagation()}
                 onDelete={(e) => {
                   setCurrentCategories((prev) => [...prev].filter((ids) => ids !== value))
                 }}
