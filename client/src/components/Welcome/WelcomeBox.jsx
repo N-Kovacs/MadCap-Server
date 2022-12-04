@@ -101,7 +101,6 @@ export default function WelcomeBox(props) {
       })
     ))
     .then((response) => {
-      console.log("Server Response", response)
       props.setCurrentUser(response.data.id)
     })
     .then(() => {

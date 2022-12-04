@@ -17,7 +17,7 @@ const socket = io(SERVER, {
   transports: ["websocket"],
 });
 
-export default function App(props) {
+export default function App() {
   const { full_url, url_path, btnState } = useLoaderData();
   console.log("Button State", btnState);
 
@@ -37,7 +37,6 @@ export default function App(props) {
     if (url_path === "/") {
       console.log("URL path", url_path);
       removeCookies("user", { path: "/" });
-      // removeCookies("host", { path: "/" });
     }
   }, [url_path]);
 
@@ -53,9 +52,8 @@ export default function App(props) {
   console.log("isHost outside", isHost())
 
   useEffect(() => {
-    console.log("isHost", isHost())
     transition(isHost() ? LOBBY : WELCOME);
-  }, [isHost(), props.mode]);
+  }, []);
 
   console.log("loader_url:", full_url);
   console.log("url_path:", url_path);
