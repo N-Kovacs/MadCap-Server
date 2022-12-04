@@ -16,13 +16,11 @@ export default function Entry(props) {
     } else {
       props.sendMessage(message);
     }
-
     setMessage("")
     // console.log(message);
   };
 
   const post = (e) => {
-
     setMessage(e.target.value);
     // console.log('state change', e.target.value)
   };
@@ -50,6 +48,7 @@ export default function Entry(props) {
           onChange={post}
           onKeyPress={enterWatch}
           value={message}
+          autoComplete="off"
         />
         <button id="submit" onClick={send}>Send</button>
       </div>

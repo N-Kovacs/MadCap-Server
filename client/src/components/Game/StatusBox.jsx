@@ -5,17 +5,23 @@ import GamePlayersList from "./GamePlayersList";
 import Entry from "./Entry";
 import ChatList from './ChatList';
 
+
 export default function StatusBox(props) {
+
+  
+
   return (
     <Box className="status-box" >
-    
+
       <GamePlayersList
-      currentPlayerID={props.currentPlayer.id}
-      players = {props.players} />
+        currentPlayerID={props.currentPlayer.id}
+        players={props.players} />
 
       <Box className="chat-box-main"
         sx={{
           backgroundColor: '#dde5ff',
+          border: '2px solid white',
+          borderTopLeftRadius: '10px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -29,11 +35,15 @@ export default function StatusBox(props) {
         <Box className="chat-box"
           sx={{
             backgroundColor: '#bec5dc',
+            borderTopLeftRadius: '5px',
             height: '100%',
             width: '99%',
             overflow: 'auto', mr: '2px'
           }}>
-        <ChatList chats={props.chats} />
+          <ChatList
+            chats={props.chats}
+            players
+          />
         </Box>
         <Entry
           sendMessage={props.sendMessage}

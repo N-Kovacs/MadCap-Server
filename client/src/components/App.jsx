@@ -183,6 +183,7 @@ export default function App(props) {
           gameData={gameData}
           currentUser={Number(cookies.user)}
           url_path={url_path}
+          removeCookies={props.removeCookies}
         />
       )}
     </div>

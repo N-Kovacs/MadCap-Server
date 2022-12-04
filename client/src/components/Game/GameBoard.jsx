@@ -33,6 +33,7 @@ export default function GameBoard(props) {
           props.phase === "results" ||
           props.phase === "vote" ||
           props.phase === "round" ?
+
           <AnswerList
             getNextSubcategory={props.getNextSubcategory}
             gameData={props.gameData}
@@ -49,9 +50,11 @@ export default function GameBoard(props) {
           />
           :
           props.phase === "podium" &&
+          
           <Podium
             setStatePhase={props.setStatePhase}
             players={props.players}
+            removeCookies={props.removeCookies}
           />
 
       }

@@ -78,7 +78,6 @@ export default function Podium(props) {
         {player.score}
       </Typography>
     </div>
-
   ));
 
   return (
