@@ -11,7 +11,7 @@ export default function ChatListItem(props) {
         <h4><b style={{ color: 'red' }}>{props.user}</b> captured {props.message}!</h4>
       }
       {props.type === "status" &&
-        <h4><b style={{ color: 'red' }}>{props.user}ddd</b></h4>
+        <h4><b style={{ color: 'red' }}>{props.message}</b></h4>
       }
     </li>
   );
