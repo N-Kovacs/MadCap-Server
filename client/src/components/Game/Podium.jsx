@@ -1,12 +1,13 @@
 import { Fragment, useEffect, useState } from 'react';
 
+
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { ListItemAvatar, Avatar } from '@mui/material';
-
 
 const Item = styled(Paper)(({ theme }) => ({
   // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,7 +20,12 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Podium(props) {
 
-  console.log(props.gameData);
+
+  const handleHome = () => {
+    props.removeCookies("user", { path: "/" });
+      props.removeCookies("host", { path: "/" });
+    props.transition("WELCOME")
+  }
 
   const [opacity, setOpacity] = useState(0);
   const [players, setPlayers] = useState(
@@ -45,7 +51,7 @@ export default function Podium(props) {
         key={player.id}
         sx={{
           backgroundColor: player.color,
-          width: `${player.score / 5}px`,
+          width: `${player.score / 8}px`,
           height: '45px',
           transition: 'width 2.5s ease-out',
           overflow: 'hidden',
@@ -57,7 +63,7 @@ export default function Podium(props) {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            opacity: opacity, transition: 'opacity 2s ease-in'
+            opacity: opacity, transition: 'opacity 1.5s ease-in'
           }}
         >
           <Avatar src={player.avatar_url} alt={player.label}
@@ -72,22 +78,40 @@ export default function Podium(props) {
       </Item>
       <Typography sx={{
         pl: '6px', fontSize: '13px',
-        opacity: opacity, transition: 'opacity 5s ease-in'
+        opacity: opacity, transition: 'opacity 4s ease-in'
       }}
       >
         {player.score}
       </Typography>
     </div>
-
   ));
 
   return (
-    <div className="game-board-inner">
-      <Box className="podium-list" sx={{ width: '100%', }}>
-        <Stack spacing={2}>
-          {playerScoreItems}
-        </Stack>
+    <Fragment>
+      <Box className="podium-navigate"
+      variant="text"
+        sx={{
+          width: '100%',
+          px: '15px',
+        }}>
+        <Button
+        onClick={() => props.transition("LOBBY")}
+        sx={{ p: 0, pb: '8px' }}>Make New Game
+        </Button>
+        <Button
+        //FIX HOME so it goes to root
+        onClick={handleHome}
+        sx={{ p: 0, pb: '8px' }}>Home
+        </Button>
       </Box>
-    </div>
+
+      <div className="podium-board">
+        <Box className="podium-list" sx={{ width: '100%', }}>
+          <Stack spacing={2}>
+            {playerScoreItems}
+          </Stack>
+        </Box>
+      </div>
+    </Fragment>
   );
 }

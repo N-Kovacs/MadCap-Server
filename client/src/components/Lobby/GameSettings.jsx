@@ -16,58 +16,54 @@ export default function GameSettings(props) {
       maxPlayers: 4,
       rounds: 3
     }
-    );
-    
-    const [noCategories, setNoCategories] = useState(false);
+  );
 
-    // console.log("settings in Lobby ~~~~~~~~~~: ", settings)
-    // const playerCount = num;
-    // const waitToStart = () => {
-      //   // if "waiting..."
-      // }
-      
-      const [currentCategories, setCurrentCategories] = useState([])
-      useEffect(() => {
-        setNoCategories(currentCategories.length === 0);
-      }, [currentCategories.length])
+  const [noCategories, setNoCategories] = useState(false);
 
-  const gamesPutRequest =  (settings, currentCategories) => (
+  const [currentCategories, setCurrentCategories] = useState([]);
+  useEffect(() => {
+    setNoCategories(currentCategories.length === 0);
+  }, [currentCategories.length]);
+
+  const gamesPutRequest = (settings, currentCategories) => (
     axios.put(`https://madcap.onrender.com/api/games${props.url_path}`, {
       settings,
       categories: currentCategories
     })
-    // .then(() => {
-    //   axios.get(`http://localhost:8001/api/games${props.url_path}`)
-    //   .then(({ data }) => props.setGameData(data))
-    // })
+      // .then(() => {
+      //   axios.get(`https://madcap.onrender.com/api/games${props.url_path}`)
+      //     .then(({ data }) => props.setGameData(data));
+      // })
   );
 
   const handleSet = () => {
-    props.updatePlayer()
-    console.log("should have set true^")
+    props.updatePlayer();
+    console.log("should have set true^");
     gamesPutRequest(settings, currentCategories)
-    .catch((error) => {
-      console.log("Settings", settings);
-      console.log("Categories", currentCategories);
-      console.error(error)})
-  }
+      .catch((error) => {
+        console.log("Settings", settings);
+        console.log("Categories", currentCategories);
+        console.error(error);
+      });
+  };
 
   const handleGameStart = () => {
-   gamesPutRequest(settings, currentCategories)
-    .then(() => props.handleStart())
-    .catch((error) => {
-      console.log("Settings", settings)
-      console.log("Categories", currentCategories)
-      console.error(error.message)})
-  }
-  const buttonText = "Start the Game"
-  console.log("Disabled", (!currentCategories)||(currentCategories.length === 0));
+    gamesPutRequest(settings, currentCategories)
+      .then(() => props.handleStart())
+      .catch((error) => {
+        console.log("Settings", settings);
+        console.log("Categories", currentCategories);
+        console.error(error.message);
+      });
+  };
+  const buttonText = "Start the Game";
+  console.log("Disabled", (!currentCategories) || (currentCategories.length === 0));
 
   return (
     <div className="game-settings-main">
       <Box className="cat-option-box"
         sx={{
-          backgroundColor: '#f0f5ff',
+          bgcolor: '#f0f5ff',
           display: 'flex',
           flexDirection: 'column',
           width: '100%',
@@ -77,12 +73,12 @@ export default function GameSettings(props) {
         <div className="settings-header">
           <h2>Game Settings</h2>
         </div>
-        <CategoriesBox categories={props.categories} currentCategories={currentCategories} setCurrentCategories={setCurrentCategories}/>
-        <OptionsBox settings={settings} setSettings={setSettings} handleSet={handleSet}/>
+        <CategoriesBox categories={props.categories} currentCategories={currentCategories} setCurrentCategories={setCurrentCategories} />
+        <OptionsBox settings={settings} setSettings={setSettings} handleSet={handleSet} />
       </Box>
       <Box className="game-settings-bottom-box"
         sx={{
-          backgroundColor: '#f0f5ff',
+          bgcolor: '#f0f5ff',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -92,18 +88,19 @@ export default function GameSettings(props) {
         }}>
         <LinkBox url={props.url} />
 
-        {noCategories
+        {noCategories || settings.timer === 0 || settings.maxPlayers === 0 ||
+        settings.rounds === 0
           ? <Tooltip title="Please select at least one category before starting round">
-              <div style={{width: '93%'}}>
-                <StartButton disabled>
+            <div style={{ width: '93%' }}>
+              <StartButton disabled>
                 {buttonText}
-                </StartButton>
-              </div>
-            </Tooltip>
+              </StartButton>
+            </div>
+          </Tooltip>
           :
-            <StartButton handleStart={handleGameStart}>
-              {buttonText}
-            </StartButton>
+          <StartButton handleStart={handleGameStart}>
+            {buttonText}
+          </StartButton>
         }
       </Box>
     </div>

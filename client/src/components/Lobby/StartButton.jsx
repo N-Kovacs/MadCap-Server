@@ -17,7 +17,7 @@ export default function StartButton (props) {
           fontSize: '19px',
           '&.Mui-disabled': {
            bgcolor: '#29722c4a',
-           color: '#93ac94'
+           color: '#93ac94',
           }
         }}
         disabled={props.disabled}

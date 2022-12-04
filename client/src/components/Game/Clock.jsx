@@ -54,7 +54,7 @@ export default function Clock(props) {
                 style={{
                   fontSize: fontSize,
                   color: color,
-                  // transition: 'font-size 150ms',
+                  transition: 'color 100ms',
                   width: 'fit-content',
                   textAlign: 'center',
                   letterSpacing: '2px'

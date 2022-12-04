@@ -21,7 +21,8 @@ export default function ResultsClock(props) {
 
   return (
     <Fragment>
-      <span className="results-clock" style={{ color: "salmon", paddingLeft: '10px' }}>
+      <span className="results-clock" 
+      style={{ color: "salmon", fontSize: '28px', pl: '10px' }}>
         {voteTimer}
       </span>
     </Fragment>

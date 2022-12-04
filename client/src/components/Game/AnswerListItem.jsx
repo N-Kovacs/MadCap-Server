@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classNames from "classnames";
 
 export default function AnswerListItem(props) {
   const [voted, setVoted] = useState(false);
   const [buttonMode, setButtonState] = useState(false);
-  const [disableButton, setDisabled] = useState(false)
+  const [disableButton, setDisabled] = useState(false);
   // const playerCount = 6;
   // console.log(props.letter)
   // console.log(props.id)
@@ -23,41 +23,43 @@ export default function AnswerListItem(props) {
       letter: props.letter,
       userId: props.userId,
       votesToEliminate: votesToEliminate,
-      votes: (props.votesAgainst+1)
-    }
-    console.log(voteObject)
+      votes: props.votesAgainst + 1,
+    };
+    console.log(voteObject);
     props.sendVote(voteObject);
   };
 
   const handleClick = () => {
-    console.log(props)
+    console.log(props);
     voteAgainst();
     setVoted(true);
   };
 
-  let votesToEliminate = 1
+  let votesToEliminate = 1;
   if (props.playerCount > 2) {
-    votesToEliminate = Math.floor((props.playerCount-1)/2)
+    votesToEliminate = Math.floor((props.playerCount - 1) / 2);
   }
 
   //undo vote on reset
-  if(disableButton && props.votesAgainst === 0){
-    console.log("RESET BUTTON")
-    setVoted(false)
-    setDisabled(false)
-    setButtonState(false)
-  }
+  useEffect(() => {
+    if (disableButton && props.votesAgainst === 0) {
+      console.log(props.votesAgainst);
+      console.log("RESET BUTTON");
+      setVoted(false);
+      setDisabled(false);
+      setButtonState(false);
+    }
+  }, [props.votesAgainst]);
 
-
-  let buttonsColour = props.votesAgainst * (1/votesToEliminate)
+  let buttonsColour = props.votesAgainst * (1 / votesToEliminate);
   // setButtonState(buttonClick < (playerCount / 2) - 1 ? false : true)
   if (props.votesAgainst >= votesToEliminate && !buttonMode) {
     console.log("here");
     setButtonState(true);
   }
-  if ((voted || buttonMode) && !disableButton){
-    console.log("breaker")
-    setDisabled(true)
+  if ((voted || buttonMode) && !disableButton) {
+    console.log("breaker");
+    setDisabled(true);
   }
 
   return (

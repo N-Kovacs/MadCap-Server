@@ -22,32 +22,38 @@ export default function PlayersList(props) {
   //   { id: 4, color: 'orange', label: '4', imgPath: './avatars/avatar-temp-4.png', name: 'dumbsqwad Jr.' }
   // ];
 
-  const host = props.players && props.players.find(player => player.host === true)
+  const host = props.players && props.players.find(player => player.host === true);
   //extract players player item list.
   const PlayerListItem = props.players && props.players.map((player) =>
-  !player.host && (
-    <ListItem key={player.id}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        backgroundColor: (player.id === props.currentUser) && 'hwb(222deg 93% 0%)',
-        width: '113%', paddingTop: '10px', borderTopLeftRadius: '26px'
+    !player.host && (
+      <ListItem key={player.id}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          bgcolor: (host && host.id === props.currentUser) && 'hwb(222deg 93% 0%)',
+          width: '100%', pt: '10px', mb: '8px', pb: '0px', borderTopLeftRadius: '26px'
 
-      }}>
-      <ListItemAvatar sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-        <Avatar src={player.avatar_url} alt={player.color} sx={{
-          maxWidth: '70%',
-          height: 'auto',
-      }}>
+        }}>
+        <ListItemAvatar sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+          <Avatar src={player.avatar_url} alt={player.color} sx={{
+            maxWidth: '70%',
+            height: 'auto',
+          }}>
 
-        </Avatar>
-        <CircleIcon sx={{ pl: 1, color: player.color }} />
-      </ListItemAvatar>
-      <ListItemText primary={player.name}
-        sx={{ '.MuiTypography-root': { fontSize: "12px" } }} />
-    </ListItem>
-  ));
+          </Avatar>
+          <CircleIcon 
+          sx={{ pl: '2px', fontSize: '17px', ml: '2px', color: player.color }} 
+
+          />
+        </ListItemAvatar>
+        <ListItemText primary={player.name}
+          sx={{
+            width: '100%', overflowWrap: 'break-word',
+            '.MuiTypography-root': { fontSize: "12px" }
+          }} />
+      </ListItem>
+    ));
 
   const CustomStyle = styled('div')(({ theme }) => ({
     px: 0
@@ -56,48 +62,61 @@ export default function PlayersList(props) {
 
 
   return (
-      <Box className="players-box" sx={{ height: 'fit-content' }}>
-        <Paper style={{ height: '700px', width: '100%' }} elevation={3} sx={{ p: '15px', }}>
-          <Box sx={{
-            flexGrow: 1,
-            maxWidth: 752,
-            '& .MuiListItem-root': { px: 1 }
-          }}
-          >
-            <Grid item xs={12} md={6}>
-              <Typography sx={{ mt: 0, mb: '9px' }} variant="h6" component="div">
-                Players
-              </Typography>
+    <Box className="players-box" sx={{ height: 'fit-content', width: '30%' }}>
+      <Paper elevation={3}
+        style={{ height: '700px', width: '100%' }}
+        sx={{ p: '0px', pl: '8px', overflow: 'scroll' }}>
+        <Box sx={{
+          flexGrow: 1,
+          maxWidth: 752,
+          '& .MuiListItem-root': { px: 1 }
+        }}
+        >
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" component="div"
+              sx={{ mt: 0, mb: '9px', pl: '7px', pt: '15px' }}
+            >
+              Players
+            </Typography>
 
-              <CustomStyle >
-                <List dense={true} >
-                  <ListItem sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    backgroundColor: 
+            <CustomStyle sx={{ width: '100%' }}>
+
+              <List dense={true} sx={{ width: '100%' }}>
+                <ListItem sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  bgcolor:
                     (host && host.id === props.currentUser) && 'hwb(222deg 93% 0%)',
-                    width: '113%', paddingTop: '10px', borderTopLeftRadius: '26px'
-                  }}>
-                    <ListItemAvatar sx={{ display: 'flex', alignItems: 'center', justifyItems: 'space-around' }}>
-                      <Avatar src={host && host.avatar_url}sx={{}}>
-                      </Avatar>
-                      <CircleIcon sx={{ pl: 1, color: host && host.color }} />            
-                      <Typography sx={{ fontSize: "12px", pl: 1 }}>
-                        Host
-                      </Typography>
-                    </ListItemAvatar>
+                  width: '100%', pt: '10px', pb: '0px', borderTopLeftRadius: '26px'
+                }}>
+                  <ListItemAvatar sx={{ display: 'flex', alignItems: 'center', justifyItems: 'space-around' }}>
+                    <Avatar src={host && host.avatar_url} sx={{}}>
+                    </Avatar>
+                    <CircleIcon
+                      sx={{ pl: '4px', fontSize: '17px', ml: '2px', color: host && host.color }}
+                    />
+                    <Typography sx={{ fontSize: "12px", pl: '4px' }}>
+                      Host
+                    </Typography>
+                  </ListItemAvatar>
 
-                    <ListItemText primary={host && host.name} />
-                  </ListItem>
-                </List>
-                <List sx={{py: 0}}>
-                  {props.players && PlayerListItem}
-                </List>
-              </CustomStyle>
-            </Grid>
-          </Box>
-        </Paper>
-      </Box>
+                  <ListItemText primary={host && host.name}
+                    sx={{
+                      width: '100%', overflowWrap: 'break-word',
+                      '.MuiTypography-root': { fontSize: "12px" }
+                    }}
+                  />
+                </ListItem>
+              </List>
+
+              <List sx={{ py: 0 }}>
+                {props.players && PlayerListItem}
+              </List>
+            </CustomStyle>
+          </Grid>
+        </Box>
+      </Paper>
+    </Box>
   );
 };

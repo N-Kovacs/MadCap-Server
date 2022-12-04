@@ -2,21 +2,24 @@ import ChatListItem from "./ChatListItem";
 
 export default function ChatList(props) {
 
+  // console.log("~~~~~~~~~~~~~~~~~~: ", props.chats)
   const chats = props.chats.map((chat, index) => {
     
+  
     return (
       <ChatListItem
         key={index}
         message={chat.message}
         user={chat.user}
         type={chat.type}
+        currentPlayer={props.currentPlayer}
       />
     );
   });
   
 
   return <ul className="chat-list">
-    {chats}
+    {chats.reverse()}
 
   </ul>;
 }

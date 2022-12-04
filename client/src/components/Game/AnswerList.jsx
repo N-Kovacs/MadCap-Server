@@ -1,6 +1,5 @@
 import classNames from "classnames";
 
-import Box from "@mui/material/Box";
 import AnswerListItem from "./AnswerListItem";
 import Clock from './Clock';
 import Notice from './Notice';
@@ -63,8 +62,11 @@ export default function AnswerList(props) {
               gameData={props.gameData}
               round={props.round}
             />
-          
-          <Notice lastMessage={props.lastMessage} timer={props.timer} />
+          <Notice 
+          lastMessage={props.lastMessage} 
+          timer={props.timer} 
+          round={props.round} 
+          />
         </div>
       )}
       {props.phase === "vote" &&

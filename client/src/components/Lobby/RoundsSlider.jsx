@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { styled, alpha, Box } from '@mui/system';
 import SliderUnstyled, { sliderUnstyledClasses } from '@mui/base/SliderUnstyled';
 
@@ -123,32 +122,8 @@ const StyledSlider = styled(SliderUnstyled)(
 `,
 );
 
-// const marks = [
-//   {
-//     value: 0,
-//     label: '0s',
-//   },
-//   {
-//     value: 30,
-//     label: '30s',
-//   },
-//   {
-//     value: 60,
-//     label: '60s',
-//   },
-//   {
-//     value: 90,
-//     label: '90s',
-//   },
-//   {
-//     value: 120,
-//     label: '120s',
-//   },
-// ];
-
-
 export default function RoundsSlider(props) {
-  // timerSlider sets state
+
   const { rounds, setRounds } = props;
   
   const changeRounds = (e, val) => {
