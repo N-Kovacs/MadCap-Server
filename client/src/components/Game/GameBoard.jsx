@@ -6,6 +6,11 @@ import ResultsClock from './ResultsClock';
 
 export default function GameBoard(props) {
 
+  const handleHome = () => {
+    props.removeCookies("user", { path: "/" });
+      props.removeCookies("host", { path: "/" });
+    props.transition("WELCOME")
+  }
 
   return (
     <div className="game-board-main">
@@ -34,7 +39,21 @@ export default function GameBoard(props) {
               {props.subcategory}
             </h1>}
         </div> :
-        <h1 className="podium-header">Podium</h1>
+        <div className="podium-header">
+        <Button
+        
+        variant='outlined'
+        onClick={() => props.transition("LOBBY")}
+        sx={{ p: 0, width: '96px' }}>New Game
+        </Button>
+        <h1 style={{fontSize: '38px'}}>Podium</h1>
+        <Button
+        //FIX HOME so it goes to root
+        variant='outlined'
+        onClick={handleHome}
+        sx={{ p: 0, width: '96px' }}>Home
+        </Button>
+        </div>
         }
 
       {
@@ -63,8 +82,6 @@ export default function GameBoard(props) {
           <Podium
             setStatePhase={props.setStatePhase}
             players={props.players}
-            removeCookies={props.removeCookies}
-            transition={props.transition}
           />
       }
     </div>
