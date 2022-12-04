@@ -1,26 +1,26 @@
 import { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
-import Avatar from './Avatar';
-import UserName from './UserName';
+import Avatar from "./Avatar";
+import UserName from "./UserName";
 import ActionButton from "./ActionButton";
 import axios from "axios";
 import { generateRandomString } from "../../helpers/helpers";
+import { Alert } from "@mui/material";
 
 export default function WelcomeBox(props) {
-
   const url = generateRandomString();
-  
+
   const MAKE = "MAKE";
   const JOIN = "JOIN";
 
-  const [btnState, setBtnState] = useState("MAKE")
+  const [btnState, setBtnState] = useState("MAKE");
 
   useEffect(() => {
-    setBtnState(props.btnState)
-  }, [])
+    setBtnState(props.btnState);
+  }, []);
 
   // if no link use MAKE (default state)
   // if there is a custom link use JOIN
@@ -38,56 +38,68 @@ export default function WelcomeBox(props) {
   const navigate = useNavigate();
 
   const makeGame = () => {
-   
-      axios.post("https://madcap.onrender.com/api/games", { url })
-      .then(() => (
+    axios
+      .post("https://madcap.onrender.com/api/games", { url })
+      .then(() =>
         axios.post(`https://madcap.onrender.com/api/games/${url}/users`, {
           name,
           color,
           avatar_url,
-          host: true
+          host: true,
         })
-      ))
+      )
       .then((response) => {
-        console.log("Current user id", response.data.id)
-        props.setCurrentUser(response.data.id)
+        console.log("Current user id", response.data.id);
+        props.setCurrentUser(response.data.id);
       })
       .then(() => {
-        navigate(`/${url}`)
+        navigate(`/${url}`);
       })
       .then(() => {
         props.setHost();
       })
       .catch((err) => {
-        console.log(url)
-        console.error(err.message)});
-
-  }
+        console.log(url);
+        console.error(err.message);
+      });
+  };
 
   const joinGame = () => {
-    console.log("JOINGAMEFUNCTION")
-     
-      axios.post(`https://madcap.onrender.com/api/games/${props.url_path}/users`, {
-        name,
-        color,
-        avatar_url,
-        host: false
-      })
-      .then((response) => {
-        props.setCurrentUser(response.data.id)
+    console.log("JOINGAMEFUNCTION");
+
+    axios
+      .get(`https://madcap.onrender.com/api/games/${props.url_path}`)
+      .then((response) => response.data)
+      .then(({ users, maxPlayers }) => {
+        if (users.length >= maxPlayers) {
+          props.setLobbyIsFull(true);
+          throw new Error("Lobby is full");
+        }
       })
       .then(() => {
-        props.transition("LOBBY")
-        props.checkedIn()
+        return axios.post(
+          `https://madcap.onrender.com/api/games/${props.url_path}/users`,
+          {
+            name,
+            color,
+            avatar_url,
+            host: false,
+          }
+        );
       })
-    .catch((err) => console.error(err));
-  }
+      .then((response) => {
+        props.setCurrentUser(response.data.id);
+      })
+      .then(() => {
+        props.transition("LOBBY");
+        props.checkedIn();
+      })
+      .catch((err) => console.error(err));
+  };
 
   const handleSubmit = () => {
-    (btnState === MAKE)
-    ? makeGame()
-    : joinGame()
-  }
+    btnState === MAKE ? makeGame() : joinGame();
+  };
 
   return (
     <Fragment>
@@ -102,28 +114,29 @@ export default function WelcomeBox(props) {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          maxWidth: '397px',
+          maxWidth: "397px",
           height: 340,
-          width: '97%'
-        }}>
-        <Avatar
-          setAvatar={setAvatar_url}
-          setColor={setColor}
-        />
+          width: "97%",
+        }}
+      >
+        <Avatar setAvatar={setAvatar_url} setColor={setColor} />
         <UserName
           handleName={handleName}
           handleSubmit={handleSubmit}
-          name={name} 
+          name={name}
         />
-        {btnState === MAKE && <ActionButton
-          message="Make New Game"
-          onClick={makeGame}
-        />}
-        {btnState === JOIN && <ActionButton
-          message="Join the Game!"
-          onClick={joinGame}
-        />}
+        {btnState === MAKE && (
+          <ActionButton onClick={makeGame}>Make New Game</ActionButton>
+        )}
+        {btnState === JOIN && (
+          <ActionButton onClick={joinGame}>Join the Game!</ActionButton>
+        )}
       </Box>
+      {props.lobbyIsFull && (
+        <Alert icon={false} severity="error">
+          Can't Join Game. Lobby is Full.
+        </Alert>
+      )}
     </Fragment>
   );
 }

@@ -1,7 +1,7 @@
 import WelcomeBox from './WelcomeBox';
 import HowToPlay from './HowToPlay';
 
-import './styles.css';
+import './styles.scss';
 
 export default function Welcome(props) {
 
@@ -20,6 +20,8 @@ export default function Welcome(props) {
         setHost={props.setHost}
         transition={props.transition}
         checkedIn = {props.checkedIn}
+        setLobbyIsFull={props.setLobbyIsFull}
+        lobbyIsFull={props.lobbyIsFull}
       />
       <HowToPlay />
     </div>

@@ -5,20 +5,21 @@ export default function PlayerView () {
 return (
 
   <div className="player-view-main">
-    <Box className="cat-option-box"
+    <Box className="player-view-box"
       sx={{
         backgroundColor: '#f0f5ff',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
         alignItems: 'center',
-        width: '90%',
-        height: 'fit-content',
-        ml: '6px', pl: '2px', pb: '20px'
+        width: '100%',
+        height: '100%',
+        ml: '6px', pl: '2px'
       }}>
       <div className="player-view-header">
         <h2 className="player-view-header" >Waiting for Host to Start Round</h2>
       </div>
-        <CircularProgress />
+        <CircularProgress sx={{mb: '65px'}}/>
     </Box>
     {/* <Box
       sx={{

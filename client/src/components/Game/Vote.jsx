@@ -3,9 +3,18 @@ import Box from '@mui/material/Box';
 
 
 export default function Vote (props) {
-  const [voteTimer, setVoteTimer] = useState(2);
+  const [voteTimer, setVoteTimer] = useState(4);
+  const [display, setDisplay] = useState('none');
 
   // setInterval to setTimeout... clearInterval to clearTimeout
+
+  useEffect(() => {
+    const timer =
+      setTimeout(() => {
+       setDisplay('initial');
+      }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const timer =
@@ -16,7 +25,7 @@ export default function Vote (props) {
 
   return (
     <Box className="vote-box">
-      <h1>Vote!</h1>
+      <h1 style={{display: display }}>Vote!</h1>
     </Box>
   )
 }

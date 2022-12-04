@@ -138,9 +138,9 @@ export default function PlayersSlider(props) {
       <header><h4>set max players</h4></header>
       <StyledSlider
         min={0}
-        max={10}
+        max={8}
         step={1}
-        // defaultValue={5}
+        defaultValue={4}
         aria-label="Players"
         valueLabelDisplay="auto"
         marks

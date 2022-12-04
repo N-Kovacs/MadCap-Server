@@ -18,7 +18,7 @@ export default function ActionButton(props) {
         variant="contained"
         color="success"
         size="large"
-      >{props.message}</Button>
+      >{props.children}</Button>
     </Fragment>
   );
 }
