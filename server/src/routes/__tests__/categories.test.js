@@ -11,8 +11,15 @@ describe("Caegories", () => {
   test("GET /api/categories", async () => {
     await request(app)
       .get("/api/categories")
-      .expect(200)
-      .then((response) => expect(response.body.length).toEqual(2));
+      .expect(200, [{
+        id: 1,
+        title: "Movies"
+      },
+      {
+        id: 2,
+        title: "Canada"
+      }
+    ])
   });
 
 })
