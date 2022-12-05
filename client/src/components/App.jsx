@@ -194,6 +194,7 @@ export default function App() {
           url_path={url_path}
           removeCookies={removeCookies}
           transition={transition}
+          host={isHost()}
         />
       )}
     </div>
