@@ -7,6 +7,7 @@ import ResultsClock from './ResultsClock';
 export default function GameBoard(props) {
 
   const [border, setBorder] = useState("2px solid black");
+  const [opacity, setOpacity] = useState(0);
 
   useEffect(() => {
     if (props.phase === "round") {
@@ -22,7 +23,6 @@ export default function GameBoard(props) {
     props.transition("WELCOME");
   };
 
-  const [opacity, setOpacity] = useState(0);
 
   useEffect(() => {
     if  (props.phase === "podium") {
