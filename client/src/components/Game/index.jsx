@@ -377,9 +377,10 @@ export default function Game(props) {
         //set answers to update answers
         let answerSet = setAnswer(message, stateRef.current);
         //set chat to update chat
+        console.log(message.colour)
         let chatSet = [
           ...stateRef.current.chats,
-          { type: "capture", user: message.user, message: message.message[0] },
+          { type: "capture", user: message.user, message: message.message[0], colour: message.colour },
         ];
         setState((prev) => ({
           ...prev,
@@ -395,7 +396,7 @@ export default function Game(props) {
       ) {
         let chatSet = [
           ...stateRef.current.chats,
-          { type: "status", message: `${message.user} tried to capture ${message.message[0]} but failed!`},
+          { type: "status", message: `${message.user} tried to capture ${message.message[0]} but failed!`, colour: message.colour},
         ];
         setState((prev) => ({
           ...prev,
@@ -406,7 +407,7 @@ export default function Game(props) {
       if (message.type === "chat") {
         let chatSet = [
           ...stateRef.current.chats,
-          { type: "chat", user: message.user, message: message.message },
+          { type: "chat", user: message.user, message: message.message, colour:message.colour },
         ];
         setState((prev) => ({
           ...prev,
@@ -580,6 +581,7 @@ export default function Game(props) {
           clearBoard={clearBoard}
           removeCookies={props.removeCookies}
           transition={props.transition}
+          host={props.host}
         />
         <StatusBox
           isConnected={state.isConnected}

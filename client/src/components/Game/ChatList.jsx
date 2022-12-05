@@ -13,6 +13,7 @@ export default function ChatList(props) {
         user={chat.user}
         type={chat.type}
         currentPlayer={props.currentPlayer}
+        colour = {chat.colour}
       />
     );
   });

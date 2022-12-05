@@ -37,7 +37,7 @@ export default function AnswerListItem(props) {
 
   let votesToEliminate = 1;
   if (props.playerCount > 2) {
-    votesToEliminate = Math.floor((props.playerCount - 1) / 2);
+    votesToEliminate = Math.ceil((props.playerCount) / 2);
   }
 
   //undo vote on reset

@@ -3,10 +3,13 @@ import { Button } from '@mui/material';
 import AnswerList from './AnswerList';
 import Podium from './Podium';
 import ResultsClock from './ResultsClock';
+import { useNavigate } from 'react-router-dom';
 
 export default function GameBoard(props) {
 
   const [border, setBorder] = useState("2px solid black");
+  const [opacity, setOpacity] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (props.phase === "round") {
@@ -19,10 +22,10 @@ export default function GameBoard(props) {
   const handleHome = () => {
     props.removeCookies("user", { path: "/" });
     props.removeCookies("host", { path: "/" });
+    navigate('/');
     props.transition("WELCOME");
   };
 
-  const [opacity, setOpacity] = useState(0);
 
   useEffect(() => {
     if  (props.phase === "podium") {
@@ -72,6 +75,7 @@ export default function GameBoard(props) {
         </div> :
 
         <div className="podium-header">
+          {props.host && (
           <Button
             variant='outlined'
             onClick={() => props.transition("LOBBY")}
@@ -82,6 +86,7 @@ export default function GameBoard(props) {
           >
             New Game
           </Button>
+          )}
           <h1 style={{ fontSize: '32px' }}>Podium</h1>
           <Button
             //FIX HOME so it goes to root (cookie clear successfully)
