@@ -30,6 +30,11 @@ export default function StatusBox(props) {
           height: '100%'
           // maxHeight: '277px'
         }}>
+                  <Entry
+          sendMessage={props.sendMessage}
+          isConnected={props.isConnected}
+          lastMessage={props.lastMessage}
+        />
         <Box className="chat-box"
           sx={{
             backgroundColor: '#bec5dc',
@@ -43,11 +48,7 @@ export default function StatusBox(props) {
             currentPlayer={props.currentPlayer}
           />
         </Box>
-        <Entry
-          sendMessage={props.sendMessage}
-          isConnected={props.isConnected}
-          lastMessage={props.lastMessage}
-        />
+
       </Box>
     </Box>
   );
