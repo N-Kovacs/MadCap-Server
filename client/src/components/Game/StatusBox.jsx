@@ -19,6 +19,7 @@ export default function StatusBox(props) {
           backgroundColor: '#dde5ff',
           border: '2px solid white',
           borderTopLeftRadius: '10px',
+          borderLeftStyle: 'none',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
