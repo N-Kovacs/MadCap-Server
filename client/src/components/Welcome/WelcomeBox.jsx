@@ -19,6 +19,8 @@ export default function WelcomeBox(props) {
 
   const [btnState, setBtnState] = useState("MAKE")
 
+  //there are two btnStates (props and this.state)
+
   useEffect(() => {
     setBtnState(props.btnState)
   }, [])
@@ -31,7 +33,7 @@ export default function WelcomeBox(props) {
   const [name, setName] = useState();
 
   const handleName = (e) => {
-    if (e.target.value.length < 16) {
+    if (e.target.value.length < 18) {
       setName(e.target.value);
     }
   };
@@ -78,7 +80,6 @@ export default function WelcomeBox(props) {
       .catch((err) => {
         console.log(url)
         console.error(err.message)});
-
   }
 
   const joinGame = () => {
@@ -154,7 +155,7 @@ export default function WelcomeBox(props) {
       </Box>
         {props.lobbyIsFull && (
           <Alert icon={false} severity="error">
-            Can't Join Game. Lobby is Full.
+            Sorry. The lobby is currently full.
           </Alert>
             )}
     </Fragment>

@@ -38,7 +38,6 @@ export default function Podium(props) {
         setPlayers(props.players);
         setOpacity(100);
       }, 0);
-
     return () => clearTimeout(timer);
   }, []);
   // users as state variable, 
@@ -64,7 +63,8 @@ export default function Podium(props) {
             opacity: opacity, transition: 'opacity 1.5s ease-in'
           }}
         >
-          <Avatar src={player.avatar_url} alt={player.label}
+          <Avatar key={player.id}
+          src={player.avatar_url} alt={player.label}
             sx={{
               maxWidth: '35%',
               height: 'auto'
