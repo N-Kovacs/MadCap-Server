@@ -26,6 +26,5 @@ export default function ResultsClock(props) {
         {voteTimer}
       </span>
     </Fragment>
-
   );
 }

@@ -36,12 +36,12 @@
   align-items: flex-end;
   margin-top: 10px;
   margin-bottom: 10px;
-  // color: "red";
 }
 
 .subcategory-header {
   width: 172px;
   font-size: 20px;
+  font-weight: 800;
 }
 .clock-header {
   width: 32px;
@@ -143,6 +143,7 @@
 .alpha-item h2 {
   margin-top: 3px;
   margin-bottom: 3px;
+  font-weight: 900;
 }
 .alpha-item.results-phase {
   display: inline-block;
