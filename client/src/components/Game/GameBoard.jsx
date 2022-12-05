@@ -6,16 +6,8 @@ import ResultsClock from './ResultsClock';
 
 export default function GameBoard(props) {
 
-  const [border, setBorder] = useState("2px solid black");
+  const [border, setBorder] = useState("none");
   const [opacity, setOpacity] = useState(0);
-
-  useEffect(() => {
-    if (props.phase === "round") {
-      setBorder("none") 
-    } else {
-      setBorder("2px solid black") 
-    }
-  }, [props.phase]);
 
   const handleHome = () => {
     props.removeCookies("user", { path: "/" });
@@ -23,14 +15,20 @@ export default function GameBoard(props) {
     props.transition("WELCOME");
   };
 
+  useEffect(() => {
+    if (props.phase === "round") {
+      setBorder("none");
+    } else {
+      setBorder("2px solid black");
+    }
+  }, [props.phase]);
 
   useEffect(() => {
-    if  (props.phase === "podium") {
-      console.log("INSIDE THE USEFFECT IN GAMEBOARD!!")
-    const timer =
-    setTimeout(() => {
-        setOpacity(100);
-      }, 4000);
+    if (props.phase === "podium") {
+      const timer =
+        setTimeout(() => {
+          setOpacity(100);
+        }, 4000);
       return () => clearTimeout(timer);
     }
   }, [props.phase]);
@@ -40,7 +38,7 @@ export default function GameBoard(props) {
 
       {props.phase !== "podium" ?
 
-        <div className="game-header" style={{borderBottom: border}}>
+        <div className="game-header" style={{ borderBottom: border }}>
           {props.phase !== "round" &&
             <h2 className="category-header"
               style={{ margin: '4px', mr: '5px' }}

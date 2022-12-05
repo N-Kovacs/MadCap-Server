@@ -20,9 +20,15 @@ export default function Entry(props) {
     // console.log(message);
   };
 
- 
+
   const post = (e) => {
-    if (e.target.value.length < 16) {
+    if (props.phase === "game" ||
+      props.phase === "round") {
+      if (e.target.value.length < 16 || 
+        e.target.value[0] === '/') {
+        setMessage(e.target.value);
+      }
+    } else {
       setMessage(e.target.value);
     }
     // console.log('state change', e.target.value)
@@ -43,7 +49,7 @@ export default function Entry(props) {
       <div className="messages-input"
         style={{
           display: 'flex',
-          flexDirection: 'row', 
+          flexDirection: 'row',
           justifyContent: 'flex-end',
           height: '26px'
         }}>

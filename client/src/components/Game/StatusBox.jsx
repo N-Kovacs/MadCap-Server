@@ -6,7 +6,7 @@ import ChatList from './ChatList';
 
 
 export default function StatusBox(props) {
-  
+
   return (
     <Box className="status-box" >
 
@@ -42,11 +42,11 @@ export default function StatusBox(props) {
             currentPlayer={props.currentPlayer}
           />
         </Box>
-
-                  <Entry
+        <Entry
           sendMessage={props.sendMessage}
           isConnected={props.isConnected}
           lastMessage={props.lastMessage}
+          phase={props.phase}
         />
       </Box>
     </Box>

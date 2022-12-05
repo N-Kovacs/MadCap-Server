@@ -3,8 +3,9 @@ import Box from "@mui/material/Box";
 
 
 export default function Round(props) {
-  // const [round, setRound] = useState(1);
-  const [roundTimer, setRoundTimer] = useState(3);
+  const [roundTimer, setRoundTimer] = useState(4);
+  // const [startTimer, setStartTimer] = useState(3);
+  const [display, setDisplay] = useState("none");
   const [fontSize, setFontSize] = useState('10px');
 
   // setInterval to setTimeout... clearInterval to clearTimeout
@@ -12,14 +13,22 @@ export default function Round(props) {
   useEffect(() => {
     const timer =
       setTimeout(() => {
-        setFontSize('25px');
-      }, 0);
+        setDisplay("initial");
+      }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     const timer =
-      roundTimer > 0 && setTimeout(() => setRoundTimer((prev) => prev - 1), 850);
+      setTimeout(() => {
+        setFontSize('25px');
+      }, 1010);
+    return () => clearTimeout(timer);
+  }, [fontSize]);
+
+  useEffect(() => {
+    const timer =
+      roundTimer > 0 && setTimeout(() => setRoundTimer((prev) => prev - 1), 1000);
     if (roundTimer === 0) {
       props.getNextSubcategory();
       props.clearBoard();
@@ -28,19 +37,41 @@ export default function Round(props) {
     return () => clearTimeout(timer);
   }, [roundTimer]);
 
+
+  // useEffect(() => {
+  //   const timer =
+  //     startTimer > 0 && setInterval(() => setStartTimer((prev) => prev - 1), 1850);
+  //   if (props.phase === "round" && startTimer === 0) {
+  //     props.setStatePhase("game");
+  //   }
+  //   return () => clearTimeout(timer);
+  // }, [startTimer]);
+
+
+
   return (
-    <Box className="round-box" sx={{ fontSize: fontSize, transition: 'font-size 250ms' }}>
-      {props.round !== props.gameData.rounds ?
+
+    <Box className="round-box"
+      sx={{
+        display: display,
+        fontSize: fontSize, transition: 'font-size 250ms'
+      }}>
+
+      {props.round !== props.gameData.rounds
+        ?
         <div>
           <h1>Round</h1>
           <h1>{props.round}/{props.gameData.rounds}</h1>
         </div>
         :
-        <div className="round-box" >
-          {props.gameData.rounds !== 1 ? <h1 style={{textAlign: 'center'}}>Final Round!</h1> : 
-          <h1 style={{textAlign: 'center'}}>One Round!</h1>}
+        <div className="round-box">
+          {props.gameData.rounds !== 1 ? <h1 style={{ textAlign: 'center' }}>Final Round!</h1> :
+            <h1 style={{ textAlign: 'center' }}>One Round!</h1>}
         </div>
       }
+
+      {/* {props.phase === "start" && <h1>Start!</h1>} */}
     </Box>
+
   );
 }

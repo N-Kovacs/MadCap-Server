@@ -560,7 +560,8 @@ export default function Game(props) {
           // border: '2px solid black',
           backgroundColor: "#f0f2ff",
           mt: '3%', mb: '3%', 
-          maxHeight: '823px'
+          maxHeight: '823px',
+          maxWidth: '850px'
         }}
       >
         <GameBoard
@@ -590,6 +591,7 @@ export default function Game(props) {
           chats={state.chats}
           players={state.players}
           currentPlayer={state.player}
+          phase={state.phase}
         />
       </Box>
     </div>

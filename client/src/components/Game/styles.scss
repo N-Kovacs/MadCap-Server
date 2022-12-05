@@ -19,7 +19,7 @@
   margin-bottom: 1%;
 }
 .game-header {
-  border-bottom: solid 2px black;
+  // border-bottom: solid 2px black;
   width: 98%;
   height: 12.5%;
   display: flex;
@@ -60,7 +60,8 @@
   height: 85%;
   padding-left: 2%;
   padding-right: 2%;
-  margin-bottom: 1.5%;
+  // margin-bottom: 1.5%;
+  margin-bottom: 10px;
   margin-top: 0;
 }
 .game-board-inner-center {
@@ -166,8 +167,11 @@
 .game-clock {
   height: 24vh;
   width: 24vh;
-  margin-bottom: 1%;
-  margin-top: 31%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-top: 66px;
+  // margin-bottom: 1%;
+  // margin-top: 31%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -212,7 +216,6 @@
   height: 100%;
 }
 
-
 .purple {
   color: #8a2eff;
 }
@@ -223,7 +226,7 @@
   color: #72d695;
 }
 .darkgoldenrod {
-  color: #FDBE00;
+  color: #fdbe00;
 }
 .blue {
   color: #52b5ff;
@@ -232,7 +235,7 @@
   color: #c61234;
 }
 .slateblue {
-  color:#621dff;
+  color: #621dff;
 }
 .yellow {
   color: #fff600;
@@ -247,7 +250,7 @@
   color: #99ffd8;
 }
 .darkorange {
-  color:#e14400;
+  color: #e14400;
 }
 .plum {
   color: #ffbb87;
@@ -256,17 +259,3 @@
 .orchid {
   color: #ff64aa;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

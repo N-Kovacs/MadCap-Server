@@ -13,7 +13,8 @@ export default function Notice(props) {
     <Box className="notice">
       <h2 style={{
         width: '270px', height: '50px',
-        textAlign: 'center'
+        textAlign: 'center', 
+        paddingTop: '66px'
       }}>
         {props.lastMessage}
       </h2>

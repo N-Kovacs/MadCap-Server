@@ -28,8 +28,8 @@ export default function HowToPlay() {
 
         </div>
         <Paper elevation={3} sx={{ p: 1, width: '59%'}}>
-          <p>how .........to play...the game.........</p>
-          <p>visual ...............examples..........</p>
+          <p>Put on your thinking cap! </p>
+          <p>type '/' to chat during game</p>
           <p>will................go.. here.....coool.</p>
         </Paper>
       </Box>

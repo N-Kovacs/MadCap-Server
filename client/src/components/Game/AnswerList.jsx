@@ -80,6 +80,7 @@ export default function AnswerList(props) {
           gameData={props.gameData}
           nextRound={props.nextRound}
           round={props.round}
+          phase={props.phase}
         />
       }
       <ul className={`alpha-row alpha2 ${rowPhase}`}>{answers2}</ul>
