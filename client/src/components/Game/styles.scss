@@ -152,8 +152,12 @@
   height: 28px;
   display: flex;
 }
+.alpha-item {
+  height: 100%;
+}
 .alpha-item.results-phase {
   display: inline-block;
+  height: 100%;
   width: 100%;
 }
 ////////////////////////////////////////////////////

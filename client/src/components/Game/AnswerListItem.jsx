@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
+import Button from "@mui/material/Button";
 
 export default function AnswerListItem(props) {
   const [voted, setVoted] = useState(false);
@@ -67,19 +68,20 @@ export default function AnswerListItem(props) {
       {props.phase === "game" && <h2>{props.letter}</h2>}
       {props.phase === "results" && props.answer && (
         <h2>
-          <button
+          <Button
+          variant='outlined'
             onClick={handleClick}
             disabled={disableButton}
-            style={{
+            sx={{
               backgroundColor: !buttonMode
                 ? `rgba(255,0,0,${buttonsColour})`
                 : "#313e4454",
-              fontSize: "14px",
               textDecoration: !buttonMode ? "none" : "line-through",
+              fontSize: "18px", px: '6px'
             }}
           >
             {props.answer}
-          </button>
+          </Button>
         </h2>
       )}
       {props.phase === "results" && !props.answer && <h2>{props.letter}</h2>}

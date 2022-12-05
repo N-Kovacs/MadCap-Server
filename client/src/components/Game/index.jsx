@@ -559,7 +559,8 @@ export default function Game(props) {
           px: 0, pt: '2px',
           // border: '2px solid black',
           backgroundColor: "#f0f2ff",
-          mt: '3%', mb: '3%'
+          mt: '3%', mb: '3%', 
+          maxHeight: '823px'
         }}
       >
         <GameBoard
