@@ -12,6 +12,8 @@ Coordinate players using socket.io
 ## Screenshots
 ![Lobby Host View](https://github.com/colespen/MadCap/blob/feature/begin-read-me/docs/lobby-host-view.png?raw=true)
 
+![Lobby Player View](https://github.com/colespen/MadCap/blob/feature/begin-read-me/docs/lobby-player-view.png)
+
 ![Player Capture](https://github.com/colespen/MadCap/blob/feature/begin-read-me/docs/player-capture.png?raw=true)
 
 ![Podium](https://github.com/colespen/MadCap/blob/feature/begin-read-me/docs/podium.png?raw=true)
