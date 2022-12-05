@@ -33,7 +33,7 @@ export default function GameBoard(props) {
         <div className="game-header">
           {props.phase !== "round" &&
             <h2 className="category-header"
-              style={{margin: '4px'}}
+              style={{margin: '4px', mr: '5px'}}
             >
               {props.category}:
             </h2>}
@@ -53,9 +53,7 @@ export default function GameBoard(props) {
             <h1 className="subcategory-header" 
               style={{
                 margin: '4px',
-                textAlign: 'end'
-
-              
+                textAlign: 'end' 
               }}
             >
               {props.subcategory}
