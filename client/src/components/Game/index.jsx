@@ -349,6 +349,7 @@ export default function Game(props) {
     // console.log(stateRef.current);
 
     socket.on("connect", () => {
+      socket.emit("set-room", props.url_path);
       // console.log("connected");
       setState({
         ...stateRef.current,
