@@ -394,7 +394,7 @@ export default function Game(props) {
       ) {
         let chatSet = [
           ...stateRef.current.chats,
-          { type: "status", message: `${message.user} tried to capture ${message.message[0]} but failed!`},
+          { type: "status", message: `${message.user} failed to capture ${message.message[0]}!`},
         ];
         setState((prev) => ({
           ...prev,
@@ -559,6 +559,7 @@ export default function Game(props) {
           px: 0, pt: '2px',
           // border: '2px solid black',
           backgroundColor: "#f0f2ff",
+          mt: '3%', mb: '3%'
         }}
       >
         <GameBoard

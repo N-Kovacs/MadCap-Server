@@ -12,11 +12,11 @@ export default function Entry(props) {
 
   const send = () => {
     if (message[0] === "/") {
-      props.sendMessage(message.slice(1), "results")
+      props.sendMessage(message.slice(1), "results");
     } else {
       props.sendMessage(message);
     }
-    setMessage("")
+    setMessage("");
     // console.log(message);
   };
 
@@ -29,7 +29,7 @@ export default function Entry(props) {
     if (e.key === "Enter") {
       send();
     }
-  }
+  };
 
   /// if event.target ==
 
@@ -40,7 +40,9 @@ export default function Entry(props) {
       <div className="messages-input"
         style={{
           display: 'flex',
-          flexDirection: 'row', justifyContent: 'flex-end'
+          flexDirection: 'row', 
+          justifyContent: 'flex-end',
+          height: '26px'
         }}>
         <input id="message-box"
           style={{ width: '100%' }}
