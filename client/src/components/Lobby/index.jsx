@@ -46,7 +46,7 @@ export default function Lobby(props) {
         sx={{
           px: 2.5,
           display: "flex",
-          maxWidth: '490px',
+          maxWidth: '558px',
           width: "100%",
         }}
       >
@@ -60,7 +60,7 @@ export default function Lobby(props) {
           px: 1,
           display: "flex",
           justifyContent: "space-between",
-          maxWidth: '490px',
+          maxWidth: '558px',
           height: "fit-content",
           width: "100%",
         }}

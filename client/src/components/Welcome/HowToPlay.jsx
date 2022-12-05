@@ -24,7 +24,7 @@ export default function HowToPlay() {
           mb: 2
         }}>
         <div className="how-to how-to-description">
-          <h2>How To Play</h2>
+          <h2 style={{fontSize: '20px'}}>How To Play</h2>
 
         </div>
         <Paper elevation={3} sx={{ p: 1, width: '59%'}}>
@@ -39,10 +39,11 @@ export default function HowToPlay() {
           height: 300,
           backgroundColor: '#f0f2ff',
           display: 'flex',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          mb: 2
         }}>
         <div className="how-to about-description">
-          <h2>About</h2>
+          <h2 style={{fontSize: '20px'}}>About</h2>
 
         </div>
         <Paper elevation={3}
@@ -50,9 +51,10 @@ export default function HowToPlay() {
             p: 1
           }}
         >
-          <p>about ...the game...</p>
-          <p>fun facts..........</p>
-          <p>will...go here.....coool.</p>
+          <p>A fast-paced multiplayer game</p>
+          <p>Uses Websockets for a snappy, real-time UX</p>
+          <p>Developed by:</p>
+          <p>Nicholas Kovaks, Spencer Cole & William Gadd</p>
         </Paper>
       </Box>
     </Container>

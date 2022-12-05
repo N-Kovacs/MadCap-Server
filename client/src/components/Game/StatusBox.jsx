@@ -17,9 +17,8 @@ export default function StatusBox(props) {
       <Box className="chat-box-main"
         sx={{
           backgroundColor: '#dde5ff',
-          border: '2px solid white',
+          borderTop: '2px solid white',
           borderTopLeftRadius: '10px',
-          borderLeftStyle: 'none',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -27,7 +26,7 @@ export default function StatusBox(props) {
           pr: 0, pl: '4px', pb: '2px',
           m: 0,
           width: '71.5%',
-          height: '100%'
+          height: '99%'
           // maxHeight: '277px'
         }}>
         <Box className="chat-box"
