@@ -80,6 +80,10 @@ export default function App() {
 
   useEffect(() => {
     // console.log(stateRef.current);
+    socket.on("connect", () => {
+      socket.emit("set-room", url_path);
+      // console.log("connected");
+    });
 
     socket.on("start-game", () => {
       console.log("host start game");
@@ -123,6 +127,7 @@ export default function App() {
     // });
 
     return () => {
+      socket.off("connect");
       socket.off("start-game");
       socket.off("update-players");
     };
