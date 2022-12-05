@@ -51,3 +51,4 @@ require("./routes/sockets")(app);
 //   console.log(`Example app listening on port ${PORT}`);
 
 // });
+module.exports = app;
