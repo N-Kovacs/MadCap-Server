@@ -96,7 +96,7 @@ const images = [
 
 export default function ActionAvatar(props) {
   const theme = useTheme();
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(Math.floor(Math.random() * images.length));
   const maxSteps = images.length;
 
   useEffect(() => {
