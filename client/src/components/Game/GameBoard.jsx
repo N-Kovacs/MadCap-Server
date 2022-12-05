@@ -82,7 +82,7 @@ export default function GameBoard(props) {
           >
             New Game
           </Button>
-          <h1 style={{ fontSize: '32px' }}>Podium</h1>
+          <h1 style={{ fontSize: '36px' }}>Podium</h1>
           <Button
             //FIX HOME so it goes to root (cookie clear successfully)
             variant='outlined'

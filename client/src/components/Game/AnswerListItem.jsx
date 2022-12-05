@@ -69,7 +69,8 @@ export default function AnswerListItem(props) {
       {props.phase === "results" && props.answer && (
         <h2>
           <Button
-          variant='outlined'
+            variant="outlined"
+            color="success"
             onClick={handleClick}
             disabled={disableButton}
             sx={{
@@ -77,7 +78,7 @@ export default function AnswerListItem(props) {
                 ? `rgba(255,0,0,${buttonsColour})`
                 : "#313e4454",
               textDecoration: !buttonMode ? "none" : "line-through",
-              fontSize: "18px", px: '6px'
+              fontSize: "18px", px: '6px', color: 'black'
             }}
           >
             {props.answer}

@@ -20,8 +20,11 @@ export default function Entry(props) {
     // console.log(message);
   };
 
+ 
   const post = (e) => {
-    setMessage(e.target.value);
+    if (e.target.value.length < 16) {
+      setMessage(e.target.value);
+    }
     // console.log('state change', e.target.value)
   };
 
