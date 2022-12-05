@@ -1,21 +1,52 @@
-// import { useState, useEffect } from 'react';
-import { Box, Button } from '@mui/material';
+import { useState, useEffect } from 'react';
+import { Button } from '@mui/material';
 import AnswerList from './AnswerList';
 import Podium from './Podium';
 import ResultsClock from './ResultsClock';
 
 export default function GameBoard(props) {
 
+  const [border, setBorder] = useState("2px solid black");
+
+  useEffect(() => {
+    if (props.phase === "round") {
+      setBorder("none") 
+    } else {
+      setBorder("2px solid black") 
+    }
+  }, [props.phase]);
+
+  const handleHome = () => {
+    props.removeCookies("user", { path: "/" });
+    props.removeCookies("host", { path: "/" });
+    props.transition("WELCOME");
+  };
+
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    if  (props.phase === "podium") {
+      console.log("INSIDE THE USEFFECT IN GAMEBOARD!!")
+    const timer =
+    setTimeout(() => {
+        setOpacity(100);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [props.phase]);
 
   return (
     <div className="game-board-main">
 
-        {props.phase !== "podium" ?
-        <div className="game-header">
+      {props.phase !== "podium" ?
+
+        <div className="game-header" style={{borderBottom: border}}>
           {props.phase !== "round" &&
-          <h2 className="category-header">
-            {props.category}:
-          </h2>}
+            <h2 className="category-header"
+              style={{ margin: '4px', mr: '5px' }}
+            >
+              {props.category}:
+            </h2>}
 
           {props.phase === "results" &&
             <h2 className="clock-header">
@@ -30,12 +61,41 @@ export default function GameBoard(props) {
 
           {props.phase !== "round" &&
             <h1 className="subcategory-header"
-              style={{ fontSize: '28px', textAlign: 'end' }}>
+              style={{
+                margin: '4px',
+                textAlign: 'end'
+              }}
+            >
               {props.subcategory}
             </h1>}
+
         </div> :
-        <h1 className="podium-header">Podium</h1>
-        }
+
+        <div className="podium-header">
+          <Button
+            variant='outlined'
+            onClick={() => props.transition("LOBBY")}
+            sx={{
+              p: 0, width: '87px', opacity: opacity, fontSize: '12px',
+              transition: 'opacity 1.2s ease-in'
+            }}
+          >
+            New Game
+          </Button>
+          <h1 style={{ fontSize: '32px' }}>Podium</h1>
+          <Button
+            //FIX HOME so it goes to root (cookie clear successfully)
+            variant='outlined'
+            onClick={handleHome}
+            sx={{
+              p: 0, width: '87px', opacity: opacity, fontSize: '12px',
+              transition: 'opacity 1.5s ease-in 2s'
+            }}
+          >
+            Home
+          </Button>
+        </div>
+      }
 
       {
         props.phase === "game" ||
@@ -63,8 +123,6 @@ export default function GameBoard(props) {
           <Podium
             setStatePhase={props.setStatePhase}
             players={props.players}
-            removeCookies={props.removeCookies}
-            transition={props.transition}
           />
       }
     </div>

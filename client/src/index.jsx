@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <App />,
     loader: (({ request }) => {
       const url_path = new URL(request.url).pathname;
-      return { url_path, btnState:"MAKE" };
+      return { url_path, btnState: "MAKE" };
     })
   },
   {

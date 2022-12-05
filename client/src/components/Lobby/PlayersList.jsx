@@ -36,14 +36,16 @@ export default function PlayersList(props) {
 
         }}>
         <ListItemAvatar sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-          <Avatar src={player.avatar_url} alt={player.color} sx={{
-            maxWidth: '70%',
+          <Avatar src={player.avatar_url} alt={player.color} 
+          variant='rounded'
+          sx={{
+            maxWidth: '60%',
             height: 'auto',
           }}>
 
           </Avatar>
-          <CircleIcon 
-          sx={{ pl: '2px', fontSize: '17px', ml: '2px', color: player.color }} 
+          <CircleIcon
+            sx={{ pl: '2px', fontSize: '17px', ml: '2px', color: player.color }}
 
           />
         </ListItemAvatar>
@@ -91,7 +93,11 @@ export default function PlayersList(props) {
                   width: '100%', pt: '10px', pb: '0px', borderTopLeftRadius: '26px'
                 }}>
                   <ListItemAvatar sx={{ display: 'flex', alignItems: 'center', justifyItems: 'space-around' }}>
-                    <Avatar src={host && host.avatar_url} sx={{}}>
+                    <Avatar src={host && host.avatar_url} variant='rounded'
+                      sx={{
+                        maxWidth: '40%',
+                        height: 'auto'
+                      }}>
                     </Avatar>
                     <CircleIcon
                       sx={{ pl: '4px', fontSize: '17px', ml: '2px', color: host && host.color }}

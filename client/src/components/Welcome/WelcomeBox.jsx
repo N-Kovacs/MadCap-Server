@@ -18,6 +18,8 @@ export default function WelcomeBox(props) {
 
   const [btnState, setBtnState] = useState("MAKE");
 
+  //there are two btnStates (props and this.state)
+
   useEffect(() => {
     setBtnState(props.btnState);
   }, []);
@@ -30,7 +32,7 @@ export default function WelcomeBox(props) {
   const [name, setName] = useState();
 
   const handleName = (e) => {
-    if (e.target.value.length < 16) {
+    if (e.target.value.length < 18) {
       setName(e.target.value);
     }
   };
@@ -38,75 +40,76 @@ export default function WelcomeBox(props) {
   const navigate = useNavigate();
 
   const makeGame = () => {
-   
-    axios.post("https://madcap.onrender.com/api/games", { url })
-    .then(({ data }) => {
-      props.setGameData(() => (
-        {
+    axios
+      .post("https://madcap.onrender.com/api/games", { url })
+      .then(({ data }) => {
+        props.setGameData(() => ({
           ...data,
           users: [],
           categories: [],
-          subcategories: []
-        })
-      )})
-    .then(() => (
-      axios.post(`https://madcap.onrender.com/api/games/${url}/users`, {
-        name,
-        color,
-        avatar_url,
-        host: true
+          subcategories: [],
+        }));
       })
-    ))
-    .then((response) => {
-      const user = response.data
-      props.setGameData((prev) => (
-       { ...prev, users: [{...user}]}
-      ))
-      return user.id
-    })
-    .then((userID) => {
-      props.setCurrentUser(userID)
-    })
-    .then(() => {
-      navigate(`/${url}`)
-    })
-    .then(() => {
-      props.transition("LOBBY")
-      console.log("State transition")
-    })
-    .catch((err) => {
-      console.log(url)
-      console.error(err.message)});
+      .then(() =>
+        axios.post(`https://madcap.onrender.com/api/games/${url}/users`, {
+          name,
+          color,
+          avatar_url,
+          host: true,
+        })
+      )
 
-}
+      .then((response) => {
+        const user = response.data;
+        props.setGameData((prev) => ({ ...prev, users: [{ ...user }] }));
+        return user.id;
+      })
+      .then((userID) => {
+        props.setCurrentUser(userID);
+      })
+      .then(() => {
+        navigate(`/${url}`);
+      })
+      .then(() => {
+        props.transition("LOBBY");
+        console.log("State transition");
+      })
+      .catch((err) => {
+        console.log(url);
+        console.error(err.message);
+      });
+  };
 
   const joinGame = () => {
-  
-    axios.get(`https://madcap.onrender.com/api/games/${props.url_path}`)
-    .then(response => response.data)
-    .then(({ users, maxPlayers }) => {
-      if (users.length >= maxPlayers) {
-        props.setLobbyIsFull(true)
-        throw new Error("Lobby is full");
-      }
-    })
-    .then(() => (
-      axios.post(`https://madcap.onrender.com/api/games/${props.url_path}/users`, {
-        name,
-        color,
-        avatar_url,
-        host: false
+    axios
+      .get(`https://madcap.onrender.com/api/games/${props.url_path}`)
+      .then((response) => response.data)
+      .then(({ users, maxPlayers }) => {
+        if (users.length >= maxPlayers) {
+          props.setLobbyIsFull(true);
+          throw new Error("Lobby is full");
+        }
       })
-    ))
-    .then((response) => {
-      props.setCurrentUser(response.data.id)
-    })
-    .then(() => {
-      props.transition("LOBBY")
-      props.checkedIn()
-    })
-    .catch((err) => console.error(err));
-  }
+      .then(() =>
+        axios.post(
+          `https://madcap.onrender.com/api/games/${props.url_path}/users`,
+          {
+            name,
+            color,
+            avatar_url,
+            host: false,
+          }
+        )
+      )
+      .then((response) => {
+        props.setCurrentUser(response.data.id);
+      })
+      .then(() => {
+        props.transition("LOBBY");
+        props.checkedIn();
+      })
+      .catch((err) => console.error(err));
+  };
 
   const handleSubmit = () => {
     btnState === MAKE ? makeGame() : joinGame();
@@ -145,7 +148,7 @@ export default function WelcomeBox(props) {
       </Box>
       {props.lobbyIsFull && (
         <Alert icon={false} severity="error">
-          Can't Join Game. Lobby is Full.
+          Sorry. The lobby is currently full.
         </Alert>
       )}
     </Fragment>

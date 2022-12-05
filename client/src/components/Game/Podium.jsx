@@ -1,10 +1,9 @@
 import { Fragment, useEffect, useState } from 'react';
 
-
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { ListItemAvatar, Avatar } from '@mui/material';
@@ -20,12 +19,11 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Podium(props) {
 
-
-  const handleHome = () => {
-    props.removeCookies("user", { path: "/" });
-      props.removeCookies("host", { path: "/" });
-    props.transition("WELCOME")
-  }
+  // const handleHome = () => {
+  //   props.removeCookies("user", { path: "/" });
+  //     props.removeCookies("host", { path: "/" });
+  //   props.transition("WELCOME")
+  // }
 
   const [opacity, setOpacity] = useState(0);
   const [players, setPlayers] = useState(
@@ -40,7 +38,6 @@ export default function Podium(props) {
         setPlayers(props.players);
         setOpacity(100);
       }, 0);
-
     return () => clearTimeout(timer);
   }, []);
   // users as state variable, 
@@ -55,7 +52,7 @@ export default function Podium(props) {
           height: '45px',
           transition: 'width 2.5s ease-out',
           overflow: 'hidden',
-          border: '1px solid black',
+          border: '1px solid black', pl: '2px'
         }}
       >
         <ListItemAvatar key={player.id}
@@ -66,9 +63,10 @@ export default function Podium(props) {
             opacity: opacity, transition: 'opacity 1.5s ease-in'
           }}
         >
-          <Avatar src={player.avatar_url} alt={player.label}
+          <Avatar key={player.id}
+          src={player.avatar_url} alt={player.label}
             sx={{
-              maxWidth: '30%',
+              maxWidth: '35%',
               height: 'auto'
             }}
           >
@@ -94,7 +92,7 @@ export default function Podium(props) {
           width: '100%',
           px: '15px',
         }}>
-        <Button
+        {/* <Button
         onClick={() => props.transition("LOBBY")}
         sx={{ p: 0, pb: '8px' }}>Make New Game
         </Button>
@@ -102,11 +100,11 @@ export default function Podium(props) {
         //FIX HOME so it goes to root
         onClick={handleHome}
         sx={{ p: 0, pb: '8px' }}>Home
-        </Button>
+        </Button> */}
       </Box>
 
       <div className="podium-board">
-        <Box className="podium-list" sx={{ width: '100%', }}>
+        <Box className="podium-list" sx={{ width: '100%' }}>
           <Stack spacing={2}>
             {playerScoreItems}
           </Stack>
