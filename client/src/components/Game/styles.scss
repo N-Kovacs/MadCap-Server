@@ -18,7 +18,7 @@
 .game-header {
   border-bottom: solid 2px black;
   width: 98%;
-  height: 45px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,6 +30,7 @@
 }
 
 .category-header {
+  // font-size: 23px;
   width: 120px;
   display: flex;
   align-items: flex-end;

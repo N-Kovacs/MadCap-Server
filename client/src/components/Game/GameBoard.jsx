@@ -3,9 +3,18 @@ import { Button } from '@mui/material';
 import AnswerList from './AnswerList';
 import Podium from './Podium';
 import ResultsClock from './ResultsClock';
-import { textAlign } from '@mui/system';
 
 export default function GameBoard(props) {
+
+  const [border, setBorder] = useState("2px solid black");
+
+  useEffect(() => {
+    if (props.phase === "round") {
+      setBorder("none") 
+    } else {
+      setBorder("2px solid black") 
+    }
+  }, [props.phase]);
 
   const handleHome = () => {
     props.removeCookies("user", { path: "/" });
@@ -13,27 +22,28 @@ export default function GameBoard(props) {
     props.transition("WELCOME");
   };
 
-  // const [opacity, setOpacity] = useState(0);
+  const [opacity, setOpacity] = useState(0);
 
-    // useEffect(() => {
-    //   if  (props.phase === "podium") {
-    //     console.log("INSIDE THE USEFFECT IN GAMEBOARD!!")
-    //   const timer =
-    //   setTimeout(() => {
-    //       setOpacity(100);
-    //     }, 4000);
-    //     return () => clearTimeout(timer);
-    //   }
-    // }, []);
- 
+  useEffect(() => {
+    if  (props.phase === "podium") {
+      console.log("INSIDE THE USEFFECT IN GAMEBOARD!!")
+    const timer =
+    setTimeout(() => {
+        setOpacity(100);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [props.phase]);
+
   return (
     <div className="game-board-main">
 
       {props.phase !== "podium" ?
-        <div className="game-header">
+
+        <div className="game-header" style={{borderBottom: border}}>
           {props.phase !== "round" &&
             <h2 className="category-header"
-              style={{margin: '4px', mr: '5px'}}
+              style={{ margin: '4px', mr: '5px' }}
             >
               {props.category}:
             </h2>}
@@ -50,21 +60,23 @@ export default function GameBoard(props) {
             </h2>}
 
           {props.phase !== "round" &&
-            <h1 className="subcategory-header" 
+            <h1 className="subcategory-header"
               style={{
                 margin: '4px',
-                textAlign: 'end' 
+                textAlign: 'end'
               }}
             >
               {props.subcategory}
             </h1>}
+
         </div> :
+
         <div className="podium-header">
           <Button
             variant='outlined'
             onClick={() => props.transition("LOBBY")}
             sx={{
-              p: 0, width: '96px', opacity: 100,
+              p: 0, width: '87px', opacity: opacity, fontSize: '12px',
               transition: 'opacity 1.2s ease-in'
             }}
           >
@@ -76,8 +88,8 @@ export default function GameBoard(props) {
             variant='outlined'
             onClick={handleHome}
             sx={{
-              p: 0, width: '96px', opacity: 100,
-              transition: 'opacity 1.5s ease-in 1s'
+              p: 0, width: '87px', opacity: opacity, fontSize: '12px',
+              transition: 'opacity 1.5s ease-in 2s'
             }}
           >
             Home
