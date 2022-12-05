@@ -581,6 +581,7 @@ export default function Game(props) {
           clearBoard={clearBoard}
           removeCookies={props.removeCookies}
           transition={props.transition}
+          host={props.host}
         />
         <StatusBox
           isConnected={state.isConnected}
