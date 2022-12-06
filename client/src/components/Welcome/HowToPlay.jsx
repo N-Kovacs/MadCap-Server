@@ -79,17 +79,20 @@ export default function HowToPlay() {
             fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
           }}>About</h2>
 
+          <p style={{ margin: 0 }}>A fast-paced multiplayer game designed by Nicholas Kovaks, Spencer Cole & William Gadd</p>
+
         </div>
         <Paper elevation={3}
           sx={{
             p: 1
           }}
         >
-          <ul style={{ listStyle: 'none', padding: '5px' }}>
-            <li>A fast-paced multiplayer game</li>
+          <ul style={{ listStyle: 'square' }}>
             <li>Uses Websockets for a snappy, real-time UX</li>
-            <li>Developed by:</li>
-            <li>Nicholas Kovaks, Spencer Cole & William Gadd</li>
+            <li>Functional design using MUI</li>
+            <li>React</li>
+            <li>PostgreSQL</li>
+            <li></li>
 
           </ul>
         </Paper>
