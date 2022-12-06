@@ -18,17 +18,30 @@ VALUES
 ('Islands', 3),
 ('European Countries', 3),
 
-('Fruit', 4),
+('Fruits and Vegetables', 4),
 ('Pizza Toppings', 4),
-('Cheese', 4),
-('Fish', 4),
 ('Desserts', 4),
 
 ('Pokemon', 5),
 ('First Person Shooters', 5),
+('Third Person Shooters', 5),
+('Turn Based Games', 5),
+('Gaming Terms', 5),
 ('Side Scrollers', 5),
 ('Consoles', 5),
 ('Protagonists', 5),
+('Bad Guys', 5),
+('Nintendo Characters', 5),
+('MOBA Characters', 5),
+('Famous Items', 5),
+('Games You Own', 5),
+('MOBA Characters', 5),
+('Multiplayer Games', 5),
+('Fighting Games', 5),
+('Things you say while playing', 5),
+('Fighting Game Characters', 5),
+('Locations', 5),
+('Genres', 5),
 
 ('Anything', 6),
 
@@ -86,4 +99,5 @@ VALUES
 ('Cartoon Characters', 9),
 ('Things that Have Stripes', 9),
 ('Animals', 9),
-('Spicy Food', 9);
+('Spicy Food', 9),
+('Girls Names', 9);
