@@ -20,7 +20,7 @@ const socket = io(SERVER, {
 export default function App() {
   const { btnState } = useLoaderData();
 
-  const game_url = useParams().game_url || "/"
+  const game_url = useParams().game_url;
 
   const [gameData, setGameData] = useState({});
   const [name, setName] = useState("");
@@ -35,7 +35,7 @@ export default function App() {
   const { mode, transition } = useVisualMode(WELCOME);
 
   useEffect(() => {
-    if (game_url === "/") {
+    if (!game_url) {
       removeCookies("user", { path: "/" });
     }
   }, [game_url]);
