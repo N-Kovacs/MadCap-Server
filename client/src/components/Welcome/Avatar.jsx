@@ -152,7 +152,8 @@ export default function ActionAvatar(props) {
       </div>
       <MobileStepper
         sx={{
-          justifyContent: 'center'
+          justifyContent: 'center',
+          backgroundColor: '#d4dcff'
         }}
         steps={maxSteps}
         position="static"

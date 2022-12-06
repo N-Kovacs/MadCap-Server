@@ -16,7 +16,7 @@ export default function LinkBox(props) {
     setUrl(`${props.url}`);
   }, []);
 
-
+  const test_url = 'https://www.madcap.ninja/0erjCnF23'
 
   const handleCopy = () => {
     setOpen(true);
@@ -48,7 +48,7 @@ export default function LinkBox(props) {
           id="outlined-basic"
           variant="outlined"
           InputProps={{ endAdornment: <CopyButton /> }}
-          value={url.slice(27)}
+          value={test_url.slice(24)}
           onClick={handleCopy}
           disabled
         />
