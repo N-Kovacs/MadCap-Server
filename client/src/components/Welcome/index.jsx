@@ -11,7 +11,6 @@ export default function Welcome(props) {
       <WelcomeBox
         btnState={props.btnState}
         host={props.host}
-        url_path={props.url_path}
         name={props.name}
         setCurrentUser={props.setCurrentUser}
         handleName={props.handleName}

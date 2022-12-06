@@ -138,7 +138,6 @@ export default function App() {
       {mode === WELCOME && (
         <Welcome
           transition={transition}
-          url_path={game_url}
           name={name}
           host={isHost}
           btnState={btnState}
