@@ -22,8 +22,11 @@ export default function Clock(props) {
   ];
 
   const tick1 = new Audio("./tick_1.wav");
+  tick1.type = "audio/wav";
   const tick2 = new Audio("./tick_2.wav");
+  tick2.type = "audio/wav";
   const alarm = new Audio("./alarm.wav");
+  alarm.type = "audio/wav";
   tick1.loop = false;
   tick2.loop = false;
 
