@@ -234,49 +234,50 @@
   height: 100%;
 }
 
-.purple {
-  color: #8a2eff;
-}
-.green {
-  color: #4bab2f;
-}
-.teal {
-  color: #72d695;
-}
-.darkgoldenrod {
-  color: #fdbe00;
-}
-.blue {
-  color: #52b5ff;
-}
-.red {
-  color: #c61234;
-}
-.slateblue {
-  color: #621dff;
-}
-.yellow {
-  color: #fff600;
-}
-.lightcyan {
-  color: #008bff;
-}
-.orange {
-  color: #ff8638;
-}
-.cornflowerblue {
-  color: #99ffd8;
-}
-.darkorange {
-  color: #e14400;
-}
-.plum {
-  color: #ffbb87;
-}
+//this was a bad way to do things I used and should be safe to remove now
+// .purple {
+//   color: #8a2eff;
+// }
+// .green {
+//   color: #4bab2f;
+// }
+// .teal {
+//   color: #72d695;
+// }
+// .darkgoldenrod {
+//   color: #fdbe00;
+// }
+// .blue {
+//   color: #52b5ff;
+// }
+// .red {
+//   color: #c61234;
+// }
+// .slateblue {
+//   color: #621dff;
+// }
+// .yellow {
+//   color: #fff600;
+// }
+// .lightcyan {
+//   color: #008bff;
+// }
+// .orange {
+//   color: #ff8638;
+// }
+// .cornflowerblue {
+//   color: #99ffd8;
+// }
+// .darkorange {
+//   color: #e14400;
+// }
+// .plum {
+//   color: #ffbb87;
+// }
 
-.orchid {
-  color: #ff64aa;
-}
+// .orchid {
+//   color: #ff64aa;
+// }
 
 @media only screen and (min-width: 500px) {
   .category-header {

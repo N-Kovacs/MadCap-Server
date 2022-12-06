@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import axios from "axios";
 
 import { Box } from "@mui/material";
@@ -9,13 +11,16 @@ import PlayerView from "./PlayerView";
 import "./styles.scss";
 
 export default function Lobby(props) {
+  const { game_url } = useParams();
+
   const [view, setView] = useState("PLAYER")
   const [categories, setCategories] = useState(null);
   const [checkIn, setCheckIn] = useState(false);
   
+  const [display, setDisplay] = useState(0);
+  
   const players = props.gameData.users;
   
-  const [display, setDisplay] = useState(0);
   useEffect(() => {
     const timer =
       setTimeout(() => {
@@ -28,7 +33,7 @@ export default function Lobby(props) {
   useEffect(() => {
     Promise.all([
       axios.get("/api/categories"),
-      axios.get(`/api/games/${props.url_path}`),
+      axios.get(`/api/games/${game_url}`),
     ])
       .then(([categoriesResponse, gameResponse]) => {
         setCategories(categoriesResponse.data);
@@ -89,8 +94,6 @@ export default function Lobby(props) {
           setGameData={props.setGameData}
           categories={categories}
           handleStart={props.handleStart}
-          url={props.url}
-          url_path={props.url_path}
           updatePlayer = {props.updatePlayer}
         />}
 

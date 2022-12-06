@@ -1,17 +1,69 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
+import { useNavigate } from "react-router-dom"
+
 import AnswerList from './AnswerList';
 import Podium from './Podium';
 import ResultsClock from './ResultsClock';
+
+import axios from "axios";
+import { generateRandomString } from "../../helpers/helpers";
+
 
 export default function GameBoard(props) {
 
   const [border, setBorder] = useState("none");
   const [opacity, setOpacity] = useState(0);
+  const navigate = useNavigate();
+
+  const makeGame = () => {
+    const url = generateRandomString();
+
+   
+    axios.post("/api/games", {url})
+    .then(({ data }) => {
+      props.setGameData(() => (
+        {
+          ...data,
+          users: [],
+          categories: [],
+          subcategories: []
+        })
+      )})
+    .then(() => (
+      axios.post(`/api/games/${url}/users`, {
+        name: props.player.name,
+        color: props.player.color,
+        avatar_url: props.player.avatar_url,
+        host: true
+      })
+    ))
+    .then((response) => {
+      const user = response.data
+      props.setGameData((prev) => (
+       { ...prev, users: [{...user}]}
+      ))
+      return user.id
+    })
+    .then((userID) => {
+      props.setCurrentUser(userID)
+    })
+    .then(() => {
+      navigate(`/${url}`)
+    })
+    .then(() => {
+      props.transition("LOBBY")
+      console.log("State transition")
+      props.sendOthers(url)
+    })
+    .catch((err) => {
+      console.log(url)
+      console.error(err.message)});
+}
 
   const handleHome = () => {
     props.removeCookies("user", { path: "/" });
-    props.removeCookies("host", { path: "/" });
+    navigate('/');
     props.transition("WELCOME");
   };
 
@@ -70,16 +122,19 @@ export default function GameBoard(props) {
         </div> :
 
         <div className="podium-header">
+
+          {props.player.host &&
           <Button
             variant='outlined'
-            onClick={() => props.transition("LOBBY")}
+            onClick={makeGame}
             sx={{
               p: 0, width: '23%', pt: '2px', opacity: opacity, fontSize: '13px',
               transition: 'opacity 1.2s ease-in'
             }}
           >
             New Game
-          </Button>
+          </Button>}
+
           <h1 style={{ fontSize: '40px' }}>Podium</h1>
           <Button
             //FIX HOME so it goes to root (cookie clear successfully)

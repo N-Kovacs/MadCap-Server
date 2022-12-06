@@ -18,9 +18,9 @@ const socket = io(SERVER, {
 });
 
 export default function App() {
-  const { full_url, btnState } = useLoaderData();
+  const { btnState } = useLoaderData();
 
-  const game_url = useParams().game_url || "/"
+  const game_url = useParams().game_url;
 
   const [gameData, setGameData] = useState({});
   const [name, setName] = useState("");
@@ -35,7 +35,7 @@ export default function App() {
   const { mode, transition } = useVisualMode(WELCOME);
 
   useEffect(() => {
-    if (game_url === "/") {
+    if (!game_url) {
       removeCookies("user", { path: "/" });
     }
   }, [game_url]);
@@ -128,7 +128,7 @@ export default function App() {
     socket.emit("joined-game", game_url);
   };
   const updatePlayer = () => {
-    console.log("hello?");
+    console.log("joined game");
     socket.emit("joined-game", game_url);
   };
 
@@ -138,7 +138,6 @@ export default function App() {
       {mode === WELCOME && (
         <Welcome
           transition={transition}
-          url_path={game_url}
           name={name}
           host={isHost}
           btnState={btnState}
@@ -154,8 +153,6 @@ export default function App() {
       {mode === LOBBY && (
         <Lobby
           host={isHost()}
-          url={full_url}
-          url_path={game_url}
           handleStart={handleStart}
           currentUser={Number(cookies.user)}
           gameData={gameData}
@@ -171,10 +168,12 @@ export default function App() {
         <Game
           gameData={gameData}
           currentUser={Number(cookies.user)}
-          url_path={game_url}
           removeCookies={removeCookies}
           transition={transition}
           host={isHost()}
+          setGameData={setGameData}
+          setCurrentUser={setCurrentUser}
+
         />
       )}
     </div>

@@ -11,7 +11,7 @@ export default function AnswerListItem(props) {
   // console.log(props.id)
 
   const alphaRows = classNames(
-    props.captureColour,
+    // props.captureColour,
     "alpha-item",
     { "letter-captured": props.captureColour },
     { alpha2: props.id > 13 },
@@ -63,7 +63,7 @@ export default function AnswerListItem(props) {
 
   return (
     <li className={alphaRows}>
-      {props.phase === "game" && <h2>{props.letter}</h2>}
+      {props.phase === "game" && <h2 style={{color:props.captureColour}}>{props.letter}</h2>}
       {props.phase === "results" && props.answer && (
         <h2>
           <Button className="vote-buttons"

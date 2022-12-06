@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 import Box from '@mui/material/Box';
 
@@ -12,18 +12,20 @@ import { Alert } from "@mui/material";
 
 export default function WelcomeBox(props) {
 
-  const url = generateRandomString();
+  const { game_url } = useParams();
+  const [btnState, setBtnState] = useState("MAKE")
+  
+  const new_url = generateRandomString();
   
   const MAKE = "MAKE";
   const JOIN = "JOIN";
 
-  const [btnState, setBtnState] = useState("MAKE")
 
   //there are two btnStates (props and this.state)
 
   useEffect(() => {
     setBtnState(props.btnState)
-  }, [props.url_path])
+  }, [game_url])
 
   // if no link use MAKE (default state)
   // if there is a custom link use JOIN
@@ -42,7 +44,7 @@ export default function WelcomeBox(props) {
 
   const makeGame = () => {
    
-      axios.post("/api/games", { url })
+      axios.post("/api/games", { url: new_url })
       .then(({ data }) => {
         props.setGameData(() => (
           {
@@ -53,7 +55,7 @@ export default function WelcomeBox(props) {
           })
         )})
       .then(() => (
-        axios.post(`/api/games/${url}/users`, {
+        axios.post(`/api/games/${new_url}/users`, {
           name,
           color,
           avatar_url,
@@ -71,20 +73,20 @@ export default function WelcomeBox(props) {
         props.setCurrentUser(userID)
       })
       .then(() => {
-        navigate(`/${url}`)
+        navigate(`/${new_url}`)
       })
       .then(() => {
         props.transition("LOBBY")
         console.log("State transition")
       })
       .catch((err) => {
-        console.log(url)
+        console.log(new_url)
         console.error(err.message)});
   }
 
   const joinGame = () => {
   
-    axios.get(`/api/games/${props.url_path}`)
+    axios.get(`/api/games/${game_url}`)
     .then(response => response.data)
     .then(({ users, maxPlayers }) => {
       if (users.length >= maxPlayers) {
@@ -93,7 +95,7 @@ export default function WelcomeBox(props) {
       }
     })
     .then(() => (
-      axios.post(`/api/games/${props.url_path}/users`, {
+      axios.post(`/api/games/${game_url}/users`, {
         name,
         color,
         avatar_url,
