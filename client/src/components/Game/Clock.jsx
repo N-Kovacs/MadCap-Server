@@ -2,6 +2,11 @@ import Box from "@mui/material/Box";
 import { useState, useEffect, Fragment } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
+import useSound from "use-sound"
+
+import tick1 from "./tick_1.wav"
+// import tick2 from "./tick_2.wav"
+
 // import timer from "./timer.mp3"
 
 export default function Clock(props) {
@@ -10,6 +15,8 @@ export default function Clock(props) {
   const [gameTimer, setGameTimer] = useState(seconds);
   const [color, setColor] = useState('none');
   const [fontSize, setFontSize] = useState('40px');
+  const [playSound1] = useSound(tick1)
+  const [playSound2] = useSound(tick1)
 
   const colors = [
     '#FFA1A1',
@@ -21,15 +28,15 @@ export default function Clock(props) {
     '#B1AFFF'
   ];
 
-  const tick1 = new Audio("./tick_1.wav");
-  const tick2 = new Audio("./tick_2.wav");
+  // const tick1 = new Audio("./tick_1.wav");
+  // const tick2 = new Audio("./tick_2.wav");
   const alarm = new Audio("./alarm.wav");
-  tick1.loop = false;
-  tick2.loop = false;
+  // tick1.loop = false;
+  // tick2.loop = false;
 
   useEffect(() => {
-    if (gameTimer % 2 === 0) tick1.play();
-    if (gameTimer % 2 !== 0) tick2.play();
+    if (gameTimer % 2 === 0) playSound1()
+    if (gameTimer % 2 !== 0) playSound2()
 
     const timer =
       gameTimer > 0 && setTimeout(() => {
@@ -37,8 +44,8 @@ export default function Clock(props) {
       }, 1000);
 
     if (gameTimer === 0) {
-      tick1.pause();
-      tick2.pause();
+      // tick1.pause();
+      // tick2.pause();
       props.setStatePhase("vote");
     }
     return () => clearTimeout(timer);
