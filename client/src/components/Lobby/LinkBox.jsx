@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect, Fragment } from 'react';
 
 import Box from '@mui/material/Box';
@@ -8,7 +8,7 @@ import { TextField, Snackbar } from '@mui/material';
 
 export default function LinkBox(props) {
 
-  const { url_path } = useLoaderData();
+  const { game_url } = useParams();
   const [url, setUrl] = useState("");
   const [open, setOpen] = useState(false);
 
@@ -48,7 +48,7 @@ export default function LinkBox(props) {
           id="outlined-basic"
           variant="outlined"
           InputProps={{ endAdornment: <CopyButton /> }}
-          value={url.slice(27)}
+          value={game_url}
           onClick={handleCopy}
           disabled
         />

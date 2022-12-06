@@ -9,6 +9,7 @@ import axios from 'axios';
 import { Tooltip } from '@mui/material';
 
 export default function GameSettings(props) {
+  console.log("Props url", props.url)
 
   const [settings, setSettings] = useState(
     {
