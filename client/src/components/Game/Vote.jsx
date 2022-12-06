@@ -25,7 +25,7 @@ export default function Vote (props) {
 
   return (
     <Box className="vote-box">
-      <h1 style={{display: display, fontSize: "35px" }}>Vote!</h1>
+      <h1 style={{display: display, fontSize: "38px" }}>Vote!</h1>
     </Box>
   )
 }

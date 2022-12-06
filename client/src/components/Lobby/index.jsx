@@ -52,7 +52,7 @@ export default function Lobby(props) {
 
   return (
     <div className="lobby-main"
-      style={{opacity: display, transition: 'opacity 350ms ease' }}
+      style={{opacity: display, transition: 'opacity 375ms ease' }}
     >
       <Box
         sx={{
