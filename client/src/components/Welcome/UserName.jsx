@@ -24,8 +24,9 @@ export default function UserName(props) {
         borderColor: 'orange',
       },
       '&.Mui-focused fieldset': {
-        borderColor: 'green',
+        borderColor: 'darkblue',
       },
+      
     },
   });
 
@@ -46,11 +47,10 @@ export default function UserName(props) {
         my: 1.5,
         '& .MuiInputBase-input': {
           caretColor: 'transparent',
-          caretHeight: 2,
           fontSize: 40,
           py: 0,
           height: 53
-        }
+        }, '& .MuiInputBase-input:focus' : {backgroundColor: '#f0f4ff'}
       }}
     />
   );

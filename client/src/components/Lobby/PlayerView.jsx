@@ -7,7 +7,9 @@ return (
   <div className="player-view-main">
     <Box className="player-view-box"
       sx={{
-        backgroundColor: '#f0f5ff',
+        backgroundColor: '#f5f8ff;',
+        border: '1.5px solid #c6c6c6',
+        borderRadius: '3px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

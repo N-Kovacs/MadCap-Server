@@ -9,7 +9,12 @@ export default function UpdateButton(props) {
         sx={{
           width: '93%',
           height: 35,
-          fontSize: '20px'
+          fontSize: '20px',
+          backgroundColor: '#153eb3;',
+          '&:hover': {
+            backgroundColor: '#0d2977',
+            color: '#e7e8ff',
+          }
         }}
       >set</Button>
     </Fragment>

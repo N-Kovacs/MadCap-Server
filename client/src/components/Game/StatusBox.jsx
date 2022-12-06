@@ -6,7 +6,7 @@ import ChatList from './ChatList';
 
 
 export default function StatusBox(props) {
-  
+
   return (
     <Box className="status-box" >
 
@@ -16,10 +16,10 @@ export default function StatusBox(props) {
 
       <Box className="chat-box-main"
         sx={{
-          backgroundColor: '#dde5ff',
-          border: '2px solid white',
+          backgroundColor: '#E0E1F0',
+          borderTop: '2px solid white',
           borderTopLeftRadius: '10px',
-          borderLeftStyle: 'none',
+          borderBottomRightRadius: '10px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -27,13 +27,14 @@ export default function StatusBox(props) {
           pr: 0, pl: '4px', pb: '2px',
           m: 0,
           width: '71.5%',
-          height: '100%'
-          // maxHeight: '277px'
+          height: '100%',
+          maxHeight: '268px'
         }}>
         <Box className="chat-box"
           sx={{
-            backgroundColor: '#bec5dc',
+            backgroundColor: '#c2cef7;',
             borderTopLeftRadius: '5px',
+            borderBottomRightRadius: '1px',
             height: '100%',
             width: '99%',
             overflow: 'auto', mr: '2px'
@@ -43,11 +44,11 @@ export default function StatusBox(props) {
             currentPlayer={props.currentPlayer}
           />
         </Box>
-
-                  <Entry
+        <Entry
           sendMessage={props.sendMessage}
           isConnected={props.isConnected}
           lastMessage={props.lastMessage}
+          phase={props.phase}
         />
       </Box>
     </Box>

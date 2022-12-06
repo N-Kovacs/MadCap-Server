@@ -3,37 +3,32 @@ import { Button } from '@mui/material';
 import AnswerList from './AnswerList';
 import Podium from './Podium';
 import ResultsClock from './ResultsClock';
-import { useNavigate } from 'react-router-dom';
 
 export default function GameBoard(props) {
 
-  const [border, setBorder] = useState("2px solid black");
+  const [border, setBorder] = useState("none");
   const [opacity, setOpacity] = useState(0);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (props.phase === "round") {
-      setBorder("none") 
-    } else {
-      setBorder("2px solid black") 
-    }
-  }, [props.phase]);
 
   const handleHome = () => {
     props.removeCookies("user", { path: "/" });
     props.removeCookies("host", { path: "/" });
-    navigate('/');
     props.transition("WELCOME");
   };
 
+  useEffect(() => {
+    if (props.phase === "round") {
+      setBorder("none");
+    } else {
+      setBorder("2px solid black");
+    }
+  }, [props.phase]);
 
   useEffect(() => {
-    if  (props.phase === "podium") {
-      console.log("INSIDE THE USEFFECT IN GAMEBOARD!!")
-    const timer =
-    setTimeout(() => {
-        setOpacity(100);
-      }, 4000);
+    if (props.phase === "podium") {
+      const timer =
+        setTimeout(() => {
+          setOpacity(100);
+        }, 4000);
       return () => clearTimeout(timer);
     }
   }, [props.phase]);
@@ -43,7 +38,7 @@ export default function GameBoard(props) {
 
       {props.phase !== "podium" ?
 
-        <div className="game-header" style={{borderBottom: border}}>
+        <div className="game-header" style={{ borderBottom: border }}>
           {props.phase !== "round" &&
             <h2 className="category-header"
               style={{ margin: '4px', mr: '5px' }}
@@ -75,25 +70,23 @@ export default function GameBoard(props) {
         </div> :
 
         <div className="podium-header">
-          {props.host && (
           <Button
             variant='outlined'
             onClick={() => props.transition("LOBBY")}
             sx={{
-              p: 0, width: '87px', opacity: opacity, fontSize: '12px',
+              p: 0, width: '23%', pt: '2px', opacity: opacity, fontSize: '13px',
               transition: 'opacity 1.2s ease-in'
             }}
           >
             New Game
           </Button>
-          )}
-          <h1 style={{ fontSize: '32px' }}>Podium</h1>
+          <h1 style={{ fontSize: '36px' }}>Podium</h1>
           <Button
             //FIX HOME so it goes to root (cookie clear successfully)
             variant='outlined'
             onClick={handleHome}
             sx={{
-              p: 0, width: '87px', opacity: opacity, fontSize: '12px',
+              p: 0, width: '23%', pt: '2px', opacity: opacity, fontSize: '13px',
               transition: 'opacity 1.5s ease-in 2s'
             }}
           >

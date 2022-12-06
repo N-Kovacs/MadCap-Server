@@ -1,11 +1,11 @@
 import Box from "@mui/material/Box";
-import { useState, useEffect, Fragment } from "react";
+import { useState, Fragment } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 export default function Clock(props) {
 
   const seconds = props.gameData.timer;
-  const [gameTimer, setGameTimer] = useState(seconds);
+  // const [gameTimer, setGameTimer] = useState(seconds);
   const [color, setColor] = useState('none');
   const [fontSize, setFontSize] = useState('40px');
 
@@ -39,6 +39,7 @@ export default function Clock(props) {
         }}
       >
         <CountdownCircleTimer className="circle-timer"
+          
           isPlaying
           duration={seconds}
           colors={[...colors]}

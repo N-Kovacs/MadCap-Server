@@ -12,7 +12,18 @@ export default function Lobby(props) {
   const [view, setView] = useState("PLAYER")
   const [categories, setCategories] = useState(null);
   const [checkIn, setCheckIn] = useState(false);
+  
   const players = props.gameData.users;
+  
+  const [display, setDisplay] = useState(0);
+  useEffect(() => {
+    const timer =
+      setTimeout(() => {
+        setDisplay(100);
+      }, 0);
+    return () => clearTimeout(timer);
+  }, []);
+
 
   useEffect(() => {
     Promise.all([
@@ -39,19 +50,20 @@ export default function Lobby(props) {
   }
 
 
-
   return (
-    <div className="lobby-main">
+    <div className="lobby-main"
+      style={{opacity: display, transition: 'opacity 350ms ease' }}
+    >
       <Box
         sx={{
           px: 2.5,
           display: "flex",
-          maxWidth: '490px',
-          width: "100%",
+          maxWidth: '558px',
+          width: "100%"
         }}
       >
-        <div className="lobby-header">
-          <h1>Lobby</h1>
+        <div className="lobby-header" style={{zIndex: 1000}}>
+          <h1 >Lobby</h1>
         </div>
       </Box>
       <Box
@@ -60,9 +72,11 @@ export default function Lobby(props) {
           px: 1,
           display: "flex",
           justifyContent: "space-between",
-          maxWidth: '490px',
+          maxWidth: '558px',
           height: "fit-content",
           width: "100%",
+          // backgroundColor: '#f5f5f585',
+          // boxShadow: '0px -10px 125px whitesmoke'
         }}
       >
         <PlayersList

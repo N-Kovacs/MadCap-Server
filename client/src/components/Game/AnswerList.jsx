@@ -8,7 +8,6 @@ import Vote from "./Vote";
 
 
 export default function AnswerList(props) {
-  // console.log(props.answers)
   const firstHalf = props.answers.slice(0, 13);
   const secondHalf = props.answers.slice(13);
   const answers1 = firstHalf.map((answer) => {
@@ -80,6 +79,7 @@ export default function AnswerList(props) {
           gameData={props.gameData}
           nextRound={props.nextRound}
           round={props.round}
+          phase={props.phase}
         />
       }
       <ul className={`alpha-row alpha2 ${rowPhase}`}>{answers2}</ul>

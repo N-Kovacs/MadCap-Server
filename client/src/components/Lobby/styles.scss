@@ -1,6 +1,8 @@
 .lobby-main {
   height: 100vh;
   width: 100vw;
+  background-image: url("../../../public/bg-squiggle.jpg");
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +10,7 @@
 }
 
 .lobby-header {
-  margin-top: 0.1em;
+  // margin-top: 0.1em;
   width: 100%;
 }
 
@@ -25,13 +27,14 @@
 }
 
 .game-settings-main {
-  height: 600px;
+  // height: 600px;
+  height: 100%;
   width: 72%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-left: 6px;
+  margin-left: 2%;
 }
 
 .player-view-header h2 {
@@ -90,11 +93,11 @@
 
 /* for the Select dropdown */
 .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
-  max-height: 404px !important;
-  width: 60% !important;
-  min-width: 16px !important;
-  top: 245px !important;
-  left: 151px !important;
+  // max-height: 404px !important;
+  // width: 60% !important;
+  // min-width: 16px !important;
+  // top: 245px !important;
+  // left: 151px !important;
 }
 /* inner category width */
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
@@ -106,3 +109,43 @@
   background-color: rgb(50 50 50 / 67%) !important;
   height: 53px !important;
 }
+
+  /* Shiney thing */
+ 
+  
+  .player-view-box:after {
+    content: "";
+    position: absolute;
+    top: -110%;
+    left: -210%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    transform: rotate(30deg);
+    
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+      to right, 
+      rgba(255, 255, 255, 0.13) 0%,
+      rgba(255, 255, 255, 0.13) 77%,
+      rgba(255, 255, 255, 0.5) 92%,
+      rgba(255, 255, 255, 0.0) 100%
+    );
+  }
+  
+  /* Hover state - trigger effect */
+  
+  .player-view-box:hover:after {
+    opacity: 1;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }
+  
+  /* Active state */
+  
+  .player-view-box:active:after {
+    opacity: 0;
+  }

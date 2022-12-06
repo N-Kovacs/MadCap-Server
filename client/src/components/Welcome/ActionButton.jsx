@@ -11,12 +11,16 @@ export default function ActionButton(props) {
           maxWidth: '350px',
           height: 65,
           fontSize: 30,
-          mb: 3.5
+          mb: 3.5,
+          backgroundColor: '#153eb3;',
+          '&:hover': {
+            backgroundColor: '#0d2977',
+            color: '#e7e8ff',
+          },
         }}
         type="submit"
         onClick={props.onClick}
         variant="contained"
-        color="success"
         size="large"
       >{props.children}</Button>
     </Fragment>

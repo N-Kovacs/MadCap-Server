@@ -23,14 +23,28 @@ export default function HowToPlay() {
           mt: 5,
           mb: 2
         }}>
-        <div className="how-to how-to-description">
-          <h2>How To Play</h2>
+        <div className="how-to how-to-description"
+          style={{ marginLeft: '5px',
+            padding: '10px', paddingRight: '10px',
+            width: '43%', fontSize: "14px"
+          }}
+        >
+          <h2 style={{
+            fontSize: '20px', paddingLeft: '0px', margin: '0px', marginBottom: '10px'
+          }}>How To Play</h2>
 
+          <p style={{ margin: 0 }}>Put on your thinking cap and get ready for a word rush!</p>
+          <p>Create your own unqiue word game and invite your friends for the ultimate brainstorm.</p>
+          <p>beat the clock with as many guesses as possible without overlapping on any available letters.</p>
+          <p>type '/' to chat during game. 
+          <br></br>Let's gooo!</p>
         </div>
-        <Paper elevation={3} sx={{ p: 1, width: '59%'}}>
-          <p>how .........to play...the game.........</p>
-          <p>visual ...............examples..........</p>
-          <p>will................go.. here.....coool.</p>
+        <Paper elevation={3} sx={{ p: 1, width: '59%' }}>
+          <div>
+
+            <p>screnshots!!!!!!</p>
+            <p>will................go.. here.....coool.</p>
+          </div>
         </Paper>
       </Box>
       <Box
@@ -39,10 +53,18 @@ export default function HowToPlay() {
           height: 300,
           backgroundColor: '#f0f2ff',
           display: 'flex',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          mb: 2
         }}>
-        <div className="how-to about-description">
-          <h2>About</h2>
+        <div className="how-to about-description"
+          style={{ marginLeft: '5px',
+            padding: '10px', paddingRight: '10px',
+            width: '43%', fontSize: "14px"
+          }}
+        >
+          <h2 style={{
+            fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
+          }}>About</h2>
 
         </div>
         <Paper elevation={3}
@@ -50,9 +72,10 @@ export default function HowToPlay() {
             p: 1
           }}
         >
-          <p>about ...the game...</p>
-          <p>fun facts..........</p>
-          <p>will...go here.....coool.</p>
+          <p>A fast-paced multiplayer game</p>
+          <p>Uses Websockets for a snappy, real-time UX</p>
+          <p>Developed by:</p>
+          <p>Nicholas Kovaks, Spencer Cole & William Gadd</p>
         </Paper>
       </Box>
     </Container>

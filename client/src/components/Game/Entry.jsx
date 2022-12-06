@@ -12,16 +12,25 @@ export default function Entry(props) {
 
   const send = () => {
     if (message[0] === "/") {
-      props.sendMessage(message.slice(1), "results")
+      props.sendMessage(message.slice(1), "results");
     } else {
       props.sendMessage(message);
     }
-    setMessage("")
+    setMessage("");
     // console.log(message);
   };
 
+
   const post = (e) => {
-    setMessage(e.target.value);
+    if (props.phase === "game" ||
+      props.phase === "round") {
+      if (e.target.value.length < 16 || 
+        e.target.value[0] === '/') {
+        setMessage(e.target.value);
+      }
+    } else {
+      setMessage(e.target.value);
+    }
     // console.log('state change', e.target.value)
   };
 
@@ -29,7 +38,7 @@ export default function Entry(props) {
     if (e.key === "Enter") {
       send();
     }
-  }
+  };
 
   /// if event.target ==
 
@@ -40,17 +49,20 @@ export default function Entry(props) {
       <div className="messages-input"
         style={{
           display: 'flex',
-          flexDirection: 'row', justifyContent: 'flex-end'
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          height: '26px'
         }}>
         <input id="message-box"
-          style={{ width: '100%' }}
+          style={{ width: '100%', border: '1px solid #bcbcbc'  }}
           type="text"
           onChange={post}
           onKeyPress={enterWatch}
           value={message}
           autoComplete="off"
         />
-        <button id="submit" onClick={send}>Send</button>
+        <button id="submit" onClick={send}
+        style={{border: '1px solid #bcbcbc'}}>Send</button>
       </div>
     </Box>
   );

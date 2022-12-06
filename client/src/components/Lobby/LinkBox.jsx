@@ -17,6 +17,7 @@ export default function LinkBox(props) {
   }, []);
 
 
+
   const handleCopy = () => {
     setOpen(true);
     navigator.clipboard.writeText(url);
@@ -47,7 +48,7 @@ export default function LinkBox(props) {
           id="outlined-basic"
           variant="outlined"
           InputProps={{ endAdornment: <CopyButton /> }}
-          value={url_path}
+          value={url.slice(27)}
           onClick={handleCopy}
           disabled
         />
@@ -58,6 +59,8 @@ export default function LinkBox(props) {
         autoHideDuration={100}
         onChange={() => setOpen(false)}
         open={open}
+        sx={{'& .MuiPaper-root': {display: 'flex',
+    justifyContent: 'center'}}}
       />
     </Fragment>
   );

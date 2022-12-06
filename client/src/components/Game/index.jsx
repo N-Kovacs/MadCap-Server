@@ -250,6 +250,15 @@ export default function Game(props) {
     round: 1
   });
 
+  const [display, setDisplay] = useState(0);
+  useEffect(() => {
+    const timer =
+      setTimeout(() => {
+        setDisplay(100);
+      }, 0);
+    return () => clearTimeout(timer);
+  }, []);
+
   // fn setphase to results
   // in timer pass down props.phase result
   const setStatePhase = (phase) => {
@@ -346,11 +355,9 @@ export default function Game(props) {
   });
 
   useEffect(() => {
-    // console.log(stateRef.current);
 
     socket.on("connect", () => {
       socket.emit("set-room", props.url_path);
-      // console.log("connected");
       setState({
         ...stateRef.current,
         isConnected: true,
@@ -396,7 +403,7 @@ export default function Game(props) {
       ) {
         let chatSet = [
           ...stateRef.current.chats,
-          { type: "status", message: `${message.user} tried to capture ${message.message[0]} but failed!`, colour: message.colour},
+          { type: "status", message: `${message.user} failed to capture ${message.message[0]}!`},
         ];
         setState((prev) => ({
           ...prev,
@@ -426,7 +433,6 @@ export default function Game(props) {
           chats: chatSet,
         }));
       }
-      // console.log(stateRef.current)
     });
 
     socket.on("vote", (vote) => {
@@ -510,8 +516,6 @@ export default function Game(props) {
       type: messageType,
     };
     console.log(messageObject)
-    // console.log(messageObject);
-    // console.log(socket);
     socket.emit("send-message", messageObject);
   };
   const sendVote = (vote) => {
@@ -546,7 +550,7 @@ export default function Game(props) {
   }
 
   return (
-    <div className="game-main">
+    <div className="game-main" style={{opacity: display, transition: 'opacity 1150ms ease-out' }}>
       <Box
         className="game-container"
         sx={{
@@ -554,12 +558,17 @@ export default function Game(props) {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          maxWidth: 435,
-          height: "fit-content",
+          maxWidth: '850px',
+          height: "100%",
           width: "100%",
           px: 0, pt: '2px',
-          // border: '2px solid black',
-          backgroundColor: "#f0f2ff",
+          border: '2px solid #a6a6a6',
+          borderRadius: '1%',
+          // backgroundColor: "#f0f2ff",
+          backgroundColor: "#f7f7ff",
+          boxShadow: '1px 1px 80px white, -1px -1px 80px white, 1px -1px 80px white, -1px 1px 80px white',
+          mt: '3%', mb: '3%', 
+          maxHeight: '823px',
         }}
       >
         <GameBoard
@@ -590,6 +599,7 @@ export default function Game(props) {
           chats={state.chats}
           players={state.players}
           currentPlayer={state.player}
+          phase={state.phase}
         />
       </Box>
     </div>

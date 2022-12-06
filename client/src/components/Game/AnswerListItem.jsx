@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
+import Button from "@mui/material/Button";
 
 export default function AnswerListItem(props) {
   const [voted, setVoted] = useState(false);
@@ -25,12 +26,10 @@ export default function AnswerListItem(props) {
       votesToEliminate: votesToEliminate,
       votes: props.votesAgainst + 1,
     };
-    console.log(voteObject);
     props.sendVote(voteObject);
   };
 
   const handleClick = () => {
-    console.log(props);
     voteAgainst();
     setVoted(true);
   };
@@ -67,19 +66,21 @@ export default function AnswerListItem(props) {
       {props.phase === "game" && <h2>{props.letter}</h2>}
       {props.phase === "results" && props.answer && (
         <h2>
-          <button
+          <Button
+            variant="outlined"
+            color="success"
             onClick={handleClick}
             disabled={disableButton}
-            style={{
+            sx={{
               backgroundColor: !buttonMode
                 ? `rgba(255,0,0,${buttonsColour})`
                 : "#313e4454",
-              fontSize: "14px",
               textDecoration: !buttonMode ? "none" : "line-through",
+              fontSize: "18px", px: '6px', color: 'black'
             }}
           >
             {props.answer}
-          </button>
+          </Button>
         </h2>
       )}
       {props.phase === "results" && !props.answer && <h2>{props.letter}</h2>}

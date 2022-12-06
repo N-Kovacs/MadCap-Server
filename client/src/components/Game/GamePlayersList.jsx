@@ -25,8 +25,8 @@ export default function GamePlayersList(props) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
-          backgroundColor: (player.id === props.currentPlayerID) && 'hwb(222deg 93% 0%)',
-          width: '109%', paddingTop: '6px', borderTopLeftRadius: '26px'
+          backgroundColor: (player.id === props.currentPlayerID) && '#e9f8fe',
+          width: '100%', paddingTop: '6px', borderTopLeftRadius: '26px'
         }}>
         <ListItemAvatar
           sx={{
@@ -57,9 +57,13 @@ export default function GamePlayersList(props) {
   return (
     <Fragment>
       <Box className="players-box"
-        sx={{ height: '100%', width: '34%', pl: '4px', pb: '2px' }}>
+        sx={{ height: '100%', width: '33%', pl: '4px', pb: '2px' }}>
         <Paper className="player-box-inner"
-          style={{ height: '100%', width: '100%', paddingRight: '10px', overflow: 'auto' }}
+          style={{ height: '99%', width: '100%',
+          backgroundColor: '#ffffff', 
+          overflow: 'auto' 
+          // paddingRight: '10px', 
+          }}
           elevation={3} sx={{ pl: '8px' }}>
           <Box sx={{
             flexGrow: 1,
@@ -79,7 +83,7 @@ export default function GamePlayersList(props) {
                     flexDirection: 'column',
                     alignItems: 'flex-start',
                     backgroundColor: (host && host.id === props.currentPlayerID)
-                      && 'hwb(222deg 93% 0%)', width: '109%', pt: '6px', pb: 0,
+                      && '#e9f8fe', width: '100%', pt: '6px', pb: 0,
                     borderTopLeftRadius: '26px'
                   }}>
                     <ListItemAvatar sx={{ display: 'flex', alignItems: 'center', pl: '3px' }}>
