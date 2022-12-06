@@ -28,22 +28,11 @@ export default function Clock(props) {
     '#B1AFFF'
   ];
 
-<<<<<<< HEAD
-  const tick1 = new Audio("./tick_1.wav");
-  tick1.type = "audio/wav";
-  const tick2 = new Audio("./tick_2.wav");
-  tick2.type = "audio/wav";
-  const alarm = new Audio("./alarm.wav");
-  alarm.type = "audio/wav";
-  tick1.loop = false;
-  tick2.loop = false;
-=======
   // const tick1 = new Audio("./tick_1.wav");
   // const tick2 = new Audio("./tick_2.wav");
   const alarm = new Audio("./alarm.wav");
   // tick1.loop = false;
   // tick2.loop = false;
->>>>>>> upstream/use-sound
 
   useEffect(() => {
     if (gameTimer % 2 === 0) playSound1()
