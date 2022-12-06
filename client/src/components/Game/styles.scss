@@ -17,7 +17,7 @@
 
 .game-board-main {
   width: 100%;
-  min-height: 515px;
+  min-height: 530px;
   // height: 517px;
   height: 100%;
   padding-left: 10px;
@@ -132,11 +132,11 @@
 .alpha-row {
   // font-family: 'Courier New', Courier, monospace;
   font-family: "LuckiestGuy";
-  color: #cbcbe5;
+  color: #e6e6f6;
   text-shadow:
   rgb(136, 136, 136) -0.5px -1.5px 0.5px,
-  rgb(28, 28, 28) -1.5px -1px 1px,
-  #000 -2px 1px 0,
+  rgb(28, 28, 28) -2px -1.5px 1px,
+  #000 -2.5px 1.5px 0,
   rgb(186, 186, 186) 1px 1px 0;
   list-style-type: none;
   display: flex;
@@ -221,7 +221,8 @@
   padding-bottom: "2px";
   /* max-height: 310px; */
   // height: 313px;
-  height: 55%;
+  // height: 55%;
+  height: 51%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
