@@ -83,6 +83,7 @@ export default function WelcomeBox(props) {
         console.error(err.message)}))
   }
 
+
   const joinGame = () => {
   
     axios.get(`https://madcap.onrender.com/api/games/${game_url}`)
@@ -99,27 +100,17 @@ export default function WelcomeBox(props) {
         color,
         avatar_url,
         host: false
-      })))
-      .then(() =>
-        axios.post(
-          `https://madcap.onrender.com/api/games/${props.url_path}/users`,
-          {
-            name,
-            color,
-            avatar_url,
-            host: false,
-          }
-        )
-      )
-      .then((response) => {
-        props.setCurrentUser(response.data.id);
       })
-      .then(() => {
-        props.transition("LOBBY");
-        props.checkedIn();
-      })
-      .catch((err) => console.error(err));
-  };
+    ))
+    .then((response) => {
+      props.setCurrentUser(response.data.id)
+    })
+    .then(() => {
+      props.transition("LOBBY")
+      props.checkedIn()
+    })
+    .catch((err) => console.error(err));
+  }
 
   const handleSubmit = () => {
     btnState === MAKE ? makeGame() : joinGame();
