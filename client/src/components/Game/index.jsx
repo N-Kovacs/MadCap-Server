@@ -235,7 +235,7 @@ export default function Game(props) {
   // const { subCats } = props.gameData.subcategories;
   // extract all logic into useApplicationData eventually...
 
-  const { game_url } = useParams;
+  const { game_url } = useParams();
 
   const [state, setState] = useState({
     answers: romanAlpha,
