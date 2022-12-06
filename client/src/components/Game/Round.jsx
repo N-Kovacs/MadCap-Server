@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 
 
 export default function Round(props) {
-  const [roundTimer, setRoundTimer] = useState(4);
+  const [roundTimer, setRoundTimer] = useState(5);
   // const [startTimer, setStartTimer] = useState(3);
   const [display, setDisplay] = useState("none");
   const [fontSize, setFontSize] = useState('10px');
@@ -21,7 +21,7 @@ export default function Round(props) {
   useEffect(() => {
     const timer =
       setTimeout(() => {
-        setFontSize('29px');
+        setFontSize('31px');
       }, 1575);
     return () => clearTimeout(timer);
   }, [fontSize]);
@@ -54,7 +54,7 @@ export default function Round(props) {
     <Box className="round-box"
       sx={{
         display: display,
-        fontSize: fontSize, transition: 'font-size 250ms'
+        fontSize: fontSize, transition: 'font-size 375ms'
       }}>
 
       {props.round !== props.gameData.rounds

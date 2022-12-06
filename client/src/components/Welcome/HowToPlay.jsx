@@ -45,7 +45,8 @@ export default function HowToPlay() {
         <Paper elevation={3}
           sx={{
             p: 1, width: '59%', display: 'flex',
-            alignItems: 'center', justifyContent: 'center'
+            alignItems: 'center', justifyContent: 'center', 
+            opacity: '60%', transition: 'opacity 200ms ease', '&:hover' : {opacity: '100%'}
           }}
         >
           <div stlye={{ fontSize: '12px' }} className="how-to">
@@ -80,7 +81,7 @@ export default function HowToPlay() {
             fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
           }}>About</h2>
 
-          <p style={{ margin: 0 }}>A fast-paced multiplayer game designed by Nicholas Kovaks, Spencer Cole & William Gadd</p>
+          <p style={{ margin: 0 }}>A fast-paced multiplayer game designed by Nicholas Kovacs, Spencer Cole & William Gadd</p>
 
         </div>
         <Paper elevation={3}
