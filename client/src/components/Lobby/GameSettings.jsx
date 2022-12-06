@@ -1,16 +1,18 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
+import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
+
+import axios from 'axios';
 
 import OptionsBox from "./OptionsBox";
 import CategoriesBox from "./CategoriesBox";
 import LinkBox from "./LinkBox";
 import StartButton from './StartButton';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Tooltip } from '@mui/material';
 
 export default function GameSettings(props) {
-  console.log("Props url", props.url)
-
+  const { game_url } = useParams();
   const [settings, setSettings] = useState(
     {
       timer: 60,
@@ -27,12 +29,12 @@ export default function GameSettings(props) {
   }, [currentCategories.length]);
 
   const gamesPutRequest = (settings, currentCategories) => (
-    axios.put(`api/games/${props.url_path}`, {
+    axios.put(`api/games/${game_url}`, {
       settings,
       categories: currentCategories
     })
       .then(() => {
-        axios.get(`api/games/${props.url_path}`)
+        axios.get(`api/games/${game_url}`)
           .then(({ data }) => props.setGameData(data));
       })
   );
@@ -86,7 +88,7 @@ export default function GameSettings(props) {
           height: 'fit-content',
           mt: '23px', pb: '10px'
         }}>
-        <LinkBox url={props.url} />
+        <LinkBox />
 
         {noCategories || settings.timer === 0 || settings.maxPlayers === 0 ||
         settings.rounds === 0

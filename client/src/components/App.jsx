@@ -18,7 +18,7 @@ const socket = io(SERVER, {
 });
 
 export default function App() {
-  const { full_url, btnState } = useLoaderData();
+  const { btnState } = useLoaderData();
 
   const game_url = useParams().game_url || "/"
 
@@ -154,8 +154,6 @@ export default function App() {
       {mode === LOBBY && (
         <Lobby
           host={isHost()}
-          url={full_url}
-          url_path={game_url}
           handleStart={handleStart}
           currentUser={Number(cookies.user)}
           gameData={gameData}
