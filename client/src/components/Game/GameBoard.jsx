@@ -15,6 +15,8 @@ export default function GameBoard(props) {
   const [opacity, setOpacity] = useState(0);
   const navigate = useNavigate();
 
+
+
   const makeGame = () => {
     const url = generateRandomString();
 
@@ -53,6 +55,7 @@ export default function GameBoard(props) {
     .then(() => {
       props.transition("LOBBY")
       console.log("State transition")
+      props.sendOthers(url)
     })
     .catch((err) => {
       console.log(url)
@@ -121,7 +124,7 @@ export default function GameBoard(props) {
 
         <div className="podium-header">
 
-
+          {props.player.host &&
           <Button
             variant='outlined'
             onClick={makeGame}
@@ -131,7 +134,7 @@ export default function GameBoard(props) {
             }}
           >
             New Game
-          </Button>
+          </Button>}
 
           <h1 style={{ fontSize: '36px' }}>Podium</h1>
           <Button

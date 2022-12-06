@@ -45,5 +45,9 @@ module.exports = (app) => {
       console.log("joined game at ", room)
       app.io.in(room).emit("update-players");
     });
+    socket.on("send-others", (obj) => {
+      console.log("send others at", obj.room, "to", obj.url)
+      app.io.in(obj.room).emit("sent-next", obj.url);
+    });
   });
 };
