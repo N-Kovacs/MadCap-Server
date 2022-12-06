@@ -552,16 +552,16 @@ export default function Game(props) {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          maxWidth: 435,
-          // height: "fit-content",
+          maxWidth: '850px',
           height: "100%",
           width: "100%",
           px: 0, pt: '2px',
-          // border: '2px solid black',
+          border: '1.5px solid #515151',
+          borderRadius: '1%',
           backgroundColor: "#f0f2ff",
+          boxShadow: '1px 1px 38px whitesmoke, -1px -1px 38px whitesmoke, 1px -1px 38px whitesmoke, -1px 1px 38px whitesmoke',
           mt: '3%', mb: '3%', 
           maxHeight: '823px',
-          maxWidth: '850px'
         }}
       >
         <GameBoard

@@ -47,11 +47,11 @@ export default function Lobby(props) {
           px: 2.5,
           display: "flex",
           maxWidth: '558px',
-          width: "100%",
+          width: "100%"
         }}
       >
-        <div className="lobby-header">
-          <h1>Lobby</h1>
+        <div className="lobby-header" style={{zIndex: 1000}}>
+          <h1 >Lobby</h1>
         </div>
       </Box>
       <Box
@@ -63,6 +63,8 @@ export default function Lobby(props) {
           maxWidth: '558px',
           height: "fit-content",
           width: "100%",
+          // backgroundColor: '#f5f5f585',
+          // boxShadow: '0px -10px 125px whitesmoke'
         }}
       >
         <PlayersList

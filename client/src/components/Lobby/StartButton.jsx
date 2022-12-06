@@ -15,9 +15,14 @@ export default function StartButton (props) {
         width: props.disabled ? '100%' : '93%',
           height: 65,
           fontSize: '19px',
+          backgroundColor: '#153eb3;',
+          '&:hover': {
+            backgroundColor: '#0d2977',
+            color: '#e7e8ff',
+          },
           '&.Mui-disabled': {
-           bgcolor: '#29722c4a',
-           color: '#93ac94',
+           bgcolor: '#afc1ff',
+           color: '#cbd4f1',
           }
         }}
         disabled={props.disabled}

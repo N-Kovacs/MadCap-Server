@@ -16,9 +16,10 @@ export default function StatusBox(props) {
 
       <Box className="chat-box-main"
         sx={{
-          backgroundColor: '#dde5ff',
+          backgroundColor: '#ecf0ff',
           borderTop: '2px solid white',
           borderTopLeftRadius: '10px',
+          borderBottomRightRadius: '10px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -31,8 +32,9 @@ export default function StatusBox(props) {
         }}>
         <Box className="chat-box"
           sx={{
-            backgroundColor: '#bec5dc',
+            backgroundColor: '#c2cef7;',
             borderTopLeftRadius: '5px',
+            borderBottomRightRadius: '1px',
             height: '100%',
             width: '99%',
             overflow: 'auto', mr: '2px'

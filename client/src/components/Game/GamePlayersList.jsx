@@ -25,7 +25,7 @@ export default function GamePlayersList(props) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
-          backgroundColor: (player.id === props.currentPlayerID) && 'hwb(222deg 93% 0%)',
+          backgroundColor: (player.id === props.currentPlayerID) && '#ccd3ff',
           width: '100%', paddingTop: '6px', borderTopLeftRadius: '26px'
         }}>
         <ListItemAvatar
@@ -59,9 +59,10 @@ export default function GamePlayersList(props) {
       <Box className="players-box"
         sx={{ height: '100%', width: '33%', pl: '4px', pb: '2px' }}>
         <Paper className="player-box-inner"
-          style={{ height: '99%', width: '100%', 
-          // paddingRight: '10px', 
+          style={{ height: '99%', width: '100%',
+          backgroundColor: '#e1e8ff', 
           overflow: 'auto' 
+          // paddingRight: '10px', 
           }}
           elevation={3} sx={{ pl: '8px' }}>
           <Box sx={{
@@ -82,7 +83,7 @@ export default function GamePlayersList(props) {
                     flexDirection: 'column',
                     alignItems: 'flex-start',
                     backgroundColor: (host && host.id === props.currentPlayerID)
-                      && 'hwb(222deg 93% 0%)', width: '100%', pt: '6px', pb: 0,
+                      && '#ccd3ff', width: '100%', pt: '6px', pb: 0,
                     borderTopLeftRadius: '26px'
                   }}>
                     <ListItemAvatar sx={{ display: 'flex', alignItems: 'center', pl: '3px' }}>

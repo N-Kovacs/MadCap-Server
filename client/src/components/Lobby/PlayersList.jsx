@@ -31,7 +31,7 @@ export default function PlayersList(props) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
-          bgcolor: (host && host.id === props.currentUser) && 'hwb(222deg 93% 0%)',
+          bgcolor: (host && host.id === props.currentUser) && '#ccd3ff',
           width: '100%', pt: '10px', mb: '8px', pb: '0px', borderTopLeftRadius: '26px'
 
         }}>
@@ -65,9 +65,9 @@ export default function PlayersList(props) {
 
   return (
     <Box className="players-box" sx={{ height: 'fit-content', width: '30%' }}>
-      <Paper elevation={3}
+      <Paper elevation={10}
         style={{ height: '700px', width: '100%' }}
-        sx={{ p: '0px', pl: '8px', overflow: 'scroll' }}>
+        sx={{ p: '0px', pl: '8px', overflow: 'scroll', backgroundColor: '#e1e8ff', boxShadow: 10 }}>
         <Box sx={{
           flexGrow: 1,
           maxWidth: 752,
@@ -89,7 +89,7 @@ export default function PlayersList(props) {
                   flexDirection: 'column',
                   alignItems: 'flex-start',
                   bgcolor:
-                    (host && host.id === props.currentUser) && 'hwb(222deg 93% 0%)',
+                    (host && host.id === props.currentUser) && '#ccd3ff',
                   width: '100%', pt: '10px', pb: '0px', borderTopLeftRadius: '26px'
                 }}>
                   <ListItemAvatar sx={{ display: 'flex', alignItems: 'center', justifyItems: 'space-around' }}>

@@ -74,7 +74,7 @@ export default function GameBoard(props) {
             variant='outlined'
             onClick={() => props.transition("LOBBY")}
             sx={{
-              p: 0, width: '87px', opacity: opacity, fontSize: '13px',
+              p: 0, width: '23%', pt: '2px', opacity: opacity, fontSize: '13px',
               transition: 'opacity 1.2s ease-in'
             }}
           >
@@ -86,7 +86,7 @@ export default function GameBoard(props) {
             variant='outlined'
             onClick={handleHome}
             sx={{
-              p: 0, width: '87px', opacity: opacity, fontSize: '13px',
+              p: 0, width: '23%', pt: '2px', opacity: opacity, fontSize: '13px',
               transition: 'opacity 1.5s ease-in 2s'
             }}
           >
