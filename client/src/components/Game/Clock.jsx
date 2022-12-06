@@ -28,6 +28,7 @@ export default function Clock(props) {
   tick2.loop = false;
 
   useEffect(() => {
+    setColor(colors[gameTimer % colors.length]);
     if (gameTimer % 2 === 0) tick1.play();
     if (gameTimer % 2 !== 0) tick2.play();
 
@@ -63,7 +64,7 @@ export default function Clock(props) {
         >
           {({ remainingTime }) => {
             
-            setColor(colors[remainingTime % colors.length]);
+            
             return (<div className="game-clock-inner">
               <h1 className="game-clock-counter"
                 style={{

@@ -16,7 +16,7 @@ return (
         alignItems: 'center',
         width: '100%',
         height: '100%',
-        ml: '6px', pl: '2px'
+        ml: '2%',
       }}>
       <div className="player-view-header">
         <h2 className="player-view-header" >Waiting for Host to Start Round</h2>

@@ -49,7 +49,7 @@ export default function Podium(props) {
         sx={{
           backgroundColor: `${player.color}ba`,
           width: `${player.score / 4}px`,
-          height: '45px',
+          height: '50px',
           transition: 'width 2.5s ease-out',
           overflow: 'hidden',
           border: '1px solid black', pl: '2px'

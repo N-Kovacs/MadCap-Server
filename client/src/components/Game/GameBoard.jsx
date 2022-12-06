@@ -123,29 +123,48 @@ export default function GameBoard(props) {
 
         <div className="podium-header">
 
-          
-          <Button
-            disabled={!props.player.host ? "disabled" : ""}
+          { !props.player.host ?
+          <Button className="podium-nav-buttons"
+            disabled
             variant='outlined'
             onClick={makeGame}
             sx={{
               p: 0, width: '23%', pt: '2px', 
-              opacity: !props.player.host ? "0%" : opacity, 
-              fontSize: '13px',
-              transition: 'opacity 1.2s ease-in'
+              opacity: 0, 
             }}
           >
             New Game
           </Button>
+            :
+            <Button className="podium-nav-buttons"
+            
+            variant='outlined'
+            onClick={makeGame}
+            sx={{
+              p: 0, width: '23%', pt: '2px', 
+              opacity: opacity, 
+              fontSize: '13px',
+              transition: 'opacity 1.2s ease-in', 
+              border: '2px solid #6673a2',
+              '&.MuiButtonBase-root': {backgroundColor: '#89a1fb;', color: 'white', fontSize: '13px', textShadow: '-1px 1px 2px black, 1px -0.5px 20px black'}, '&:hover' : { backgroundColor:' #2d4ac4',  border: '2px solid #4f62af',}
+            }}
+          >
+            New Game
+          </Button>
+        }
 
-          <h1 style={{ fontSize: '40px' }}>Podium</h1>
-          <Button
-            //FIX HOME so it goes to root (cookie clear successfully)
+          <h1 style={{ fontSize: '45px' }}>Podium</h1>
+
+          <Button className="podium-nav-buttons"
             variant='outlined'
             onClick={handleHome}
             sx={{
-              p: 0, width: '23%', pt: '2px', opacity: opacity, fontSize: '13px',
-              transition: 'opacity 1.5s ease-in 2s'
+              p: 0, width: '23%', pt: '2px', 
+              opacity: opacity, 
+              fontSize: '13px',
+              transition: 'opacity 1.5s ease-in', 
+              border: '2px solid #6673a2',
+              '&.MuiButtonBase-root': {backgroundColor: '#89a1fb;', color: 'white', fontSize: '13px', textShadow: '-1px 1px 2px black, 1px -0.5px 20px black'}, '&:hover' : { backgroundColor:' #2d4ac4',  border: '2px solid #4f62af',}
             }}
           >
             Home

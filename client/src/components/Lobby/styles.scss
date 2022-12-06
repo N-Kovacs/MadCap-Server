@@ -49,7 +49,8 @@
 
 .player-view-main {
   height: 700px;
-  width: 67%;
+  width: 72%;
+  margin-left: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,7 +112,6 @@
 }
 
   /* Shiney thing */
- 
   
   .player-view-box:after {
     content: "";
