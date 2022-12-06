@@ -4,11 +4,12 @@
     url("../../fonts/LuckiestGuy.ttf") format("truetype");
 }
 
+
 .game-main {
   height: 100vh;
   width: 100vw;
-  background-image: url("../../../public/bg-chunks.jpg");
-  background-size: cover;
+  // background-image: url("../../../public/bg-chunks.jpg");
+  // background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;

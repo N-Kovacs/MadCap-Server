@@ -39,6 +39,7 @@ export default function Clock(props) {
     if (gameTimer === 0) {
       tick1.pause();
       tick2.pause();
+      alarm.play();
       props.setStatePhase("vote");
     }
     return () => clearTimeout(timer);
@@ -61,12 +62,8 @@ export default function Clock(props) {
           colorsTime={[seconds, 10, 8, 7, 5, 2, 0]}
         >
           {({ remainingTime }) => {
+            
             setColor(colors[remainingTime % colors.length]);
-            if (remainingTime === 0) {
-              alarm.play();
-              props.setStatePhase("vote");
-            }
-
             return (<div className="game-clock-inner">
               <h1 className="game-clock-counter"
                 style={{

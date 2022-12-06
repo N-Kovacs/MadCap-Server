@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+
 import classNames from "classnames";
 
 import AnswerListItem from "./AnswerListItem";
@@ -10,14 +10,7 @@ import Vote from "./Vote";
 
 export default function AnswerList(props) {
 
-  const [display, setDisplay] = useState('none');
-  useEffect(() => {
-    const timer =
-      setTimeout(() => {
-        setDisplay("inherit");
-      }, 0);
-    return () => clearTimeout(timer);
-  }, []);
+
 
 
   const firstHalf = props.answers.slice(0, 13);
@@ -63,9 +56,7 @@ export default function AnswerList(props) {
 
   return (
     <div className="game-board-inner">
-      <ul className={`alpha-row alpha1 ${rowPhase}`}
-      style={{display: display}}
-      >
+      <ul className={`alpha-row alpha1 ${rowPhase}`}>
       {answers1}</ul>
 
       {props.phase === "game" && (

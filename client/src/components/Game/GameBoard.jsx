@@ -123,17 +123,20 @@ export default function GameBoard(props) {
 
         <div className="podium-header">
 
-          {props.player.host &&
+          
           <Button
+            disabled={!props.player.host ? "disabled" : ""}
             variant='outlined'
             onClick={makeGame}
             sx={{
-              p: 0, width: '23%', pt: '2px', opacity: opacity, fontSize: '13px',
+              p: 0, width: '23%', pt: '2px', 
+              opacity: !props.player.host ? "0%" : opacity, 
+              fontSize: '13px',
               transition: 'opacity 1.2s ease-in'
             }}
           >
             New Game
-          </Button>}
+          </Button>
 
           <h1 style={{ fontSize: '40px' }}>Podium</h1>
           <Button

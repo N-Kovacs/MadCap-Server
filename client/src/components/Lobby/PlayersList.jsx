@@ -64,13 +64,13 @@ export default function PlayersList(props) {
 
 
   return (
-    <Box className="players-box" sx={{ height: 'fit-content', width: '30%' }}>
+    <Box className="players-box" sx={{ height: '100%', width: '30%' }}>
       <Paper elevation={10}
-        style={{ height: '700px', width: '100%' }}
+        style={{ height: '100%', width: '100%' }}
         sx={{ p: '0px', pl: '8px', overflow: 'scroll', backgroundColor: '#ffffff', boxShadow: 10 }}>
         <Box sx={{
           flexGrow: 1,
-          maxWidth: 752,
+          maxWidth: 752, height: '100%',
           '& .MuiListItem-root': { px: 1 }
         }}
         >

@@ -47,7 +47,7 @@ export default function Podium(props) {
       <Item className="podium-list-item"
         key={player.id}
         sx={{
-          backgroundColor: player.color,
+          backgroundColor: `${player.color}ba`,
           width: `${player.score / 4}px`,
           height: '45px',
           transition: 'width 2.5s ease-out',
@@ -92,15 +92,6 @@ export default function Podium(props) {
           width: '100%',
           px: '15px',
         }}>
-        {/* <Button
-        onClick={() => props.transition("LOBBY")}
-        sx={{ p: 0, pb: '8px' }}>Make New Game
-        </Button>
-        <Button
-        //FIX HOME so it goes to root
-        onClick={handleHome}
-        sx={{ p: 0, pb: '8px' }}>Home
-        </Button> */}
       </Box>
 
       <div className="podium-board">
