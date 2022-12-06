@@ -168,7 +168,6 @@ export default function App() {
         <Game
           gameData={gameData}
           currentUser={Number(cookies.user)}
-          url_path={game_url}
           removeCookies={removeCookies}
           transition={transition}
           host={isHost()}
