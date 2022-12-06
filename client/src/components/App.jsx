@@ -22,9 +22,6 @@ export default function App() {
 
   const game_url = useParams().game_url || "/"
 
-  console.log("Params", useParams());
-  console.log("Button State", btnState);
-
   const [gameData, setGameData] = useState({});
   const [name, setName] = useState("");
   const [cookies, setCookies, removeCookies] = useCookies(["user"]);
@@ -39,13 +36,11 @@ export default function App() {
 
   useEffect(() => {
     if (game_url === "/") {
-      console.log("URL path", game_url);
       removeCookies("user", { path: "/" });
     }
   }, [game_url]);
 
   const isHost = () => {
-    console.log("GameData users", gameData.users)
    const currentUser = gameData.users
       && cookies.user
       && gameData.users
@@ -56,9 +51,6 @@ export default function App() {
   useEffect(() => {
     transition(isHost() ? LOBBY : WELCOME);
   }, []);
-
-  console.log("loader_url:", full_url);
-  console.log("url_path:", game_url);
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -83,10 +75,8 @@ export default function App() {
   });
 
   useEffect(() => {
-    // console.log(stateRef.current);
     socket.on("connect", () => {
       socket.emit("set-room", game_url);
-      // console.log("connected");
     });
 
     socket.on("start-game", () => {
@@ -107,7 +97,6 @@ export default function App() {
 
     socket.on("update-players", () => {
       console.log("playerjoined");
-      // console.log(hostCookieRef.current.host)
       axios
         .get(`/api/games/${url_pathRef.current}`)
         .then((gameResponse) => {
@@ -117,18 +106,6 @@ export default function App() {
           console.error(err.message);
         });
     });
-
-    // Promise.all([
-    //   axios.get("/api/categories"),
-    //   axios.get(`/api/games/${props.url_path}`)
-    // ])
-    // .then(([categoriesResponse, gameResponse]) => {
-    //   setCategories(categoriesResponse.data);
-    //   props.setGameData(gameResponse.data);
-    // })
-    // .catch(err => {
-    //   console.error(err.message);
-    // });
 
     return () => {
       socket.off("connect");
@@ -144,10 +121,6 @@ export default function App() {
       setReqUpdate(false);
     }
   }, [reqUpdate]);
-
-  useEffect(() => {
-    console.log("Game Data change", gameData)
-  }, [gameData.id])
 
   const checkedIn = () => {
     socket.emit("set-room", game_url);
@@ -165,12 +138,10 @@ export default function App() {
       {mode === WELCOME && (
         <Welcome
           transition={transition}
-          // remove slash from url path
-          url_path={game_url.substring(1)}
+          url_path={game_url}
           name={name}
           host={isHost}
           btnState={btnState}
-          // avatar={avatar}
           setCurrentUser={setCurrentUser}
           handleName={handleName}
           checkedIn={checkedIn}
@@ -196,7 +167,7 @@ export default function App() {
         />
       )}
 
-      {mode === "GAME" && (
+      {mode === GAME && (
         <Game
           gameData={gameData}
           currentUser={Number(cookies.user)}
