@@ -9,14 +9,7 @@ import { TextField, Snackbar } from '@mui/material';
 export default function LinkBox(props) {
   const { full_url } = useLoaderData();
   const { game_url } = useParams();
-  // const [url, setUrl] = useState("");
   const [open, setOpen] = useState(false);
-
- /*  useEffect(() => {
-    setUrl(`${props.url}`);
-  }, []);
- */
-
 
   const handleCopy = () => {
     setOpen(true);
