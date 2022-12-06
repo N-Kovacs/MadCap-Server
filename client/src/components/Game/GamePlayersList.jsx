@@ -74,7 +74,10 @@ export default function GamePlayersList(props) {
             <Grid item xs={12} md={6}>
               <Typography sx={{ mt: 0, mb: 0 }} variant="h6" component="div">
                 Players
+                {props.muted && <button onClick={props.toggleMute}>unMute Game Sounds</button>}
+                {!props.muted && <button onClick={props.toggleMute}>Mute Game Sounds</button>}
               </Typography>
+             
 
               <CustomStyle sx={{ '& .MuiList-root': { p: 0, pt: '2px' } }}>
                 <List dense={true} >

@@ -87,6 +87,7 @@ export default function GameBoard(props) {
 
   return (
     <div className="game-board-main">
+      
 
       {props.phase !== "podium" ?
 
@@ -134,6 +135,7 @@ export default function GameBoard(props) {
           >
             New Game
           </Button>}
+          
 
           <h1 style={{ fontSize: '40px' }}>Podium</h1>
           <Button
@@ -161,6 +163,7 @@ export default function GameBoard(props) {
             gameData={props.gameData}
             round={props.round}
             nextRound={props.nextRound}
+            muted = {props.muted}
 
             answers={props.answers}
             lastMessage={props.lastMessage}
