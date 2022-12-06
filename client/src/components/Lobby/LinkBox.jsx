@@ -16,6 +16,8 @@ export default function LinkBox(props) {
     setUrl(`${props.url}`);
   }, []);
 
+  console.log("URLPATH!!!!!!", props.url);
+
 
   const handleCopy = () => {
     setOpen(true);
@@ -58,6 +60,8 @@ export default function LinkBox(props) {
         autoHideDuration={100}
         onChange={() => setOpen(false)}
         open={open}
+        sx={{'& .MuiPaper-root': {display: 'flex',
+    justifyContent: 'center'}}}
       />
     </Fragment>
   );
