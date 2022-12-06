@@ -566,7 +566,7 @@ export default function Game(props) {
           borderRadius: '1%',
           // backgroundColor: "#f0f2ff",
           backgroundColor: "#f7f7ff",
-          boxShadow: '1px 1px 125px white, -1px -1px 125px white, 1px -1px 125px white, -1px 1px 125px white',
+          boxShadow: '1px 1px 80px white, -1px -1px 80px white, 1px -1px 80px white, -1px 1px 80px white',
           mt: '3%', mb: '3%', 
           maxHeight: '823px',
         }}
