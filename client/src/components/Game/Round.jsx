@@ -14,7 +14,7 @@ export default function Round(props) {
     const timer =
       setTimeout(() => {
         setDisplay("initial");
-      }, 1350);
+      }, 1550);
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,7 +22,7 @@ export default function Round(props) {
     const timer =
       setTimeout(() => {
         setFontSize('29px');
-      }, 1010);
+      }, 1575);
     return () => clearTimeout(timer);
   }, [fontSize]);
 
