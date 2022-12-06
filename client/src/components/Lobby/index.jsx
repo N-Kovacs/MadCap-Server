@@ -7,6 +7,7 @@ import { Box } from "@mui/material";
 import GameSettings from "./GameSettings";
 import PlayersList from "./PlayersList";
 import PlayerView from "./PlayerView";
+import useSound from "use-sound"
 
 import "./styles.scss";
 
