@@ -23,7 +23,7 @@ export default function WelcomeBox(props) {
 
   useEffect(() => {
     setBtnState(props.btnState)
-  }, [])
+  }, [props.url_path])
 
   // if no link use MAKE (default state)
   // if there is a custom link use JOIN

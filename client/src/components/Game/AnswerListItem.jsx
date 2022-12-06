@@ -26,19 +26,17 @@ export default function AnswerListItem(props) {
       votesToEliminate: votesToEliminate,
       votes: props.votesAgainst + 1,
     };
-    console.log(voteObject);
     props.sendVote(voteObject);
   };
 
   const handleClick = () => {
-    console.log(props);
     voteAgainst();
     setVoted(true);
   };
 
   let votesToEliminate = 1;
   if (props.playerCount > 2) {
-    votesToEliminate = Math.floor((props.playerCount - 1) / 2);
+    votesToEliminate = Math.ceil((props.playerCount) / 2);
   }
 
   //undo vote on reset

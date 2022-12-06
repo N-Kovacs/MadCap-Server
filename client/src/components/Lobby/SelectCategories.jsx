@@ -47,8 +47,6 @@ export default function SelectCategories(props) {
     },
   };
 
-  // console.log("Categories", categories);
-  // console.log("Category IDs", currentCategories)
 
   const CategoryIDToValue = ((cat_id) => categories.find((category) => category.id === cat_id).title);
 
@@ -117,7 +115,6 @@ export default function SelectCategories(props) {
             style={getStyles(cat.title, currentCategories, theme)}
           >
             {cat.title}
-            {/* {console.log("cat", cat)} */}
           </MenuItem>
         ))}
       </Select>

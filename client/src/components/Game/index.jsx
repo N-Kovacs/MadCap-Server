@@ -355,10 +355,9 @@ export default function Game(props) {
   });
 
   useEffect(() => {
-    // console.log(stateRef.current);
 
     socket.on("connect", () => {
-      // console.log("connected");
+      socket.emit("set-room", props.url_path);
       setState({
         ...stateRef.current,
         isConnected: true,
@@ -385,9 +384,10 @@ export default function Game(props) {
         //set answers to update answers
         let answerSet = setAnswer(message, stateRef.current);
         //set chat to update chat
+        console.log(message.colour)
         let chatSet = [
           ...stateRef.current.chats,
-          { type: "capture", user: message.user, message: message.message[0] },
+          { type: "capture", user: message.user, message: message.message[0], colour: message.colour },
         ];
         setState((prev) => ({
           ...prev,
@@ -414,7 +414,7 @@ export default function Game(props) {
       if (message.type === "chat") {
         let chatSet = [
           ...stateRef.current.chats,
-          { type: "chat", user: message.user, message: message.message },
+          { type: "chat", user: message.user, message: message.message, colour:message.colour },
         ];
         setState((prev) => ({
           ...prev,
@@ -433,7 +433,6 @@ export default function Game(props) {
           chats: chatSet,
         }));
       }
-      // console.log(stateRef.current)
     });
 
     socket.on("vote", (vote) => {
@@ -517,8 +516,6 @@ export default function Game(props) {
       type: messageType,
     };
     console.log(messageObject)
-    // console.log(messageObject);
-    // console.log(socket);
     socket.emit("send-message", messageObject);
   };
   const sendVote = (vote) => {
@@ -593,6 +590,7 @@ export default function Game(props) {
           clearBoard={clearBoard}
           removeCookies={props.removeCookies}
           transition={props.transition}
+          host={props.host}
         />
         <StatusBox
           isConnected={state.isConnected}

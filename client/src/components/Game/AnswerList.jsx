@@ -8,7 +8,6 @@ import Vote from "./Vote";
 
 
 export default function AnswerList(props) {
-  // console.log(props.answers)
   const firstHalf = props.answers.slice(0, 13);
   const secondHalf = props.answers.slice(13);
   const answers1 = firstHalf.map((answer) => {
