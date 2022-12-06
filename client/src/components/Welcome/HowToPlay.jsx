@@ -34,7 +34,8 @@ export default function HowToPlay() {
             fontSize: '20px', paddingLeft: '0px', margin: '0px', marginBottom: '10px'
           }}>How To Play</h2>
 
-          <p style={{ margin: 0 }}>Put on your thinking cap and get ready for a word rush!</p>
+          <p style={{ marginBottom: '14px' }}
+          >Put on your thinking cap and get ready for a word rush!</p>
           <p>Create your own unqiue word game and invite your friends for the ultimate brainstorm.</p>
           <p>beat the clock with as many guesses as possible without overlapping on any available letters.</p>
           <p>type '/' to chat during game.
@@ -90,8 +91,8 @@ export default function HowToPlay() {
           <ul style={{ listStyle: 'square' }}>
             <li>Uses Websockets for a snappy, real-time UX</li>
             <li>Functional design using MUI</li>
-            <li>React</li>
             <li>PostgreSQL</li>
+            <li>React</li>
             <li></li>
 
           </ul>
