@@ -16,7 +16,7 @@ export default function StatusBox(props) {
 
       <Box className="chat-box-main"
         sx={{
-          backgroundColor: '#ecf0ff',
+          backgroundColor: '#E0E1F0',
           borderTop: '2px solid white',
           borderTopLeftRadius: '10px',
           borderBottomRightRadius: '10px',

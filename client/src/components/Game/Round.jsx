@@ -21,14 +21,14 @@ export default function Round(props) {
   useEffect(() => {
     const timer =
       setTimeout(() => {
-        setFontSize('25px');
+        setFontSize('29px');
       }, 1010);
     return () => clearTimeout(timer);
   }, [fontSize]);
 
   useEffect(() => {
     const timer =
-      roundTimer > 0 && setTimeout(() => setRoundTimer((prev) => prev - 1), 1000);
+      roundTimer > 0 && setTimeout(() => setRoundTimer((prev) => prev - 1), 1100);
     if (roundTimer === 0) {
       props.getNextSubcategory();
       props.clearBoard();

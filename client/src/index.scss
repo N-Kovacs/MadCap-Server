@@ -4,19 +4,19 @@
 
 body {
   margin: 0;
-  
+
   font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   height: 100vh;
-  // background-color: #98acf4;
-  // background-color: #9db2ff;
-background: rgb(255,255,255);
-background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(157,178,255,1) 70%);
+  
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(99,133,255,1) 70%);
 
-  // background-image: url("..public/bg-quiggle.jpg");
+  // background-image: url("../public/bg-chunks.jpg");
+  // background-size: cover;
 }
 
 /* h1 h2 h3 h4 h5 h6 { */

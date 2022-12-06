@@ -1,6 +1,8 @@
 .game-main {
   height: 100vh;
   width: 100vw;
+  background-image: url("../../../public/bg-chunks.jpg");
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,9 +127,11 @@
 
 .alpha-row {
   @font-face {
-    font-family: "JonesOutline";
-    src: url("./fonts/jones-outline.ttf");
+    font-family: "OraveticaOutline";
+    src: local("OraveticaOutline"), url("../../fonts/OraveticaOutline.ttf") format("truetype");
   }
+
+  // font-family: 'Courier New', Courier, monospace;
 
   list-style-type: none;
   display: flex;

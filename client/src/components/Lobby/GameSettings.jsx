@@ -64,6 +64,8 @@ export default function GameSettings(props) {
       <Box className="cat-option-box"
         sx={{
           bgcolor: '#f0f5ff',
+          border: '1.5px solid #c6c6c6',
+          borderRadius: '3px',
           display: 'flex',
           flexDirection: 'column',
           width: '100%',
@@ -79,6 +81,8 @@ export default function GameSettings(props) {
       <Box className="game-settings-bottom-box"
         sx={{
           bgcolor: '#f0f5ff',
+          border: '1.5px solid #c6c6c6',
+          borderRadius: '3px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',

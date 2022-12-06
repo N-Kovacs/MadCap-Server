@@ -250,6 +250,15 @@ export default function Game(props) {
     round: 1
   });
 
+  const [display, setDisplay] = useState(0);
+  useEffect(() => {
+    const timer =
+      setTimeout(() => {
+        setDisplay(100);
+      }, 0);
+    return () => clearTimeout(timer);
+  }, []);
+
   // fn setphase to results
   // in timer pass down props.phase result
   const setStatePhase = (phase) => {
@@ -544,7 +553,7 @@ export default function Game(props) {
   }
 
   return (
-    <div className="game-main">
+    <div className="game-main" style={{opacity: display, transition: 'opacity 60ms ease-out' }}>
       <Box
         className="game-container"
         sx={{
@@ -556,11 +565,11 @@ export default function Game(props) {
           height: "100%",
           width: "100%",
           px: 0, pt: '2px',
-          border: '1.5px solid #515151',
+          border: '2px solid #868686',
           borderRadius: '1%',
           // backgroundColor: "#f0f2ff",
-          backgroundColor: "#e7eaff",
-          boxShadow: '1px 1px 38px whitesmoke, -1px -1px 38px whitesmoke, 1px -1px 38px whitesmoke, -1px 1px 38px whitesmoke',
+          backgroundColor: "#f7f7ff",
+          boxShadow: '1px 1px 38px white, -1px -1px 38px white, 1px -1px 38px white, -1px 1px 38px white',
           mt: '3%', mb: '3%', 
           maxHeight: '823px',
         }}
