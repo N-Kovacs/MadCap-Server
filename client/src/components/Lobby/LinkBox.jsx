@@ -16,7 +16,6 @@ export default function LinkBox(props) {
     setUrl(`${props.url}`);
   }, []);
 
-  console.log("URLPATH!!!!!!", props.url);
 
 
   const handleCopy = () => {
@@ -49,7 +48,7 @@ export default function LinkBox(props) {
           id="outlined-basic"
           variant="outlined"
           InputProps={{ endAdornment: <CopyButton /> }}
-          value={url_path}
+          value={url.slice(27)}
           onClick={handleCopy}
           disabled
         />

@@ -562,11 +562,11 @@ export default function Game(props) {
           height: "100%",
           width: "100%",
           px: 0, pt: '2px',
-          border: '2px solid #868686',
+          border: '2px solid #a6a6a6',
           borderRadius: '1%',
           // backgroundColor: "#f0f2ff",
           backgroundColor: "#f7f7ff",
-          boxShadow: '1px 1px 150px white, -1px -1px 150px white, 1px -1px 150px white, -1px 1px 150px white',
+          boxShadow: '1px 1px 125px white, -1px -1px 125px white, 1px -1px 125px white, -1px 1px 125px white',
           mt: '3%', mb: '3%', 
           maxHeight: '823px',
         }}
