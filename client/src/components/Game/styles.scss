@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "JonesOutline";
+  src: local("JonesOutline"), url("../../fonts/jones-outline.ttf") format("truetype");
+}
+
 .game-main {
   height: 100vh;
   width: 100vw;
@@ -126,13 +131,10 @@
 }
 
 .alpha-row {
-  @font-face {
-    font-family: "AgentOrange";
-    src: local("AgentOrange"), url("../../fonts/AgentOrange.ttf") format("truetype");
-  }
+  
 
   // font-family: 'Courier New', Courier, monospace;
-
+  font-family: "JonesOutline";
   list-style-type: none;
   display: flex;
   flex-direction: column;
