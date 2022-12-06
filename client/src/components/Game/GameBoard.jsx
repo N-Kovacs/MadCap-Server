@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import AnswerList from './AnswerList';
 import Podium from './Podium';
 import ResultsClock from './ResultsClock';
+
 import axios from "axios";
 import { generateRandomString } from "../../helpers/helpers";
 
@@ -14,8 +15,6 @@ export default function GameBoard(props) {
   const [border, setBorder] = useState("none");
   const [opacity, setOpacity] = useState(0);
   const navigate = useNavigate();
-
-
 
   const makeGame = () => {
     const url = generateRandomString();
@@ -64,7 +63,7 @@ export default function GameBoard(props) {
 
   const handleHome = () => {
     props.removeCookies("user", { path: "/" });
-    props.removeCookies("host", { path: "/" });
+    navigate('/');
     props.transition("WELCOME");
   };
 
@@ -136,7 +135,7 @@ export default function GameBoard(props) {
             New Game
           </Button>}
 
-          <h1 style={{ fontSize: '36px' }}>Podium</h1>
+          <h1 style={{ fontSize: '40px' }}>Podium</h1>
           <Button
             //FIX HOME so it goes to root (cookie clear successfully)
             variant='outlined'

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import axios from "axios";
 
 import { Box } from "@mui/material";
@@ -9,13 +11,16 @@ import PlayerView from "./PlayerView";
 import "./styles.scss";
 
 export default function Lobby(props) {
+  const { game_url } = useParams();
+
   const [view, setView] = useState("PLAYER")
   const [categories, setCategories] = useState(null);
   const [checkIn, setCheckIn] = useState(false);
   
+  const [display, setDisplay] = useState(0);
+  
   const players = props.gameData.users;
   
-  const [display, setDisplay] = useState(0);
   useEffect(() => {
     const timer =
       setTimeout(() => {
@@ -52,7 +57,7 @@ export default function Lobby(props) {
 
   return (
     <div className="lobby-main"
-      style={{opacity: display, transition: 'opacity 350ms ease' }}
+      style={{opacity: display, transition: 'opacity 375ms ease' }}
     >
       <Box
         sx={{
@@ -89,8 +94,6 @@ export default function Lobby(props) {
           setGameData={props.setGameData}
           categories={categories}
           handleStart={props.handleStart}
-          url={props.url}
-          url_path={props.url_path}
           updatePlayer = {props.updatePlayer}
         />}
 

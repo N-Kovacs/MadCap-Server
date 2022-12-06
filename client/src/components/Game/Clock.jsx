@@ -1,11 +1,13 @@
 import Box from "@mui/material/Box";
-import { useState, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+
+// import timer from "./timer.mp3"
 
 export default function Clock(props) {
 
   const seconds = props.gameData.timer;
-  // const [gameTimer, setGameTimer] = useState(seconds);
+  const [gameTimer, setGameTimer] = useState(seconds);
   const [color, setColor] = useState('none');
   const [fontSize, setFontSize] = useState('40px');
 
@@ -19,17 +21,30 @@ export default function Clock(props) {
     '#B1AFFF'
   ];
 
-  // useEffect(() => {
-  //   const timer =
-  //     gameTimer > 0 && setTimeout(() => {
-  //       setGameTimer(prev => (prev - 1));
-  //       // setColor(colors[gameTimer % colors.length]);
-  //     }, 1000);
+  const tick1 = new Audio("./tick_1.wav");
+  const tick2 = new Audio("./tick_2.wav");
+  const alarm = new Audio("./alarm.wav");
+  tick1.loop = false;
+  tick2.loop = false;
 
-  //   if (gameTimer === 0) props.setStatePhase("vote");
-  //   return () => clearTimeout(timer);
+  useEffect(() => {
+    if (gameTimer % 2 === 0) tick1.play();
+    if (gameTimer % 2 !== 0) tick2.play();
 
-  // }, [gameTimer]);
+    const timer =
+      gameTimer > 0 && setTimeout(() => {
+        setGameTimer(prev => (prev - 1));
+      }, 1000);
+
+    if (gameTimer === 0) {
+      tick1.pause();
+      tick2.pause();
+      props.setStatePhase("vote");
+    }
+    return () => clearTimeout(timer);
+
+  }, [gameTimer]);
+
 
   return (
     <Fragment>
@@ -39,16 +54,18 @@ export default function Clock(props) {
         }}
       >
         <CountdownCircleTimer className="circle-timer"
-          
+
           isPlaying
           duration={seconds}
           colors={[...colors]}
           colorsTime={[seconds, 10, 8, 7, 5, 2, 0]}
         >
           {({ remainingTime }) => {
-
             setColor(colors[remainingTime % colors.length]);
-            if (remainingTime === 0) props.setStatePhase("vote");
+            if (remainingTime === 0) {
+              alarm.play();
+              props.setStatePhase("vote");
+            }
 
             return (<div className="game-clock-inner">
               <h1 className="game-clock-counter"

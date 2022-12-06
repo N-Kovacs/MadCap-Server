@@ -60,6 +60,7 @@ export default function AnswerList(props) {
               setStatePhase={props.setStatePhase}
               gameData={props.gameData}
               round={props.round}
+              phase={props.phase}
             />
           <Notice 
           lastMessage={props.lastMessage} 

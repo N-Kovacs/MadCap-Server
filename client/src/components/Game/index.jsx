@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 import { useNavigate } from "react-router-dom"
 
@@ -234,6 +235,8 @@ export default function Game(props) {
   // const { subCats } = props.gameData.subcategories;
   // extract all logic into useApplicationData eventually...
 
+  const { game_url } = useParams();
+
   const [state, setState] = useState({
     answers: romanAlpha,
     chats: dummychat,
@@ -359,7 +362,7 @@ export default function Game(props) {
   useEffect(() => {
 
     socket.on("connect", () => {
-      socket.emit("set-room", props.url_path);
+      socket.emit("set-room", game_url);
       setState({
         ...stateRef.current,
         isConnected: true,
@@ -467,7 +470,7 @@ export default function Game(props) {
         let currentState = {
           answers: stateRef.current.answers,
           chats: stateRef.current.chats,
-          room: props.url_path
+          room: game_url
         };
         console.log(currentState);
         socket.emit("send-state", currentState);
@@ -519,7 +522,7 @@ export default function Game(props) {
     console.log(gamePhase)
     const messageObject = {
       message: messageUpper,
-      room: props.url_path,
+      room: game_url,
       colour: state.player.color,
       user: state.player.name,
       userId: state.player.id,
@@ -532,7 +535,7 @@ export default function Game(props) {
     const voteObject = {
       vote: vote.letter,
       answerPlayerId: vote.userId,
-      room: props.url_path,
+      room: game_url,
       votes: vote.votes,
       votesToEliminate: vote.votesToEliminate,
 
@@ -542,7 +545,7 @@ export default function Game(props) {
   };
   const checkedIn = () => {
     sendMessage("has connected", "results");
-    socket.emit("set-room", props.url_path);
+    socket.emit("set-room", game_url);
     setState((prev) => ({
       ...prev,
       checkIn: true,
@@ -580,7 +583,7 @@ export default function Game(props) {
           height: "100%",
           width: "100%",
           px: 0, pt: '2px',
-          border: '2px solid #a6a6a6',
+          border: '2px solid #8a8a8a',
           borderRadius: '1%',
           // backgroundColor: "#f0f2ff",
           backgroundColor: "#f7f7ff",

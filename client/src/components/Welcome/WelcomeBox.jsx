@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom"
 
 import Box from "@mui/material/Box";
 
@@ -11,18 +11,21 @@ import { generateRandomString } from "../../helpers/helpers";
 import { Alert } from "@mui/material";
 
 export default function WelcomeBox(props) {
-  const url = generateRandomString();
 
+  const { game_url } = useParams();
+  const [btnState, setBtnState] = useState("MAKE")
+  
+  const new_url = generateRandomString();
+  
   const MAKE = "MAKE";
   const JOIN = "JOIN";
 
-  const [btnState, setBtnState] = useState("MAKE");
 
   //there are two btnStates (props and this.state)
 
   useEffect(() => {
     setBtnState(props.btnState)
-  }, [props.url_path])
+  }, [game_url])
 
   // if no link use MAKE (default state)
   // if there is a custom link use JOIN
@@ -40,18 +43,19 @@ export default function WelcomeBox(props) {
   const navigate = useNavigate();
 
   const makeGame = () => {
-    axios
-      .post("https://madcap.onrender.com/api/games", { url })
+   
+      axios.post("https://madcap.onrender.com/api/games", { url: new_url })
       .then(({ data }) => {
-        props.setGameData(() => ({
-          ...data,
-          users: [],
-          categories: [],
-          subcategories: [],
-        }));
-      })
-      .then(() =>
-        axios.post(`https://madcap.onrender.com/api/games/${url}/users`, {
+        props.setGameData(() => (
+          {
+            ...data,
+            users: [],
+            categories: [],
+            subcategories: []
+          })
+        )})
+      .then(() => (
+        axios.post(`https://madcap.onrender.com/api/games/${new_url}/users`, {
           name,
           color,
           avatar_url,
@@ -68,28 +72,34 @@ export default function WelcomeBox(props) {
         props.setCurrentUser(userID);
       })
       .then(() => {
-        navigate(`/${url}`);
+        navigate(`/${new_url}`)
       })
       .then(() => {
         props.transition("LOBBY");
         console.log("State transition");
       })
       .catch((err) => {
-        console.log(url);
-        console.error(err.message);
-      });
-  };
+        console.log(new_url)
+        console.error(err.message)}))
+  }
 
   const joinGame = () => {
-    axios
-      .get(`https://madcap.onrender.com/api/games/${props.url_path}`)
-      .then((response) => response.data)
-      .then(({ users, maxPlayers }) => {
-        if (users.length >= maxPlayers) {
-          props.setLobbyIsFull(true);
-          throw new Error("Lobby is full");
-        }
-      })
+  
+    axios.get(`https://madcap.onrender.com/api/games/${game_url}`)
+    .then(response => response.data)
+    .then(({ users, maxPlayers }) => {
+      if (users.length >= maxPlayers) {
+        props.setLobbyIsFull(true)
+        throw new Error("Lobby is full");
+      }
+    })
+    .then(() => (
+      axios.post(`https://madcap.onrender.com/api/games/${game_url}/users`, {
+        name,
+        color,
+        avatar_url,
+        host: false
+      })))
       .then(() =>
         axios.post(
           `https://madcap.onrender.com/api/games/${props.url_path}/users`,
@@ -119,7 +129,8 @@ export default function WelcomeBox(props) {
     <Fragment>
       <Box
         sx={{
-          bgcolor: "background.paper",
+          // bgcolor: "background.paper",
+          backgroundColor: '#edf1ff',
           // boxShadow: '0px 0px 175px whitesmoke',
           boxShadow: '0px 3px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 4px 3px 0px rgb(0 0 0 / 12%), 0px -10px 125px whitesmoke',
           borderRadius: 2,

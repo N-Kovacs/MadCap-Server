@@ -66,7 +66,7 @@ export default function AnswerListItem(props) {
       {props.phase === "game" && <h2 style={{color:props.captureColour}}>{props.letter}</h2>}
       {props.phase === "results" && props.answer && (
         <h2>
-          <Button
+          <Button className="vote-buttons"
             variant="outlined"
             color="success"
             onClick={handleClick}
@@ -76,7 +76,8 @@ export default function AnswerListItem(props) {
                 ? `rgba(255,0,0,${buttonsColour})`
                 : "#313e4454",
               textDecoration: !buttonMode ? "none" : "line-through",
-              fontSize: "18px", px: '6px', color: 'black'
+              fontSize: "15px", px: "6px", mb: "5px",
+              color: 'black', borderColor: '#9C9C9A'
             }}
           >
             {props.answer}

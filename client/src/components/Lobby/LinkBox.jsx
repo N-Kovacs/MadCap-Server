@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import { useState, useEffect, Fragment } from 'react';
 
 import Box from '@mui/material/Box';
@@ -7,20 +7,13 @@ import { TextField, Snackbar } from '@mui/material';
 
 
 export default function LinkBox(props) {
-
+  const { full_url } = useLoaderData();
   const { game_url } = useParams();
-  const [url, setUrl] = useState("");
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setUrl(`${props.url}`);
-  }, []);
-
-
 
   const handleCopy = () => {
     setOpen(true);
-    navigator.clipboard.writeText(url);
+    navigator.clipboard.writeText(full_url);
   };
 
   const CopyButton = () => (
