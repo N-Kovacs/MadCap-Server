@@ -346,11 +346,9 @@ export default function Game(props) {
   });
 
   useEffect(() => {
-    // console.log(stateRef.current);
 
     socket.on("connect", () => {
       socket.emit("set-room", props.url_path);
-      // console.log("connected");
       setState({
         ...stateRef.current,
         isConnected: true,
@@ -426,7 +424,6 @@ export default function Game(props) {
           chats: chatSet,
         }));
       }
-      // console.log(stateRef.current)
     });
 
     socket.on("vote", (vote) => {
@@ -510,8 +507,6 @@ export default function Game(props) {
       type: messageType,
     };
     console.log(messageObject)
-    // console.log(messageObject);
-    // console.log(socket);
     socket.emit("send-message", messageObject);
   };
   const sendVote = (vote) => {

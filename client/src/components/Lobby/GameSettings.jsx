@@ -41,8 +41,6 @@ export default function GameSettings(props) {
     console.log("should have set true^");
     gamesPutRequest(settings, currentCategories)
       .catch((error) => {
-        console.log("Settings", settings);
-        console.log("Categories", currentCategories);
         console.error(error);
       });
   };
@@ -51,13 +49,10 @@ export default function GameSettings(props) {
     gamesPutRequest(settings, currentCategories)
       .then(() => props.handleStart())
       .catch((error) => {
-        console.log("Settings", settings);
-        console.log("Categories", currentCategories);
         console.error(error.message);
       });
   };
   const buttonText = "Start the Game";
-  console.log("Disabled", (!currentCategories) || (currentCategories.length === 0));
 
   return (
     <div className="game-settings-main">

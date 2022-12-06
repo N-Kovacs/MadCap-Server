@@ -25,12 +25,10 @@ export default function AnswerListItem(props) {
       votesToEliminate: votesToEliminate,
       votes: props.votesAgainst + 1,
     };
-    console.log(voteObject);
     props.sendVote(voteObject);
   };
 
   const handleClick = () => {
-    console.log(props);
     voteAgainst();
     setVoted(true);
   };
