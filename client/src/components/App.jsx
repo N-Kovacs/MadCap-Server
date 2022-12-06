@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import io from "socket.io-client";
 import axios from "axios";
@@ -18,7 +18,11 @@ const socket = io(SERVER, {
 });
 
 export default function App() {
-  const { full_url, url_path, btnState } = useLoaderData();
+  const { full_url, btnState } = useLoaderData();
+
+  const game_url = useParams().game_url || "/"
+
+  console.log("Params", useParams());
   console.log("Button State", btnState);
 
   const [gameData, setGameData] = useState({});
@@ -34,11 +38,11 @@ export default function App() {
   const { mode, transition } = useVisualMode(WELCOME);
 
   useEffect(() => {
-    if (url_path === "/") {
-      console.log("URL path", url_path);
+    if (game_url === "/") {
+      console.log("URL path", game_url);
       removeCookies("user", { path: "/" });
     }
-  }, [url_path]);
+  }, [game_url]);
 
   const isHost = () => {
     console.log("GameData users", gameData.users)
@@ -54,7 +58,7 @@ export default function App() {
   }, []);
 
   console.log("loader_url:", full_url);
-  console.log("url_path:", url_path);
+  console.log("url_path:", game_url);
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -65,23 +69,23 @@ export default function App() {
   };
 
   function handleStart() {
-    socket.emit("host-start-game", url_path);
+    socket.emit("host-start-game", game_url);
   }
 
   const modeRef = useRef(mode);
   const hostCookieRef = useRef(cookies);
-  const url_pathRef = useRef(url_path);
+  const url_pathRef = useRef(game_url);
   useEffect(() => {
     //without this, state ref in sockets will be out of date (when they are connected)
     modeRef.current = mode;
     hostCookieRef.current = cookies;
-    url_pathRef.current = url_path;
+    url_pathRef.current = game_url;
   });
 
   useEffect(() => {
     // console.log(stateRef.current);
     socket.on("connect", () => {
-      socket.emit("set-room", url_path);
+      socket.emit("set-room", game_url);
       // console.log("connected");
     });
 
@@ -146,13 +150,13 @@ export default function App() {
   }, [gameData.id])
 
   const checkedIn = () => {
-    socket.emit("set-room", url_path);
-    console.log("checked in", url_path);
-    socket.emit("joined-game", url_path);
+    socket.emit("set-room", game_url);
+    console.log("checked in", game_url);
+    socket.emit("joined-game", game_url);
   };
   const updatePlayer = () => {
     console.log("hello?");
-    socket.emit("joined-game", url_path);
+    socket.emit("joined-game", game_url);
   };
 
 
@@ -162,7 +166,7 @@ export default function App() {
         <Welcome
           transition={transition}
           // remove slash from url path
-          url_path={url_path.substring(1)}
+          url_path={game_url.substring(1)}
           name={name}
           host={isHost}
           btnState={btnState}
@@ -180,7 +184,7 @@ export default function App() {
         <Lobby
           host={isHost()}
           url={full_url}
-          url_path={url_path}
+          url_path={game_url}
           handleStart={handleStart}
           currentUser={Number(cookies.user)}
           gameData={gameData}
@@ -196,7 +200,7 @@ export default function App() {
         <Game
           gameData={gameData}
           currentUser={Number(cookies.user)}
-          url_path={url_path}
+          url_path={game_url}
           removeCookies={removeCookies}
           transition={transition}
           host={isHost()}
