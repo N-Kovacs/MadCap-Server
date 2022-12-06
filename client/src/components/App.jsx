@@ -175,6 +175,9 @@ export default function App() {
           removeCookies={removeCookies}
           transition={transition}
           host={isHost()}
+          setGameData={setGameData}
+          setCurrentUser={setCurrentUser}
+
         />
       )}
     </div>

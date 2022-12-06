@@ -48,7 +48,7 @@ export default function LinkBox(props) {
           id="outlined-basic"
           variant="outlined"
           InputProps={{ endAdornment: <CopyButton /> }}
-          value={url.slice(27)}
+          value={url}
           onClick={handleCopy}
           disabled
         />
