@@ -21,7 +21,7 @@ export default function GameBoard(props) {
     const url = generateRandomString();
 
    
-    axios.post("/api/games", {url})
+    axios.post("https://madcap.onrender.com/api/games", {url})
     .then(({ data }) => {
       props.setGameData(() => (
         {
@@ -32,7 +32,7 @@ export default function GameBoard(props) {
         })
       )})
     .then(() => (
-      axios.post(`/api/games/${url}/users`, {
+      axios.post(`https://madcap.onrender.com/api/games/${url}/users`, {
         name: props.player.name,
         color: props.player.color,
         avatar_url: props.player.avatar_url,
