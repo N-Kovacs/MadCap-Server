@@ -31,7 +31,7 @@ export default function PlayersList(props) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
-          bgcolor: (host && host.id === props.currentUser) && '#e9f8fe',
+          bgcolor: (player.id === props.currentUser) && '#e9f8fe',
           width: '100%', pt: '10px', mb: '8px', pb: '0px', borderTopLeftRadius: '26px'
 
         }}>
