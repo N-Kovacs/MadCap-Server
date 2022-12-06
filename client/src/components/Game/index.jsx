@@ -553,7 +553,7 @@ export default function Game(props) {
   }
 
   return (
-    <div className="game-main" style={{opacity: display, transition: 'opacity 60ms ease-out' }}>
+    <div className="game-main" style={{opacity: display, transition: 'opacity 1150ms ease-out' }}>
       <Box
         className="game-container"
         sx={{
@@ -569,7 +569,7 @@ export default function Game(props) {
           borderRadius: '1%',
           // backgroundColor: "#f0f2ff",
           backgroundColor: "#f7f7ff",
-          boxShadow: '1px 1px 38px white, -1px -1px 38px white, 1px -1px 38px white, -1px 1px 38px white',
+          boxShadow: '1px 1px 150px white, -1px -1px 150px white, 1px -1px 150px white, -1px 1px 150px white',
           mt: '3%', mb: '3%', 
           maxHeight: '823px',
         }}

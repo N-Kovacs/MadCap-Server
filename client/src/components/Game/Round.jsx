@@ -14,7 +14,7 @@ export default function Round(props) {
     const timer =
       setTimeout(() => {
         setDisplay("initial");
-      }, 1000);
+      }, 1350);
     return () => clearTimeout(timer);
   }, []);
 

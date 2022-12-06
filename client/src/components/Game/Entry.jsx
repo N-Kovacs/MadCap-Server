@@ -54,14 +54,15 @@ export default function Entry(props) {
           height: '26px'
         }}>
         <input id="message-box"
-          style={{ width: '100%' }}
+          style={{ width: '100%', border: '1px solid #bcbcbc'  }}
           type="text"
           onChange={post}
           onKeyPress={enterWatch}
           value={message}
           autoComplete="off"
         />
-        <button id="submit" onClick={send}>Send</button>
+        <button id="submit" onClick={send}
+        style={{border: '1px solid #bcbcbc'}}>Send</button>
       </div>
     </Box>
   );
