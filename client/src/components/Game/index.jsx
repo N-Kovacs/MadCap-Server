@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
+import { useNavigate } from "react-router-dom"
 
 import Box from "@mui/material/Box";
 
@@ -252,6 +253,7 @@ export default function Game(props) {
     subcategory: "",
     round: 1
   });
+  const navigate = useNavigate();
 
   const [display, setDisplay] = useState(0);
   useEffect(() => {
@@ -483,6 +485,13 @@ export default function Game(props) {
         chats: message.chats,
       }));
     });
+    socket.on("sent-next", (message) => {
+      props.removeCookies("user", { path: "/" });
+      props.removeCookies("host", { path: "/" });
+      props.transition("WELCOME");
+      navigate(`/${message}`)
+    });
+
 
     return () => {
       socket.off("connect");
@@ -491,6 +500,7 @@ export default function Game(props) {
       socket.off("vote");
       socket.off("request-state");
       socket.off("sync-state");
+      socket.off("sent-next");
     };
   }, []);
 
@@ -548,6 +558,14 @@ export default function Game(props) {
     }));
   };
 
+  const sendOthers = (url) => {
+    const sockObj = {
+      room: props.url_path,
+      url: url
+    }
+    socket.emit("send-others", sockObj);
+  }
+
   if (!state.checkIn) {
     checkedIn();
   }
@@ -594,6 +612,10 @@ export default function Game(props) {
           removeCookies={props.removeCookies}
           transition={props.transition}
           host={props.host}
+          setGameData={props.setGameData}
+          player={state.player}
+          setCurrentUser={props.setCurrentUser}
+          sendOthers = {sendOthers}
         />
         <StatusBox
           isConnected={state.isConnected}

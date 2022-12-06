@@ -128,7 +128,7 @@ export default function App() {
     socket.emit("joined-game", game_url);
   };
   const updatePlayer = () => {
-    console.log("hello?");
+    console.log("joined game");
     socket.emit("joined-game", game_url);
   };
 
@@ -171,6 +171,9 @@ export default function App() {
           removeCookies={removeCookies}
           transition={transition}
           host={isHost()}
+          setGameData={setGameData}
+          setCurrentUser={setCurrentUser}
+
         />
       )}
     </div>
