@@ -34,11 +34,15 @@ export default function App() {
 
   const { mode, transition } = useVisualMode(WELCOME);
 
+
   useEffect(() => {
     if (!game_url) {
       removeCookies("user", { path: "/" });
     }
   }, [game_url]);
+
+
+
 
   const isHost = () => {
    const currentUser = gameData.users
@@ -161,6 +165,7 @@ export default function App() {
           reqUpdate={reqUpdate}
           setReqUpdate={setReqUpdate}
           updatePlayer={updatePlayer}
+          transition = {transition}
         />
       )}
 
