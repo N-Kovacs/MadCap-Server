@@ -12,7 +12,10 @@ export default function StatusBox(props) {
 
       <GamePlayersList
         currentPlayerID={props.currentPlayer.id}
-        players={props.players} />
+        players={props.players}
+        muted = {props.muted}
+        toggleMute = {props.toggleMute} />
+        
 
       <Box className="chat-box-main"
         sx={{

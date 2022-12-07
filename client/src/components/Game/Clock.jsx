@@ -63,8 +63,7 @@ export default function Clock(props) {
           colorsTime={[seconds, 10, 8, 7, 5, 2, 0]}
         >
           {({ remainingTime }) => {
-            
-            
+                
             return (<div className="game-clock-inner">
               <h1 className="game-clock-counter"
                 style={{

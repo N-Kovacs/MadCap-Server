@@ -251,7 +251,8 @@ export default function Game(props) {
     checkIn: false,
     category: "",
     subcategory: "",
-    round: 1
+    round: 1,
+    muted: false
   });
   const navigate = useNavigate();
 
@@ -566,6 +567,21 @@ export default function Game(props) {
     socket.emit("send-others", sockObj);
   }
 
+  const toggleMute = () => {
+    if (state.muted){
+      setState((prev) => ({
+        ...prev,
+        muted: false,
+      }));
+
+    } else {
+      setState((prev) => ({
+        ...prev,
+        muted: true,
+      }));
+    }
+  }
+
   if (!state.checkIn) {
     checkedIn();
   }
@@ -618,6 +634,8 @@ export default function Game(props) {
           player={state.player}
           setCurrentUser={props.setCurrentUser}
           sendOthers = {sendOthers}
+          muted = {state.muted}
+
         />
         <StatusBox
           isConnected={state.isConnected}
@@ -627,6 +645,8 @@ export default function Game(props) {
           players={state.players}
           currentPlayer={state.player}
           phase={state.phase}
+          muted = {state.muted}
+          toggleMute = {toggleMute}
         />
       </Box>
     </div>
