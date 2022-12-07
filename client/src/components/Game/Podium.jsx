@@ -33,14 +33,15 @@ export default function Podium(props) {
   }, [])
 
   useEffect(() => {
+
+    const playerList = [...props.players].sort((playerA, playerB) => (playerB.score - playerA.score))
     setPlayers(
-      [...props.players]
-        .sort((playerA, playerB) => playerB.score - playerA.score)
+      [...playerList]
         .map(player => ({ ...player, score: 0 }))
     )
     const timer =
       setTimeout(() => {
-        setPlayers(props.players);
+        setPlayers(playerList);
         setOpacity(100);
       }, 0);
     return () => clearTimeout(timer);
