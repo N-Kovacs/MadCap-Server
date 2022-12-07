@@ -449,7 +449,8 @@ export default function Game(props) {
       //2 is dummy value
       console.log(voteAnswersSet);
       // if (props.votesAgainst > (playerCount - 1) / 2
-      if (voteAnswersSet[1] >= (stateRef.current.players.length - 1) / 2) {
+      // Math.ceil((props.playerCount) / 2)
+      if (voteAnswersSet[1] >= (Math.ceil(stateRef.current.players.length / 2))) {
         playerSet = setPlayerScore(vote.answerPlayerId, stateRef.current, -150);
       }
       // console.log();
