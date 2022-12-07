@@ -80,7 +80,15 @@ export default function HowToPlay() {
             fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
           }}>About</h2>
 
-          <p style={{ margin: 0 }}>A fast-paced multiplayer game designed by Nicholas Kovacs, Spencer Cole & William Gadd</p>
+          <p style={{ margin: 0 }}>A fast-paced multiplayer word game Built as a part of Lighthouse Labs web development bootcamp.
+          </p>
+          <br></br>
+          <div>Development and Design:
+            <div>Nicholas Kovacs <a href="https://github.com/N-Kovacs"> <img src= "/github-mark.svg" width="18" height="18" alt="image"></img></a></div>
+            <div>Spencer Cole <a href="https://github.com/colespen"> <img src= "/github-mark.svg" width="18" height="18" alt="image"></img></a></div>
+            <div>William Gadd <a href="https://github.com/coding-quizzer"> <img src= "/github-mark.svg" width="18" height="18" alt="image"></img></a></div>
+            </div>
+
 
         </div>
         <Paper elevation={3}
@@ -89,10 +97,12 @@ export default function HowToPlay() {
           }}
         >
           <ul style={{ listStyle: 'square' }}>
-            <li>Uses Websockets for a snappy, real-time UX</li>
+            <li>Uses Websockets via Socket.Io for a snappy, real-time UX</li>
             <li>Functional design using MUI</li>
-            <li>PostgreSQL</li>
-            <li>React</li>
+            <li>PostgreSQL for database backend</li>
+            <li>Create React App as the Base </li>
+            <li>Node Express server for REST </li>
+
           </ul>
         </Paper>
       </Box>
