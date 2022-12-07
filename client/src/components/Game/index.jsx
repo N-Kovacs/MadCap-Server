@@ -598,7 +598,7 @@ export default function Game(props) {
           justifyContent: "center",
           alignItems: "center",
           maxWidth: '850px',
-          height: "100%",
+          height: "93%",
           width: "100%",
           px: 0, pt: '2px',
           border: '2px solid #b9b9b9',
@@ -606,7 +606,7 @@ export default function Game(props) {
           // backgroundColor: "#f0f2ff",
           backgroundColor: "#f7f7ff",
           boxShadow: '1px 1px 80px white, -1px -1px 80px white, 1px -1px 80px white, -1px 1px 80px white',
-          mt: '3%', mb: '3%', 
+          mt: '4%', mb: '4%', 
           maxHeight: '823px',
         }}
       >
