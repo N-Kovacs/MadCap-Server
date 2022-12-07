@@ -232,6 +232,10 @@ const dummychat = [
 //   admin: true
 // };
 
+const responsiveContainer = {
+  height: {sm: "98%", md: "40%", lg: "40%", xl: "40%" }
+};
+
 export default function Game(props) {
   // const { subCats } = props.gameData.subcategories;
   // extract all logic into useApplicationData eventually...
@@ -600,7 +604,7 @@ export default function Game(props) {
           justifyContent: "center",
           alignItems: "center",
           maxWidth: '850px',
-          height: "98%",
+          // height: "98%",
           width: "100%",
           px: 0, pt: '2px',
           border: '2px solid #b9b9b9',

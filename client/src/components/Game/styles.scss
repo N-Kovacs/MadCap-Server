@@ -68,7 +68,7 @@
   height: 85%;
   padding-left: 2%;
   padding-right: 2%;
-  margin-top: 5px;
+  margin-top: 7px;
   // margin-bottom: 2%;
   // margin-bottom: 2%;
 }
@@ -245,21 +245,19 @@
   }
   .game-board-inner {
     // margin-top: 10px;
-    margin-top: '1.5%';
+    margin-top: '3px';
   }
 }
 
-@media screen and (max-height: 800px) {
+@media screen and (max-height: 799px) {
   .game-container {
-    height: 34%;
+    height: 98%;
   }
- 
-  .players-box {
-    height: '347px';
+}
+@media screen and (min-height: 800px) {
+  .game-container {
+    height: 80%;
   }
-  // .status-box {
-  //   height: 45%;
-  // }
 }
 
 // searchlights
