@@ -49,7 +49,7 @@ export default function Podium(props) {
   // users as state variable, 
 
   const playerScoreItems = players.map(player => (
-    <div className="podium-list-withpoint" style={{ marginTop: '8px' }}>
+    <div key={player.id} className="podium-list-withpoint" style={{ marginTop: '8px' }}>
       <Item className="podium-list-item"
         key={player.id}
         sx={{
