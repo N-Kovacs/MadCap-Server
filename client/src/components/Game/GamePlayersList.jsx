@@ -59,9 +59,16 @@ export default function GamePlayersList(props) {
   return (
     <Fragment>
       <Box className="players-box"
-        sx={{ height: '100%', width: '33%', pl: '4px', pb: '2px' }}>
+        sx={{ 
+          // height: '100%',
+          maxHeight: '281px', 
+          width: '33%', pl: '4px', pb: '2px' }}>
         <Paper className="player-box-inner"
-          style={{ height: '99%', maxHeight: '270px', width: '100%',
+          style={{ 
+            height: '99%', 
+            // maxHeight: '270px', 
+            // maxHeight: '289px', 
+            width: '100%',
           backgroundColor: '#ffffff', 
           overflow: 'auto' 
           // paddingRight: '10px', 

@@ -67,16 +67,6 @@ export default function SelectCategories(props) {
           flexDirection: 'column',
           '&.MuiInputBase-root': { height: "84px"},
         }}
-        // input=
-        // {<OutlinedInput className="the-outline-input-class" id="select-multiple-chip" label="Chip"
-        //   sx={{":root": {height: "117px"},
-        //     height: "117px",
-        //     px: 0,
-        //     py: 0,
-        //     '&.MuiInputBase-root': {height: "117px" },
-        //     '&.MuiSelect-select.MuiInputBase-input.MuiOutlinedInput-input': {p: 0 }
-        //   }}
-        // />}
         renderValue={(selected) => (
           <Box className="select-inner-scroll"
             sx={{
