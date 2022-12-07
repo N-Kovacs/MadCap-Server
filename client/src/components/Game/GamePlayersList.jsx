@@ -11,6 +11,8 @@ import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import CircleIcon from '@mui/icons-material/Circle';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 
 export default function GamePlayersList(props) {
@@ -59,7 +61,7 @@ export default function GamePlayersList(props) {
       <Box className="players-box"
         sx={{ height: '100%', width: '33%', pl: '4px', pb: '2px' }}>
         <Paper className="player-box-inner"
-          style={{ height: '99%', width: '100%',
+          style={{ height: '99%', maxHeight: '270px', width: '100%',
           backgroundColor: '#ffffff', 
           overflow: 'auto' 
           // paddingRight: '10px', 
@@ -72,10 +74,23 @@ export default function GamePlayersList(props) {
           }}
           >
             <Grid item xs={12} md={6}>
-              <Typography sx={{ mt: 0, mb: 0 }} variant="h6" component="div">
+              <Typography 
+              sx={{ 
+                mt: 0, mb: 0, pr: '3%', pl: '1%', 
+                display: 'flex', justifyContent: 'space-between'
+              }} 
+              variant="h6" component="div">
                 Players
-              </Typography>
 
+                {props.muted && <VolumeUpIcon  style={{cursor: 'pointer'}}
+                sx={{ pt: '3%', height: '25px', minWidth: '24px'}} 
+                onClick={props.toggleMute}></VolumeUpIcon>}
+                
+                {!props.muted && <VolumeOffIcon style={{cursor: 'pointer'}}
+                sx={{ pt: '3%', height: '25px', minWidth: '24px'}} 
+                onClick={props.toggleMute}></VolumeOffIcon>}
+              </Typography>
+            
               <CustomStyle sx={{ '& .MuiList-root': { p: 0, pt: '2px' } }}>
                 <List dense={true} >
                   <ListItem sx={{

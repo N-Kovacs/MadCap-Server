@@ -251,7 +251,8 @@ export default function Game(props) {
     checkIn: false,
     category: "",
     subcategory: "",
-    round: 1
+    round: 1,
+    muted: false
   });
   const navigate = useNavigate();
 
@@ -566,12 +567,29 @@ export default function Game(props) {
     socket.emit("send-others", sockObj);
   }
 
+  const toggleMute = () => {
+    if (state.muted){
+      setState((prev) => ({
+        ...prev,
+        muted: false,
+      }));
+
+    } else {
+      setState((prev) => ({
+        ...prev,
+        muted: true,
+      }));
+    }
+  }
+
   if (!state.checkIn) {
     checkedIn();
   }
 
   return (
-    <div className="game-main" style={{opacity: display, transition: 'opacity 1150ms ease-out' }}>
+    <div className="game-main" 
+    style={{opacity: display, transition: 'opacity 1500ms ease-out' }}
+    >
       <Box
         className="game-container"
         sx={{
@@ -583,7 +601,7 @@ export default function Game(props) {
           height: "100%",
           width: "100%",
           px: 0, pt: '2px',
-          border: '2px solid #8a8a8a',
+          border: '2px solid #aaaaaa;',
           borderRadius: '1%',
           // backgroundColor: "#f0f2ff",
           backgroundColor: "#f7f7ff",
@@ -616,6 +634,8 @@ export default function Game(props) {
           player={state.player}
           setCurrentUser={props.setCurrentUser}
           sendOthers = {sendOthers}
+          muted = {state.muted}
+
         />
         <StatusBox
           isConnected={state.isConnected}
@@ -625,6 +645,8 @@ export default function Game(props) {
           players={state.players}
           currentPlayer={state.player}
           phase={state.phase}
+          muted = {state.muted}
+          toggleMute = {toggleMute}
         />
       </Box>
     </div>

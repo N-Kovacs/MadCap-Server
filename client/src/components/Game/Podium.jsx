@@ -26,16 +26,22 @@ export default function Podium(props) {
   // }
 
   const [opacity, setOpacity] = useState(0);
-  const [players, setPlayers] = useState(
-    props.players.map(player => (
-      { ...player, score: 0 }
-    ))
-  );
+  const [players, setPlayers] = useState([]);
 
   useEffect(() => {
+    
+  }, [])
+
+  useEffect(() => {
+
+    const playerList = [...props.players].sort((playerA, playerB) => (playerB.score - playerA.score))
+    setPlayers(
+      [...playerList]
+        .map(player => ({ ...player, score: 0 }))
+    )
     const timer =
       setTimeout(() => {
-        setPlayers(props.players);
+        setPlayers(playerList);
         setOpacity(100);
       }, 0);
     return () => clearTimeout(timer);
@@ -43,13 +49,13 @@ export default function Podium(props) {
   // users as state variable, 
 
   const playerScoreItems = players.map(player => (
-    <div className="podium-list-withpoint" style={{ marginTop: '8px' }}>
+    <div key={player.id} className="podium-list-withpoint" style={{ marginTop: '8px' }}>
       <Item className="podium-list-item"
         key={player.id}
         sx={{
-          backgroundColor: player.color,
+          backgroundColor: `${player.color}cf`,
           width: `${player.score / 4}px`,
-          height: '45px',
+          height: '50px',
           transition: 'width 2.5s ease-out',
           overflow: 'hidden',
           border: '1px solid black', pl: '2px'
@@ -86,21 +92,14 @@ export default function Podium(props) {
 
   return (
     <Fragment>
+      <div className="searchlights" id="search-left"></div>
+      <div className="searchlights" id="search-right"></div>
       <Box className="podium-navigate"
       variant="text"
         sx={{
           width: '100%',
           px: '15px',
         }}>
-        {/* <Button
-        onClick={() => props.transition("LOBBY")}
-        sx={{ p: 0, pb: '8px' }}>Make New Game
-        </Button>
-        <Button
-        //FIX HOME so it goes to root
-        onClick={handleHome}
-        sx={{ p: 0, pb: '8px' }}>Home
-        </Button> */}
       </Box>
 
       <div className="podium-board">

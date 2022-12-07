@@ -29,7 +29,7 @@ const images = [
   {
     label: '4',
     imgPath: './avatars/avatar-4.png',
-    color: '#FDBE00',
+    color: '#dda600',
     // color: "darkgoldenrod"
   },
   {
@@ -41,7 +41,7 @@ const images = [
   {
     label: '6',
     imgPath: './avatars/avatar-6.png',
-    color: '#c61234',
+    color: '#F60D0F',
     // color: "red"
   },
   {
@@ -53,7 +53,7 @@ const images = [
   {
     label: '8',
     imgPath: './avatars/avatar-8.png',
-    color: '#fff600',
+    color: '#ffea00',
     // color: "yellow"
   },
   {
@@ -65,7 +65,7 @@ const images = [
   {
     label: '10',
     imgPath: './avatars/avatar-10.png',
-    color: '#ff8638',
+    color: '#ff6400',
     // color: "orange"
   },
   {
@@ -77,7 +77,7 @@ const images = [
   {
     label: '12',
     imgPath: './avatars/avatar-12.png',
-    color: '#e14400',
+    color: '#d03f00',
     // color: "darkorange"
   },
   {

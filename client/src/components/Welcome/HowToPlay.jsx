@@ -45,8 +45,7 @@ export default function HowToPlay() {
         <Paper elevation={3}
           sx={{
             p: 1, width: '59%', display: 'flex',
-            alignItems: 'center', justifyContent: 'center', 
-            opacity: '60%', transition: 'opacity 200ms ease', '&:hover' : {opacity: '100%'}
+            alignItems: 'center', justifyContent: 'center'
           }}
         >
           <div stlye={{ fontSize: '12px' }} className="how-to">

@@ -67,7 +67,7 @@ export default function AnswerListItem(props) {
       {props.phase === "results" && props.answer && (
         <h2>
           <Button className="vote-buttons"
-            variant="outlined"
+            variant="contained"
             color="success"
             onClick={handleClick}
             disabled={disableButton}
@@ -77,7 +77,15 @@ export default function AnswerListItem(props) {
                 : "#313e4454",
               textDecoration: !buttonMode ? "none" : "line-through",
               fontSize: "15px", px: "6px", mb: "5px",
-              color: 'black', borderColor: '#9C9C9A'
+              color: 'black', borderColor: '#9C9C9A', 
+              '&.MuiButtonBase-root': {
+                border: `2px solid ${props.captureColour}`,
+                boxShadow: `1px 1px 1px ${props.captureColour}`,
+                '&:hover': {boxShadow: `5px 5px 2px ${props.captureColour}`,
+                // transition: 'boxShadow 3s ease-in',
+                backgroundColor: `${props.captureColour}6b`
+                }
+              } 
             }}
           >
             {props.answer}

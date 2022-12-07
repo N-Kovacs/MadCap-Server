@@ -80,13 +80,14 @@ export default function GameBoard(props) {
       const timer =
         setTimeout(() => {
           setOpacity(100);
-        }, 4000);
+        }, 5500);
       return () => clearTimeout(timer);
     }
   }, [props.phase]);
 
   return (
     <div className="game-board-main">
+      
 
       {props.phase !== "podium" ?
 
@@ -123,26 +124,50 @@ export default function GameBoard(props) {
 
         <div className="podium-header">
 
-          {props.player.host &&
-          <Button
+          { !props.player.host ?
+          <Button className="podium-nav-buttons"
+            disabled
             variant='outlined'
             onClick={makeGame}
             sx={{
-              p: 0, width: '23%', pt: '2px', opacity: opacity, fontSize: '13px',
-              transition: 'opacity 1.2s ease-in'
+              p: 0, width: '23%', pt: '2px', 
+              opacity: 0, 
             }}
           >
             New Game
-          </Button>}
+          </Button>
+            :
+            <Button className="podium-nav-buttons"
+            
+            variant='outlined'
+            onClick={makeGame}
+            sx={{
+              p: 0, width: '23%', pt: '2px', 
+              opacity: opacity, 
+              fontSize: '13px',
+              transition: 'opacity 1.2s ease-in', 
+              border: '2px solid #dbe3ff',
+              zIndex: 1000, 
+              '&.MuiButtonBase-root': {backgroundColor: '#bbc9ff', color: 'white', fontSize: '13px', textShadow: '-1px 1px 2px black, 1px -0.5px 20px black'}, '&:hover' : { backgroundColor:' #8ea5ff',  border: '2px solid #819aff'}
+            }}
+          >
+            New Game
+          </Button>
+        }
 
-          <h1 style={{ fontSize: '40px' }}>Podium</h1>
-          <Button
-            //FIX HOME so it goes to root (cookie clear successfully)
+          <h1 style={{ fontSize: '45px' }}>Podium</h1>
+
+          <Button className="podium-nav-buttons"
             variant='outlined'
             onClick={handleHome}
             sx={{
-              p: 0, width: '23%', pt: '2px', opacity: opacity, fontSize: '13px',
-              transition: 'opacity 1.5s ease-in 2s'
+              p: 0, width: '23%', pt: '2px', 
+              opacity: opacity, 
+              fontSize: '13px',
+              transition: 'opacity 4.5s ease-in', 
+              border: '2px solid #dbe3ff',
+              zIndex: 1000, 
+              '&.MuiButtonBase-root': {backgroundColor: '#bbc9ff;', color: 'white', fontSize: '13px', textShadow: '-1px 1px 2px black, 1px -0.5px 20px black'}, '&:hover' : { backgroundColor:' #8ea5ff',  border: '2px solid #819aff'}
             }}
           >
             Home
@@ -161,6 +186,7 @@ export default function GameBoard(props) {
             gameData={props.gameData}
             round={props.round}
             nextRound={props.nextRound}
+            muted = {props.muted}
 
             answers={props.answers}
             lastMessage={props.lastMessage}

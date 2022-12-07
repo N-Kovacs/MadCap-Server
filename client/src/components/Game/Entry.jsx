@@ -24,7 +24,7 @@ export default function Entry(props) {
   const post = (e) => {
     if (props.phase === "game" ||
       props.phase === "round") {
-      if (e.target.value.length < 16 || 
+      if (e.target.value.length < 18 || 
         e.target.value[0] === '/') {
         setMessage(e.target.value);
       }

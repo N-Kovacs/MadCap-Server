@@ -1,3 +1,4 @@
+
 import classNames from "classnames";
 
 import AnswerListItem from "./AnswerListItem";
@@ -8,6 +9,10 @@ import Vote from "./Vote";
 
 
 export default function AnswerList(props) {
+
+
+
+
   const firstHalf = props.answers.slice(0, 13);
   const secondHalf = props.answers.slice(13);
   const answers1 = firstHalf.map((answer) => {
@@ -51,7 +56,8 @@ export default function AnswerList(props) {
 
   return (
     <div className="game-board-inner">
-      <ul className={`alpha-row alpha1 ${rowPhase}`}>{answers1}</ul>
+      <ul className={`alpha-row alpha1 ${rowPhase}`}>
+      {answers1}</ul>
 
       {props.phase === "game" && (
         <div className="game-board-inner-center">
@@ -61,6 +67,7 @@ export default function AnswerList(props) {
               gameData={props.gameData}
               round={props.round}
               phase={props.phase}
+              muted = {props.muted}
             />
           <Notice 
           lastMessage={props.lastMessage} 

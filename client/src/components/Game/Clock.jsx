@@ -31,9 +31,10 @@ export default function Clock(props) {
   tick2.loop = false;
 
   useEffect(() => {
-    if (gameTimer % 2 === 0) tick1.play();
-    if (gameTimer % 2 !== 0) tick2.play();
-
+    setColor(colors[gameTimer % colors.length]);
+    if (gameTimer % 2 === 0 && !props.muted) tick1.play();
+    if (gameTimer % 2 !== 0 && !props.muted) tick2.play();
+    
     const timer =
       gameTimer > 0 && setTimeout(() => {
         setGameTimer(prev => (prev - 1));
@@ -42,6 +43,7 @@ export default function Clock(props) {
     if (gameTimer === 0) {
       tick1.pause();
       tick2.pause();
+      if (!props.muted) alarm.play();
       props.setStatePhase("vote");
     }
     return () => clearTimeout(timer);
@@ -64,12 +66,7 @@ export default function Clock(props) {
           colorsTime={[seconds, 10, 8, 7, 5, 2, 0]}
         >
           {({ remainingTime }) => {
-            setColor(colors[remainingTime % colors.length]);
-            if (remainingTime === 0) {
-              alarm.play();
-              props.setStatePhase("vote");
-            }
-
+                
             return (<div className="game-clock-inner">
               <h1 className="game-clock-counter"
                 style={{

@@ -12,20 +12,20 @@ export default function Vote (props) {
     const timer =
       setTimeout(() => {
        setDisplay('initial');
-      }, 2000);
+      }, 2100);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     const timer =
-      voteTimer > 0 && setTimeout(() => setVoteTimer(prev => (prev - 1)), 800);
+      voteTimer > 0 && setTimeout(() => setVoteTimer(prev => (prev - 1)), 1000);
     if (voteTimer === 0) props.setStatePhase("results");
     return () => clearTimeout(timer);
   }, [voteTimer]);
 
   return (
     <Box className="vote-box">
-      <h1 style={{display: display, fontSize: "38px" }}>Vote!</h1>
+      <h1 style={{display: display, fontSize: "40px" }}>Vote!</h1>
     </Box>
   )
 }
