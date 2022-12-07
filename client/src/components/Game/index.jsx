@@ -598,7 +598,7 @@ export default function Game(props) {
           justifyContent: "center",
           alignItems: "center",
           maxWidth: '850px',
-          height: "89%",
+          height: "100%",
           width: "100%",
           px: 0, pt: '2px',
           border: '2px solid #b9b9b9',
