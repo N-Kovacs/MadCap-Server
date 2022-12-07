@@ -1,0 +1,16 @@
+{
+  "name": "madcap",
+  "version": "1.0.0",
+  "description": "Fun, competitive multiplayer word game",
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colespen/MadCap.git"
+  },
+  "contributors": ["Spencer Cole", "Nicholas Kovancs", "William Gadd"],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colespen/MadCap/issues"
+  },
+  "homepage": "https://github.com/colespen/MadCap#readme"
+}
