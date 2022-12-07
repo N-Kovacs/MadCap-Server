@@ -29,9 +29,9 @@ export default function Clock(props) {
 
   useEffect(() => {
     setColor(colors[gameTimer % colors.length]);
-    if (gameTimer % 2 === 0) tick1.play();
-    if (gameTimer % 2 !== 0) tick2.play();
-
+    if (gameTimer % 2 === 0 && !props.muted) tick1.play();
+    if (gameTimer % 2 !== 0 && !props.muted) tick2.play();
+    
     const timer =
       gameTimer > 0 && setTimeout(() => {
         setGameTimer(prev => (prev - 1));
@@ -40,7 +40,7 @@ export default function Clock(props) {
     if (gameTimer === 0) {
       tick1.pause();
       tick2.pause();
-      alarm.play();
+      if (!props.muted) alarm.play();
       props.setStatePhase("vote");
     }
     return () => clearTimeout(timer);

@@ -80,7 +80,7 @@ export default function GameBoard(props) {
       const timer =
         setTimeout(() => {
           setOpacity(100);
-        }, 4000);
+        }, 5500);
       return () => clearTimeout(timer);
     }
   }, [props.phase]);

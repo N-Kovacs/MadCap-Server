@@ -11,6 +11,8 @@ import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import CircleIcon from '@mui/icons-material/Circle';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 
 export default function GamePlayersList(props) {
@@ -72,13 +74,23 @@ export default function GamePlayersList(props) {
           }}
           >
             <Grid item xs={12} md={6}>
-              <Typography sx={{ mt: 0, mb: 0 }} variant="h6" component="div">
+              <Typography 
+              sx={{ 
+                mt: 0, mb: 0, pr: '3%', pl: '1%', 
+                display: 'flex', justifyContent: 'space-between'
+              }} 
+              variant="h6" component="div">
                 Players
-                {props.muted && <button onClick={props.toggleMute}>unMute Game Sounds</button>}
-                {!props.muted && <button onClick={props.toggleMute}>Mute Game Sounds</button>}
-              </Typography>
-             
 
+                {props.muted && <VolumeUpIcon  style={{cursor: 'pointer'}}
+                sx={{ pt: '3%', height: '25px', minWidth: '24px'}} 
+                onClick={props.toggleMute}></VolumeUpIcon>}
+                
+                {!props.muted && <VolumeOffIcon style={{cursor: 'pointer'}}
+                sx={{ pt: '3%', height: '25px', minWidth: '24px'}} 
+                onClick={props.toggleMute}></VolumeOffIcon>}
+              </Typography>
+            
               <CustomStyle sx={{ '& .MuiList-root': { p: 0, pt: '2px' } }}>
                 <List dense={true} >
                   <ListItem sx={{
