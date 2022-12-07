@@ -35,7 +35,6 @@ VALUES
 ('MOBA Characters', 5),
 ('Famous Items', 5),
 ('Games You Own', 5),
-('MOBA Characters', 5),
 ('Multiplayer Games', 5),
 ('Fighting Games', 5),
 ('Things you say while playing', 5),
