@@ -249,8 +249,17 @@
   }
 }
 
-@media only screen and (min-height: 890px) {
-  
+@media screen and (max-height: 800px) {
+  .game-container {
+    height: 34%;
+  }
+ 
+  .players-box {
+    height: '347px';
+  }
+  // .status-box {
+  //   height: 45%;
+  // }
 }
 
 // searchlights

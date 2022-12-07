@@ -4,6 +4,7 @@ import io from "socket.io-client";
 import { useNavigate } from "react-router-dom"
 
 import Box from "@mui/material/Box";
+import { useMediaQuery } from "@mui/material";
 
 import GameBoard from "./GameBoard";
 import StatusBox from "./StatusBox";
