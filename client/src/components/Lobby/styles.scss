@@ -94,8 +94,27 @@
   width: 96% !important;
 }
 
-/* copy link banner */
-.css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root {
-  background-color: rgb(50 50 50 / 67%) !important;
-  height: 53px !important;
+.url-link-bar {
+  -webkit-animation: fadeinout 2s linear forwards;
+    animation: fadeinout 2s linear forwards;
 }
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  25% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  25% { opacity: 1; }
+}
+
+
+
+
+
+
+// /* copy link banner */
+// .css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root {
+//   background-color: rgb(50 50 50 / 67%) !important;
+//   height: 53px !important;
+// }

@@ -12,6 +12,7 @@ export default function StartButton (props) {
       color="success"
       size="large"
       sx={{
+        zIndex: 1000,
         width: props.disabled ? '100%' : '93%',
           height: 65,
           fontSize: '19px',
