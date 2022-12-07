@@ -561,7 +561,7 @@ export default function Game(props) {
 
   const sendOthers = (url) => {
     const sockObj = {
-      room: props.url_path,
+      room: game_url,
       url: url
     }
     socket.emit("send-others", sockObj);
