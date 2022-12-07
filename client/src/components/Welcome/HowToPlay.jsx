@@ -99,8 +99,9 @@ export default function HowToPlay() {
           <ul style={{ listStyle: 'square' }}>
             <li>Uses Websockets via Socket.Io for a snappy, real-time UX</li>
             <li>Functional design using MUI</li>
-            <li>PostgreSQL for dabase backend</li>
+            <li>PostgreSQL for database backend</li>
             <li>Create React App as the Base </li>
+            <li>Node Express server for REST </li>
 
           </ul>
         </Paper>
