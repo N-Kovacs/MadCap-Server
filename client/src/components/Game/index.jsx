@@ -601,7 +601,7 @@ export default function Game(props) {
           height: "100%",
           width: "100%",
           px: 0, pt: '2px',
-          border: '2px solid #aaaaaa;',
+          border: '2px solid #b9b9b9',
           borderRadius: '1%',
           // backgroundColor: "#f0f2ff",
           backgroundColor: "#f7f7ff",

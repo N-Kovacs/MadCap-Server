@@ -71,6 +71,7 @@ export default function Podium(props) {
         >
           <Avatar key={player.id}
           src={player.avatar_url} alt={player.label}
+          variant='rounded'
             sx={{
               maxWidth: '35%',
               height: 'auto'
