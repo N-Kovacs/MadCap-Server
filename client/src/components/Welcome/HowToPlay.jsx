@@ -80,7 +80,7 @@ export default function HowToPlay() {
             fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
           }}>About</h2>
 
-          <p style={{ margin: 0 }}>A fast-paced multiplayer word game Built as a part of LightHouse Labs web development course.
+          <p style={{ margin: 0 }}>A fast-paced multiplayer word game Built as a part of Lighthouse Labs web development bootcamp.
           </p>
           <br></br>
           <div>Development and Design:
