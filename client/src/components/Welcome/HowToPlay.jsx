@@ -37,8 +37,8 @@ export default function HowToPlay() {
           <p style={{ marginBottom: '14px' }}
           >Put on your thinking cap and get ready for a word rush!</p>
           <p>Create your own unqiue word game and invite your friends for the ultimate brainstorm.</p>
-          <p>beat the clock with as many guesses as possible without overlapping on any available letters.</p>
-          <p>type '/' to chat during game.
+          <p>Beat the clock with as many guesses as possible without overlapping on any available letters.</p>
+          <p>Type '/' to chat during game.
             <br></br>Let's gooo!</p>
         </div>
 
@@ -51,10 +51,10 @@ export default function HowToPlay() {
           <div stlye={{ fontSize: '12px' }} className="how-to">
             <div className="img-examples">
               <img alt="vote" src="./vote-captured-ex.png" />
-              <p>available words are blank<br></br>
-                captured words are player colors</p>
+              <p>Available words are blank<br></br>
+                Captured words are player colors</p>
               <img alt="vote" src="./vote-button-ex.png" />
-              <p>vote words out democratically</p>
+              <p>Vote words out democratically</p>
               <img alt="vote" src="./vote-removed-ex.png" />
             </div>
           </div>
@@ -80,7 +80,15 @@ export default function HowToPlay() {
             fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
           }}>About</h2>
 
-          <p style={{ margin: 0 }}>A fast-paced multiplayer game designed by Nicholas Kovacs, Spencer Cole & William Gadd</p>
+          <p style={{ margin: 0 }}>A fast-paced multiplayer word game Built as a part of Lighthouse Labs web development bootcamp.
+          </p>
+          <br></br>
+          <div>Development and Design:
+            <div>Nicholas Kovacs <a href="https://github.com/N-Kovacs"> <img src= "/github-mark.svg" width="18" height="18" alt="image"></img></a></div>
+            <div>Spencer Cole <a href="https://github.com/colespen"> <img src= "/github-mark.svg" width="18" height="18" alt="image"></img></a></div>
+            <div>William Gadd <a href="https://github.com/coding-quizzer"> <img src= "/github-mark.svg" width="18" height="18" alt="image"></img></a></div>
+            </div>
+
 
         </div>
         <Paper elevation={3}
@@ -89,11 +97,11 @@ export default function HowToPlay() {
           }}
         >
           <ul style={{ listStyle: 'square' }}>
-            <li>Uses Websockets for a snappy, real-time UX</li>
+            <li>Uses Websockets via Socket.Io for a snappy, real-time UX</li>
             <li>Functional design using MUI</li>
-            <li>PostgreSQL</li>
-            <li>React</li>
-            <li></li>
+            <li>PostgreSQL for database backend</li>
+            <li>Create React App as the Base </li>
+            <li>Node Express server for REST </li>
 
           </ul>
         </Paper>
