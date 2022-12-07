@@ -20,12 +20,12 @@
   width: 100%;
   min-height: 530px;
   // height: 517px;
-  height: 100%;
+  height: 63%;
   padding-left: 10px;
   padding-right: 10px;
   // margin-top: 12px;
-  margin-top: 1%;
-  margin-bottom: 1%;
+  margin-top: 7px;
+  // margin-bottom: 1%;
 }
 .game-header {
   // border-bottom: solid 2px black;
@@ -68,8 +68,9 @@
   height: 85%;
   padding-left: 2%;
   padding-right: 2%;
-  margin-bottom: 2%;
-  margin-top: 3%;
+  margin-top: 7px;
+  // margin-bottom: 2%;
+  // margin-bottom: 2%;
 }
 .game-board-inner-center {
   display: flex;
@@ -222,7 +223,7 @@
   /* max-height: 310px; */
   // height: 313px;
   // height: 55%;
-  height: 51%;
+  height: 37%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -243,10 +244,21 @@
     width: fit-content;
   }
   .game-board-inner {
-    margin-top: 1.5%;
+    // margin-top: 10px;
+    margin-top: '3px';
   }
 }
 
+@media screen and (max-height: 799px) {
+  .game-container {
+    height: 98%;
+  }
+}
+@media screen and (min-height: 800px) {
+  .game-container {
+    height: 80%;
+  }
+}
 
 // searchlights
 

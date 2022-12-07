@@ -4,6 +4,7 @@ import io from "socket.io-client";
 import { useNavigate } from "react-router-dom"
 
 import Box from "@mui/material/Box";
+import { useMediaQuery } from "@mui/material";
 
 import GameBoard from "./GameBoard";
 import StatusBox from "./StatusBox";
@@ -231,6 +232,10 @@ const dummychat = [
 //   admin: true
 // };
 
+const responsiveContainer = {
+  height: {sm: "98%", md: "40%", lg: "40%", xl: "40%" }
+};
+
 export default function Game(props) {
   // const { subCats } = props.gameData.subcategories;
   // extract all logic into useApplicationData eventually...
@@ -449,7 +454,8 @@ export default function Game(props) {
       //2 is dummy value
       console.log(voteAnswersSet);
       // if (props.votesAgainst > (playerCount - 1) / 2
-      if (voteAnswersSet[1] >= (stateRef.current.players.length - 1) / 2) {
+      // Math.ceil((props.playerCount) / 2)
+      if (voteAnswersSet[1] >= (Math.ceil(stateRef.current.players.length / 2))) {
         playerSet = setPlayerScore(vote.answerPlayerId, stateRef.current, -150);
       }
       // console.log();
@@ -598,7 +604,7 @@ export default function Game(props) {
           justifyContent: "center",
           alignItems: "center",
           maxWidth: '850px',
-          height: "100%",
+          // height: "98%",
           width: "100%",
           px: 0, pt: '2px',
           border: '2px solid #b9b9b9',
@@ -606,8 +612,8 @@ export default function Game(props) {
           // backgroundColor: "#f0f2ff",
           backgroundColor: "#f7f7ff",
           boxShadow: '1px 1px 80px white, -1px -1px 80px white, 1px -1px 80px white, -1px 1px 80px white',
-          mt: '3%', mb: '3%', 
-          maxHeight: '823px',
+          // mt: '4%', mb: '4%', 
+          // maxHeight: '823px',
         }}
       >
         <GameBoard
