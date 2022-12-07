@@ -598,7 +598,7 @@ export default function Game(props) {
           justifyContent: "center",
           alignItems: "center",
           maxWidth: '850px',
-          height: "93%",
+          height: "89%",
           width: "100%",
           px: 0, pt: '2px',
           border: '2px solid #b9b9b9',
@@ -607,7 +607,7 @@ export default function Game(props) {
           backgroundColor: "#f7f7ff",
           boxShadow: '1px 1px 80px white, -1px -1px 80px white, 1px -1px 80px white, -1px 1px 80px white',
           mt: '4%', mb: '4%', 
-          maxHeight: '823px',
+          // maxHeight: '823px',
         }}
       >
         <GameBoard
