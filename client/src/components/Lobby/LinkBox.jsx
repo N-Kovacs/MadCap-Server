@@ -23,6 +23,7 @@ export default function LinkBox(props) {
       copy
     </Button>
   );
+  
   return (
     <Fragment>
       <Box
@@ -39,7 +40,7 @@ export default function LinkBox(props) {
           id="outlined-basic"
           variant="outlined"
           InputProps={{ endAdornment: <CopyButton /> }}
-          value={game_url.slice(12)}
+          value={game_url}
           onClick={handleCopy}
           disabled
         />

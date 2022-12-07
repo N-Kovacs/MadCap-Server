@@ -2,20 +2,30 @@
 
 ## Project Info
 
-A fast-paced multiplayer word game. Players race to capture letters by typing words for a category. At the end of each round, players can vote to reject invalid answers.
+A fast-paced multiplayer word game where players race to capture letters for each chosen category. 
+<br>
+Invite your friends for a fun, challenging word rush in an engaging realtime environment. 
+<br>
+While the host customizes settings, the other players can gather in the lobby until the game commences. 
+<br>
+At the end of each round, players can vote to reject bogus answers.
 
 ## Features
-Layout using mui components.
-Page navigation using react routes.
-Coordinate players using socket.io
+Live, snappy interaction between players as they progress from the home screen, to the lobby, the game room, and finally the Podium.
+
+## Stack
+- Socket.IO to coordinate real-time connection between players
+- React Router for page navigation
+- MUI for an intuitive layout
+- PostgreSQL to persit game and player data
 
 ## Screenshots
-![Lobby Host View](https://github.com/colespen/MadCap/blob/feature/begin-read-me/docs/lobby-host-view.png?raw=true)
+![Lobby Host View]()
 
-![Lobby Player View](https://github.com/colespen/MadCap/blob/feature/begin-read-me/docs/lobby-player-view.png)
+![Lobby Player View]()
 
-![Player Capture](https://github.com/colespen/MadCap/blob/feature/begin-read-me/docs/player-capture.png?raw=true)
+![Player Capture]()
 
-![Podium](https://github.com/colespen/MadCap/blob/feature/begin-read-me/docs/podium.png?raw=true)
+![Podium]()
 
-![Voting Round](https://github.com/colespen/MadCap/blob/feature/begin-read-me/docs/voting-round.png?raw=true)
+![Voting Round]()
