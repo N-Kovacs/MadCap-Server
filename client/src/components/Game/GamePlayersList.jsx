@@ -82,13 +82,13 @@ export default function GamePlayersList(props) {
               variant="h6" component="div">
                 Players
 
-                {props.muted && <VolumeUpIcon  style={{cursor: 'pointer'}}
-                sx={{ pt: '3%', height: '25px', minWidth: '24px'}} 
-                onClick={props.toggleMute}></VolumeUpIcon>}
-                
-                {!props.muted && <VolumeOffIcon style={{cursor: 'pointer'}}
+                {props.muted && <VolumeOffIcon  style={{cursor: 'pointer'}}
                 sx={{ pt: '3%', height: '25px', minWidth: '24px'}} 
                 onClick={props.toggleMute}></VolumeOffIcon>}
+                
+                {!props.muted && <VolumeUpIcon style={{cursor: 'pointer'}}
+                sx={{ pt: '3%', height: '25px', minWidth: '24px'}} 
+                onClick={props.toggleMute}></VolumeUpIcon>}
               </Typography>
             
               <CustomStyle sx={{ '& .MuiList-root': { p: 0, pt: '2px' } }}>
