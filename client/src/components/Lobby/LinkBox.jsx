@@ -1,10 +1,9 @@
 import { useLoaderData, useParams } from 'react-router-dom';
-import { useState, useEffect, Fragment } from 'react';
+import { useState, Fragment } from 'react';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { TextField, Snackbar } from '@mui/material';
-
 
 export default function LinkBox(props) {
   const { full_url } = useLoaderData();
@@ -31,7 +30,6 @@ export default function LinkBox(props) {
         sx={{
           width: '100%',
           pl: '4px',
-          // ml: '6px',
           '& > :not(style)': { m: 1, width: '93%' }
         }}
         noValidate
@@ -41,7 +39,7 @@ export default function LinkBox(props) {
           id="outlined-basic"
           variant="outlined"
           InputProps={{ endAdornment: <CopyButton /> }}
-          value={game_url}
+          value={game_url.slice(12)}
           onClick={handleCopy}
           disabled
         />
