@@ -162,7 +162,7 @@ export default function GameBoard(props) {
               p: 0, width: '23%', pt: '2px', 
               opacity: opacity, 
               fontSize: '13px',
-              transition: 'opacity 1.5s ease-in', 
+              transition: 'opacity 4.5s ease-in', 
               border: '2px solid #6673a2',
               '&.MuiButtonBase-root': {backgroundColor: '#89a1fb;', color: 'white', fontSize: '13px', textShadow: '-1px 1px 2px black, 1px -0.5px 20px black'}, '&:hover' : { backgroundColor:' #2d4ac4',  border: '2px solid #4f62af',}
             }}

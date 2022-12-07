@@ -86,6 +86,8 @@ export default function Podium(props) {
 
   return (
     <Fragment>
+      <div className="searchlights" id="search-left"></div>
+      <div className="searchlights" id="search-right"></div>
       <Box className="podium-navigate"
       variant="text"
         sx={{

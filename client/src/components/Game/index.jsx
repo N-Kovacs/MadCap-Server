@@ -572,7 +572,7 @@ export default function Game(props) {
 
   return (
     <div className="game-main" 
-    style={{opacity: display, transition: 'opacity 1250ms ease-out' }}
+    style={{opacity: display, transition: 'opacity 1500ms ease-out' }}
     >
       <Box
         className="game-container"

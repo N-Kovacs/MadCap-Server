@@ -247,6 +247,67 @@
   }
 }
 
-.podium-nav-buttons {
-  font-size: 10px;
+
+// searchlights
+
+$duration : 12s;
+$brightness : 25; /* 1-100 */;
+
+@mixin l1 {
+  -webkit-clip-path: polygon(20% 0, 5% 100%, 0 100%, 0 95%, 0 0); clip-path: polygon(20% 0, 5% 100%, 0 100%, 0 95%, 0 0);
+}
+
+@mixin l2 {
+  -webkit-clip-path: polygon(100% 0, 5% 100%, 0 100%, 0 95%, 80% 0); clip-path: polygon(100% 0, 5% 100%, 0 100%, 0 95%, 80% 0);
+}
+
+@mixin r1 {
+  -webkit-clip-path: polygon(100% 0, 100% 95%, 100% 100%, 95% 100%, 80% 0); clip-path: polygon(100% 0, 100% 95%, 100% 100%, 95% 100%, 80% 0);
+} 
+
+@mixin r2 {
+  -webkit-clip-path: polygon(20% 0, 100% 95%, 100% 100%, 95% 100%, 0 0); clip-path: polygon(20% 0, 100% 95%, 100% 100%, 95% 100%, 0 0);
+}
+
+
+.searchlights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#search-left {
+  animation: left $duration ease-in-out infinite;
+  background:
+    radial-gradient(
+      at bottom left,
+      rgba(white, $brightness/100),
+      transparent
+    ); 
+}
+#search-right {
+  animation: right $duration*1.66 ease-in-out alternate
+    infinite;
+  background:
+    radial-gradient(
+      at bottom right,
+      rgba(white, $brightness/100),
+      transparent
+    ); 
+}
+
+@keyframes left {
+  from, to {
+    @include l1;
+  }
+  50% { @include l2; }
+}
+
+@keyframes right {
+  from, to {
+    @include r1;
+  }
+  50% { @include r2; }
 }
