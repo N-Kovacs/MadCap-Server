@@ -45,14 +45,13 @@ export default function LinkBox(props) {
           disabled
         />
       </Box>
-      <Snackbar
+      <Snackbar className='url-link-bar'
         message="Copied to clipboard"
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        autoHideDuration={100}
+        // autoHideDuration={'1500ms'}
         onChange={() => setOpen(false)}
         open={open}
-        sx={{'& .MuiPaper-root': {display: 'flex',
-    justifyContent: 'center'}}}
+        sx={{'& .MuiPaper-root': {display: 'flex', backgroundColor: '#3232326b', justifyContent: 'center'}}}
       />
     </Fragment>
   );
