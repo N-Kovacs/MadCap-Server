@@ -60,8 +60,8 @@ export default function GamePlayersList(props) {
     <Fragment>
       <Box className="players-box"
         sx={{ 
-          // height: '100%',
-          maxHeight: '281px', 
+          height: '98%',
+          maxHeight: '241px', 
           width: '33%', pl: '4px', pb: '2px' }}>
         <Paper className="player-box-inner"
           style={{ 
