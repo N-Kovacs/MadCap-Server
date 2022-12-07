@@ -146,8 +146,9 @@ export default function GameBoard(props) {
               opacity: opacity, 
               fontSize: '13px',
               transition: 'opacity 1.2s ease-in', 
-              border: '2px solid #6673a2',
-              '&.MuiButtonBase-root': {backgroundColor: '#89a1fb;', color: 'white', fontSize: '13px', textShadow: '-1px 1px 2px black, 1px -0.5px 20px black'}, '&:hover' : { backgroundColor:' #2d4ac4',  border: '2px solid #4f62af',}
+              border: '2px solid #dbe3ff',
+              zIndex: 1000, 
+              '&.MuiButtonBase-root': {backgroundColor: '#bbc9ff', color: 'white', fontSize: '13px', textShadow: '-1px 1px 2px black, 1px -0.5px 20px black'}, '&:hover' : { backgroundColor:' #8ea5ff',  border: '2px solid #819aff'}
             }}
           >
             New Game
@@ -164,8 +165,9 @@ export default function GameBoard(props) {
               opacity: opacity, 
               fontSize: '13px',
               transition: 'opacity 4.5s ease-in', 
-              border: '2px solid #6673a2',
-              '&.MuiButtonBase-root': {backgroundColor: '#89a1fb;', color: 'white', fontSize: '13px', textShadow: '-1px 1px 2px black, 1px -0.5px 20px black'}, '&:hover' : { backgroundColor:' #2d4ac4',  border: '2px solid #4f62af',}
+              border: '2px solid #dbe3ff',
+              zIndex: 1000, 
+              '&.MuiButtonBase-root': {backgroundColor: '#bbc9ff;', color: 'white', fontSize: '13px', textShadow: '-1px 1px 2px black, 1px -0.5px 20px black'}, '&:hover' : { backgroundColor:' #8ea5ff',  border: '2px solid #819aff'}
             }}
           >
             Home
