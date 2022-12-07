@@ -26,7 +26,6 @@
     "nodemon": "^2.0.10",
     "supertest": "^6.3.2"
   },
-
   "jest": {
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTest.js"
