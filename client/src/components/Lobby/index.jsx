@@ -18,6 +18,15 @@ export default function Lobby(props) {
   const [checkIn, setCheckIn] = useState(false);
   
   const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!game_url) {
+      props.transition("WELCOME")
+    }
+  }, [game_url]);
+
+
+
   useEffect(() => {
     const timer =
       setTimeout(() => {
