@@ -69,9 +69,6 @@
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
   font-size: 20px !important;
   color: #525252 !important;
-  // background-color: #d7e8fe8c;
-  // border: 1px solid #bbd9ff;
-  // box-shadow: 0px 0px 9px 9px #d7e8fe8c;
   height: 53px;
   // width: 39%;
   width: fit-content;
@@ -92,14 +89,6 @@
   border-radius: 20px;
 }
 
-/* for the Select dropdown */
-.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
-  // max-height: 404px !important;
-  // width: 60% !important;
-  // min-width: 16px !important;
-  // top: 245px !important;
-  // left: 151px !important;
-}
 /* inner category width */
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
   width: 96% !important;
@@ -131,6 +120,7 @@
       rgba(255, 255, 255, 0.5) 92%,
       rgba(255, 255, 255, 0.0) 100%
     );
+    transition: all 2s ease;
   }
   
   /* Hover state - trigger effect */
