@@ -71,7 +71,7 @@ const dummyplayers = [
 
 ];
 
-storiesOf("Lobby", module)
+storiesOf("Podium", module)
   .add("Default", () => (
   <Podium players={dummyplayers} />
   ))
