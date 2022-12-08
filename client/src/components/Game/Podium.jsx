@@ -54,7 +54,7 @@ export default function Podium(props) {
         key={player.id}
         sx={{
           backgroundColor: `${player.color}cf`,
-          width: `${player.score / 3}px`,
+          width: `${player.score / 4}px`,
           height: '50px',
           transition: 'width 2.5s ease-out',
           overflow: 'hidden',
