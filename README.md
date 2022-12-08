@@ -17,9 +17,14 @@ Live, snappy interaction between players as they progress from the home screen, 
 - Socket.IO to coordinate real-time connection between players
 - React Router for page navigation
 - MUI for an intuitive layout
-- PostgreSQL to persit game and player data
+- PostgreSQL to persist game and player data
 
 ## Screenshots
+
+## It's Live - - Have fun!!!
+Play now with your friends at https://www.madcap.ninja/
+- deployed using AWS Ampifly and App Runner
+
 
 ![Home View](https://github.com/colespen/MadCap/blob/master/docs/home.png)
 <br>
