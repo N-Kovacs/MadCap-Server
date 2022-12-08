@@ -19,12 +19,11 @@ Live, snappy interaction between players as they progress from the home screen, 
 - MUI for an intuitive layout
 - PostgreSQL to persist game and player data
 
-## Screenshots
-
 ## It's Live - - Have fun!!!
 Play now with your friends at https://www.madcap.ninja/
 - deployed using AWS Ampifly and App Runner
 
+## Screenshots
 
 ![Home View](https://github.com/colespen/MadCap/blob/master/docs/home.png)
 <br>
