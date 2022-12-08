@@ -11,86 +11,72 @@ const images = [
   {
     label: '1',
     imgPath: './avatars/avatar-1.png',
-    color: '#8a2eff'
-    // color: "purple"
+    color: '#954eff'
   },
   {
     label: '2',
     imgPath: './avatars/avatar-2.png',
     color: '#4bab2f',
-    // color: "green"
   },
   {
     label: '3',
     imgPath: './avatars/avatar-3.png',
     color: '#72d695',
-    // color: "teal"
   },
   {
     label: '4',
     imgPath: './avatars/avatar-4.png',
     color: '#dda600',
-    // color: "darkgoldenrod"
   },
   {
     label: '5',
     imgPath: './avatars/avatar-5.png',
     color: '#52b5ff',
-    // color: "blue"
   },
   {
     label: '6',
     imgPath: './avatars/avatar-6.png',
     color: '#F60D0F',
-    // color: "red"
   },
   {
     label: '7',
     imgPath: './avatars/avatar-7.png',
-    color: '#621dff',
-    // color: "slateblue"
+    color: '#3200bd',
   },
   {
     label: '8',
     imgPath: './avatars/avatar-8.png',
     color: '#ffea00',
-    // color: "yellow"
   },
   {
     label: '9',
     imgPath: './avatars/avatar-9.png',
     color: '#008bff',
-    // color: "lightcyan"
   },
   {
     label: '10',
     imgPath: './avatars/avatar-10.png',
     color: '#ff6400',
-    // color: "orange"
   },
   {
     label: '11',
     imgPath: './avatars/avatar-11.png',
     color: '#99ffd8',
-    // color: "cornflowerblue"
   },
   {
     label: '12',
     imgPath: './avatars/avatar-12.png',
     color: '#d03f00',
-    // color: "darkorange"
   },
   {
     label: '13',
     imgPath: './avatars/avatar-13.png',
     color: '#ffbb87',
-    // color: "plum"
   },
   {
     label: '14',
     imgPath: './avatars/avatar-14.png',
     color: '#ff64aa',
-    // color: "orchid"
   }
 ];
 
