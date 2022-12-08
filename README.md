@@ -21,7 +21,7 @@ Live, snappy interaction between players as they progress from the home screen, 
 
 ## Screenshots
 
-![Home View](https://github.com/colespen/MadCap/blob/master/docs/vote-phase.png)
+![Home View](https://github.com/colespen/MadCap/blob/master/docs/home.png)
 <br>
 
 ![Lobby Host View](https://github.com/colespen/MadCap/blob/master/docs/lobby.png)
