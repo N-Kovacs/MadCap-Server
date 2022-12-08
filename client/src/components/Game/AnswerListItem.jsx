@@ -79,11 +79,11 @@ export default function AnswerListItem(props) {
               fontSize: "15px", px: "6px", mb: "5px",
               color: 'black', borderColor: '#9C9C9A', 
               '&.MuiButtonBase-root': {
-                height: '96%',
-                border: `2px solid ${props.captureColour}`,
-                boxShadow: `1px 1px 1px ${props.captureColour}`,
-                '&:hover': {boxShadow: `4px 4px 2px ${props.captureColour}`,
-                // transition: 'boxShadow 3s ease-in',
+                height: '91%',
+                border: `3px solid ${props.captureColour}`,
+                boxShadow: `1px 1px 1px ${props.captureColour}, -3px -1px 1px #989898`,
+                '&:hover': {boxShadow: `3px 3px 1px ${props.captureColour}`,
+                transition: 'boxShadow 3s ease-in',
                 backgroundColor: `${props.captureColour}6b`
                 }
               } 
