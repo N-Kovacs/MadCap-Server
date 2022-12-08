@@ -30,7 +30,7 @@ export default function StatusBox(props) {
           pr: 0, pl: '4px', pb: '2px',
           m: 0,
           width: '71.5%',
-          height: '99%',
+          height: '100%',
           // maxHeight: '237px'
           
         }}>
@@ -41,7 +41,7 @@ export default function StatusBox(props) {
             borderBottomRightRadius: '1px',
             height: '100%',
             width: '99%',
-            maxHeight: '279px',
+            maxHeight: '312px',
             overflow: 'scroll', mr: '2px'
           }}>
           <ChatList

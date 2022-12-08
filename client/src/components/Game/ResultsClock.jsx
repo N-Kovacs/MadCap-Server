@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment } from "react";
 
 export default function ResultsClock(props) {
-  const [voteTimer, setVoteTimer] = useState(1);
+  const [voteTimer, setVoteTimer] = useState(30);
 
   useEffect(() => {
     let timer = 0;
