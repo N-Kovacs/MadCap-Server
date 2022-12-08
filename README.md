@@ -20,12 +20,17 @@ Live, snappy interaction between players as they progress from the home screen, 
 - PostgreSQL to persit game and player data
 
 ## Screenshots
-![Lobby Host View]()
 
-![Lobby Player View]()
+![Home View](https://github.com/colespen/MadCap/blob/master/docs/vote-phase.png)
+<br>
 
-![Player Capture]()
+![Lobby Host View](https://github.com/colespen/MadCap/blob/master/docs/lobby.png)
+<br>
 
-![Podium]()
+![Player Capture](https://github.com/colespen/MadCap/blob/master/docs/game-phase.png)
+<br>
 
-![Voting Round]()
+![Voting Round](https://github.com/colespen/MadCap/blob/master/docs/vote-phase.png)
+<br>
+
+![Podium](https://github.com/colespen/MadCap/blob/master/docs/podium-phase.png)
