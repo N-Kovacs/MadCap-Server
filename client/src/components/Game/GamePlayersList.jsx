@@ -61,16 +61,15 @@ export default function GamePlayersList(props) {
       <Box className="players-box"
         sx={{ 
           height: '99%',
-          maxHeight: '237px', 
+          // maxHeight: '237px', 
           width: '33%', pl: '4px', pb: '2px' }}>
         <Paper className="player-box-inner"
           style={{ 
             height: '100%', 
-            // maxHeight: '270px', 
-            // maxHeight: '289px', 
             width: '100%',
           backgroundColor: '#ffffff', 
-          overflow: 'auto' 
+          overflow: 'scroll',
+          maxHeight: '307px' 
           // paddingRight: '10px', 
           }}
           elevation={3} sx={{ pl: '8px' }}>

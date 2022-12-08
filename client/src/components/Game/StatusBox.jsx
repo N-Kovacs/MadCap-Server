@@ -30,10 +30,9 @@ export default function StatusBox(props) {
           pr: 0, pl: '4px', pb: '2px',
           m: 0,
           width: '71.5%',
-          // height: '271px',
           height: '99%',
-          // maxHeight: '196px'
-          maxHeight: '237px'
+          // maxHeight: '237px'
+          
         }}>
         <Box className="chat-box"
           sx={{
@@ -42,7 +41,8 @@ export default function StatusBox(props) {
             borderBottomRightRadius: '1px',
             height: '100%',
             width: '99%',
-            overflow: 'auto', mr: '2px'
+            maxHeight: '279px',
+            overflow: 'scroll', mr: '2px'
           }}>
           <ChatList
             chats={props.chats}
