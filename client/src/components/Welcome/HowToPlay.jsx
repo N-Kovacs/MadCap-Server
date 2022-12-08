@@ -36,7 +36,7 @@ export default function HowToPlay() {
 
           <p style={{ marginBottom: '14px' }}
           >Put on your thinking cap and get ready for a word rush!</p>
-          <p>Create your own unqiue word game and invite your friends for the ultimate brainstorm.</p>
+          <p>Create your own unique word game and invite your friends for the ultimate word rush.</p>
           <p>Beat the clock with as many guesses as possible without overlapping on any available letters.</p>
           <p>Type '/' to chat during game.
             <br></br>Let's gooo!</p>
