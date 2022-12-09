@@ -84,8 +84,8 @@ export default function App() {
     });
 
     socket.on("start-game", () => {
-      console.log("host start game");
-      console.log(modeRef.current);
+      // console.log("host start game");
+      // console.log(modeRef.current);
       axios
         .get(`https://madcap.onrender.com/api/games/${url_pathRef.current}`)
         .then((gameResponse) => {
@@ -100,7 +100,7 @@ export default function App() {
     });
 
     socket.on("update-players", () => {
-      console.log("playerjoined");
+      // console.log("playerjoined");
       axios
         .get(`https://madcap.onrender.com/api/games/${url_pathRef.current}`)
         .then((gameResponse) => {
@@ -119,20 +119,20 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    console.log("procs");
+    // console.log("procs");
     if (reqUpdate === true) {
-      console.log("update requested");
+      // console.log("update requested");
       setReqUpdate(false);
     }
   }, [reqUpdate]);
 
   const checkedIn = () => {
     socket.emit("set-room", game_url);
-    console.log("checked in", game_url);
+    // console.log("checked in", game_url);
     socket.emit("joined-game", game_url);
   };
   const updatePlayer = () => {
-    console.log("joined game");
+    // console.log("joined game");
     socket.emit("joined-game", game_url);
   };
 

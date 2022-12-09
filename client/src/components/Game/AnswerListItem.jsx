@@ -42,8 +42,8 @@ export default function AnswerListItem(props) {
   //undo vote on reset
   useEffect(() => {
     if (disableButton && props.votesAgainst === 0) {
-      console.log(props.votesAgainst);
-      console.log("RESET BUTTON");
+      // console.log(props.votesAgainst);
+      // console.log("RESET BUTTON");
       setVoted(false);
       setDisabled(false);
       setButtonState(false);
@@ -53,11 +53,11 @@ export default function AnswerListItem(props) {
   let buttonsColour = props.votesAgainst * (1 / votesToEliminate);
   // setButtonState(buttonClick < (playerCount / 2) - 1 ? false : true)
   if (props.votesAgainst >= votesToEliminate && !buttonMode) {
-    console.log("here");
+    // console.log("here");
     setButtonState(true);
   }
   if ((voted || buttonMode) && !disableButton) {
-    console.log("breaker");
+    // console.log("breaker");
     setDisabled(true);
   }
 

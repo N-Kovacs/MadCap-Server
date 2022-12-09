@@ -345,7 +345,7 @@ export default function Game(props) {
     let votecount = 0;
     const answers = gameState.answers.map((answer) => {
       if (answer.letter === vote) {
-        console.log(answer.votesAgainst);
+        // console.log(answer.votesAgainst);
 
         let newVotesAgainst = answer.votesAgainst + 1;
         votecount = newVotesAgainst;
@@ -383,7 +383,7 @@ export default function Game(props) {
     });
 
     socket.on("message", (message) => {
-      console.log(message);
+      // console.log(message);
       const alp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
       if (
         message.type === "capture" &&
@@ -395,7 +395,7 @@ export default function Game(props) {
         //set answers to update answers
         let answerSet = setAnswer(message, stateRef.current);
         //set chat to update chat
-        console.log(message.colour)
+        // console.log(message.colour)
         let chatSet = [
           ...stateRef.current.chats,
           { type: "capture", user: message.user, message: message.message[0], colour: message.colour },
@@ -433,7 +433,7 @@ export default function Game(props) {
         }));
       }
       if (message.type === "status") {
-        console.log("VOTE MESSAGE ", message);
+        // console.log("VOTE MESSAGE ", message);
         let statusMessage = "Vote Against Letter: " + message.message.vote + "(" + message.message.votes + "/" + message.message.votesToEliminate + ")"
         let chatSet = [
           ...stateRef.current.chats,
@@ -447,12 +447,12 @@ export default function Game(props) {
     });
 
     socket.on("vote", (vote) => {
-      console.log(vote);
+      // console.log(vote);
 
       const voteAnswersSet = setVote(vote.vote, stateRef.current);
       let playerSet = stateRef.current.players;
       //2 is dummy value
-      console.log(voteAnswersSet);
+      // console.log(voteAnswersSet);
       // if (props.votesAgainst > (playerCount - 1) / 2
       // Math.ceil((props.playerCount) / 2)
       if (voteAnswersSet[1] >= (Math.ceil(stateRef.current.players.length / 2))) {
@@ -464,28 +464,28 @@ export default function Game(props) {
         players: playerSet,
         answers: voteAnswersSet[0],
       }));
-      console.log(stateRef.current);
+      // console.log(stateRef.current);
       // let playerSet = setPlayerScore(message.user, stateRef.current, 10)
     });
 
     //can be used to update from host
 
     socket.on("request-state", (message) => {
-      console.log("state requested");
+      // console.log("state requested");
       if (stateRef.current.player.admin) {
-        console.log("got here");
+        // console.log("got here");
         let currentState = {
           answers: stateRef.current.answers,
           chats: stateRef.current.chats,
           room: game_url
         };
-        console.log(currentState);
+        // console.log(currentState);
         socket.emit("send-state", currentState);
       }
     });
 
     socket.on("sync-state", (message) => {
-      console.log("state syncing");
+      // console.log("state syncing");
       setState((prev) => ({
         ...prev,
         message: message.answers,
@@ -516,7 +516,7 @@ export default function Game(props) {
     //less backend setting if just have a state "inroom"
 
     //needs url set to user
-    console.log(message)
+    // console.log(message)
     let messageType = "chat";
     let messageUpper = message
     if (gamePhase === "game") {
@@ -526,7 +526,7 @@ export default function Game(props) {
     if (gamePhase === "status"){
       messageType = "status"
     }
-    console.log(gamePhase)
+    // console.log(gamePhase)
     const messageObject = {
       message: messageUpper,
       room: game_url,
@@ -535,7 +535,7 @@ export default function Game(props) {
       userId: state.player.id,
       type: messageType,
     };
-    console.log(messageObject)
+    // console.log(messageObject)
     socket.emit("send-message", messageObject);
   };
   const sendVote = (vote) => {

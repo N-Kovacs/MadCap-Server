@@ -41,7 +41,7 @@ export default function GameSettings(props) {
 
   const handleSet = () => {
     props.updatePlayer();
-    console.log("should have set true^");
+    // console.log("should have set true^");
     gamesPutRequest(settings, currentCategories)
       .catch((error) => {
         console.error(error);

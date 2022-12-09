@@ -76,10 +76,10 @@ export default function WelcomeBox(props) {
       })
       .then(() => {
         props.transition("LOBBY");
-        console.log("State transition");
+        // console.log("State transition");
       })
       .catch((err) => {
-        console.log(new_url)
+        // console.log(new_url)
         console.error(err.message)}))
   }
 

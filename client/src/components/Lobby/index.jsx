@@ -58,7 +58,7 @@ export default function Lobby(props) {
   }, []);
 
   if (!checkIn) {
-    console.log("lobbycheckin");
+    // console.log("lobbycheckin");
     props.checkedIn();
     setCheckIn(true);
   }

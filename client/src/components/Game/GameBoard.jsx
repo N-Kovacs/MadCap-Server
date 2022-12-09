@@ -53,11 +53,11 @@ export default function GameBoard(props) {
     })
     .then(() => {
       props.transition("LOBBY")
-      console.log("State transition")
+      // console.log("State transition")
       props.sendOthers(url)
     })
     .catch((err) => {
-      console.log(url)
+      // console.log(url)
       console.error(err.message)});
 }
 

@@ -1,6 +1,6 @@
 export default function ChatListItem(props) {
 
-  console.log("~~~~~~~~~~~~~~~~~~~: ", props.colour)
+  // console.log("~~~~~~~~~~~~~~~~~~~: ", props.colour)
 
   return (
     <li>
