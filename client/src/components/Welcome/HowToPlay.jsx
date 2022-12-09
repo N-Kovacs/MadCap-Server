@@ -83,27 +83,34 @@ export default function HowToPlay() {
           <p style={{ margin: 0 }}>A fast-paced multiplayer word game Built as a part of Lighthouse Labs web development bootcamp.
           </p>
           <br></br>
-          <div>Development and Design:
-            <div>Nicholas Kovacs <a href="https://github.com/N-Kovacs"> <img src= "/github-mark.svg" width="18" height="18" alt="image"></img></a></div>
-            <div>Spencer Cole <a href="https://github.com/colespen"> <img src= "/github-mark.svg" width="18" height="18" alt="image"></img></a></div>
-            <div>William Gadd <a href="https://github.com/coding-quizzer"> <img src= "/github-mark.svg" width="18" height="18" alt="image"></img></a></div>
-            </div>
+          <div>Development <br></br> and Design:
+            <div style={{ paddingTop: '10px' }}>
+              <a href="https://github.com/N-Kovacs" style={{ paddingRight: '5px' }}> <img src="/github-mark.svg" width="18" height="18" alt="GitHub-link"></img></a>Nicholas Kovacs </div>
+            <div>
+              <a href="https://github.com/colespen" style={{ paddingRight: '5px' }}> <img src="/github-mark.svg" width="18" height="18" alt="GitHub-link"></img></a>Spencer Cole</div>
+            <div>
+              <a href="https://github.com/coding-quizzer" style={{paddingRight: '5px'}}> <img src="/github-mark.svg" width="18" height="18" alt="GitHub-link"></img></a>William Gadd</div>
+          </div>
 
 
         </div>
         <Paper elevation={3}
           sx={{
-            p: 1
+            p: 1, display: 'flex', flexDirection: 'column', alignItems: 'center'
           }}
         >
           <ul style={{ listStyle: 'square' }}>
             <li>Uses Websockets via Socket.Io for a snappy, real-time UX</li>
+            <li>React Router for page navigation</li>
             <li>Functional design using MUI</li>
-            <li>PostgreSQL for database backend</li>
             <li>Create React App as the Base </li>
             <li>Node Express server for REST </li>
-
+            <li>PostgreSQL for database backend</li>
           </ul>
+            <br></br>
+            <br></br>
+            <br></br>
+            <p style={{fontSize: "13px"}}><a href="https://www.flaticon.com/free-icons/monsters" title="monsters icons">Monsters icons created by Smashicons - Flaticon</a></p>
         </Paper>
       </Box>
     </Container>
