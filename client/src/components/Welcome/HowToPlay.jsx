@@ -11,9 +11,11 @@ export default function HowToPlay() {
     one: "hidden",
     two: "hidden"
   });
-  const [height, setHeight] = useState({
-    one: "67px",
-    two: "67px"
+  const [dimension, setDimension] = useState({
+    heightOne: "67px",
+    heightTwo: "67px",
+    marginOne: "112px",
+    marginTwo: "112px"
   });
   const [color, setColor] = useState({
     one: "#1e4ed6",
@@ -31,13 +33,13 @@ export default function HowToPlay() {
   const handleClickOne = () => {
     if (visible.one === "visible") {
       setVisible({ ...visible, one: "hidden" });
-      setHeight({ ...height, one: "67px" });
+      setDimension({ ...dimension, heightOne: "67px", marginOne: "112px" });
       setSize({ ...size, one: "26px" });
       setColor({ ...color, one: "#1e4ed6" });
       setLine({ ...line, one: "underline" });
     } else {
       setVisible({ ...visible, one: "visible" });
-      setHeight({ ...height, one: "375px" });
+      setDimension({ ...dimension, heightOne: "375px", marginOne: "0px" });
       setSize({ ...size, one: "20px" });
       setColor({ ...color, one: "black" });
       setLine({ ...line, one: "none" });
@@ -47,14 +49,14 @@ export default function HowToPlay() {
   const handleClickTwo = () => {
     if (visible.two === "visible") {
       setVisible({ ...visible, two: "hidden" });
-      setHeight({ ...height, two: "67px" });
+      setDimension({ ...dimension, heightTwo: "67px", marginTwo: "112px" });
       setSize({ ...size, two: "26px" });
       setColor({ ...color, two: "#1e4ed6" });
       setLine({ ...line, two: "underline" });
     }
     else {
       setVisible({ ...visible, two: "visible" });
-      setHeight({ ...height, two: "375px" });
+      setDimension({ ...dimension, heightTwo: "375px", marginTwo: "0px" });
       setSize({ ...size, two: "20px" });
       setColor({ ...color, two: "black" });
       setLine({ ...line, two: "none" });
@@ -71,11 +73,11 @@ export default function HowToPlay() {
         height: '100%',
         my: 1
       }}>
-      <Box style={{ transition: 'height 450ms ease-out' }}
+      <Box style={{ transition: 'height 450ms ease-out, margin-left 300ms ease' }}
         sx={{
           visibility: visible.one,
-          height: height.one,
-
+          height: dimension.heightOne,
+          marginLeft: dimension.marginOne,
           backgroundColor: 'aliceblue',
           width: '100%',
           display: 'flex',
@@ -104,7 +106,7 @@ export default function HowToPlay() {
               justifyContent: 'flex-start',
               width: '218px', right: '20px', fontWeight: '800', paddingRight: '0px', paddingLeft: '20px', margin: '0px', marginBottom: '0px',
               '&:hover': {
-                backgroundColor: '#f9fbff29'
+                backgroundColor: '#00000000'
               }
             }}>How To Play</Button>
 
@@ -134,10 +136,11 @@ export default function HowToPlay() {
           </div>
         </Paper>
       </Box>
-      <Box
+      <Box style={{ transition: 'margin-left 250ms ease' }}
         sx={{
           visibility: visible.two,
-          height: height.two,
+          height: dimension.heightTwo,
+          marginLeft: dimension.marginTwo,
           width: '100%',
           backgroundColor: '#f0f2ff',
           display: 'flex',
@@ -166,7 +169,7 @@ export default function HowToPlay() {
                 justifyContent: 'flex-start',
                 width: '194px', right: '21px', fontWeight: '800', paddingRight: '0px', paddingLeft: '22px', margin: '0px', marginBottom: '0px',
                 '&:hover': {
-                  backgroundColor: '#f9fbff29'
+                  backgroundColor: '#00000000'
                 }
               }}>About</Button>
 
