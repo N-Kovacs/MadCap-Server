@@ -36,10 +36,10 @@ export default function HowToPlay() {
 
           <p style={{ marginBottom: '14px' }}
           >Put on your thinking cap and get ready for a word rush!</p>
-          <p>Create your own unique word game and invite your friends for the ultimate word rush.</p>
+          <p>Create your own unique word game and invite your friends for the ultimate word rush in a fast-paced, multiplayer environment.</p>
           <p>Beat the clock with as many guesses as possible without overlapping on any available letters.</p>
-          <p>Type '/' to chat during game.
-            <br></br>Let's gooo!</p>
+          <p>Type '/' to chat during game.</p>
+          <p><br></br>Let's gooo!</p>
         </div>
 
         <Paper elevation={3}
@@ -63,7 +63,7 @@ export default function HowToPlay() {
       <Box
         sx={{
           width: '100%',
-          height: 300,
+          height: '350px',
           backgroundColor: '#f0f2ff',
           display: 'flex',
           justifyContent: 'space-between',
@@ -76,12 +76,14 @@ export default function HowToPlay() {
             width: '43%', fontSize: "14px"
           }}
         >
-          <h2 style={{
-            fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
-          }}>About</h2>
+          <div>
+            <h2 style={{
+              fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
+            }}>About</h2>
 
-          <p style={{ margin: 0 }}>A fast-paced multiplayer word game Built as a part of Lighthouse Labs web development bootcamp.
-          </p>
+            <p style={{ margin: 0 }}>Live, snappy interaction between players as they progress from the home screen, to the lobby, the game room, and finally the Podium.
+            </p>
+          </div>
           <br></br>
           <div>Development <br></br> and Design:
             <div style={{ paddingTop: '10px' }}>
@@ -89,7 +91,7 @@ export default function HowToPlay() {
             <div>
               <a href="https://github.com/colespen" style={{ paddingRight: '5px' }}> <img src="/github-mark.svg" width="18" height="18" alt="GitHub-link"></img></a>Spencer Cole</div>
             <div>
-              <a href="https://github.com/coding-quizzer" style={{paddingRight: '5px'}}> <img src="/github-mark.svg" width="18" height="18" alt="GitHub-link"></img></a>William Gadd</div>
+              <a href="https://github.com/coding-quizzer" style={{ paddingRight: '5px' }}> <img src="/github-mark.svg" width="18" height="18" alt="GitHub-link"></img></a>William Gadd</div>
           </div>
 
 
@@ -100,17 +102,17 @@ export default function HowToPlay() {
           }}
         >
           <ul style={{ listStyle: 'square' }}>
-            <li>Uses Websockets via Socket.Io for a snappy, real-time UX</li>
+            <li>Uses Websockets via Socket.Io for an instant, real-time UX</li>
             <li>React Router for page navigation</li>
             <li>Functional design using MUI</li>
             <li>Create React App as the Base </li>
             <li>Node Express server for REST </li>
             <li>PostgreSQL for database backend</li>
           </ul>
-            <br></br>
-            <br></br>
-            <br></br>
-            <p style={{fontSize: "13px"}}><a href="https://www.flaticon.com/free-icons/monsters" title="monsters icons">Monsters icons created by Smashicons - Flaticon</a></p>
+          <br></br>
+          <br></br>
+          <br></br>
+          <p style={{ fontSize: "13px" }}><a href="https://www.flaticon.com/free-icons/monsters" title="monsters icons">Monsters icons created by Smashicons - Flaticon</a></p>
         </Paper>
       </Box>
     </Container>

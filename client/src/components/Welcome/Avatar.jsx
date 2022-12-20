@@ -86,9 +86,9 @@ export default function ActionAvatar(props) {
   const maxSteps = images.length;
 
   useEffect(() => {
-    props.setAvatar(images[activeStep].imgPath)
-    props.setColor(images[activeStep].color)
-  }, [activeStep])
+    props.setAvatar(images[activeStep].imgPath);
+    props.setColor(images[activeStep].color);
+  }, [activeStep]);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
