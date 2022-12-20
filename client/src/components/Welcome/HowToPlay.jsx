@@ -1,8 +1,66 @@
+import { useState } from 'react';
+
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 
 export default function HowToPlay() {
+
+  const [visible, setVisible] = useState({
+    one: "hidden",
+    two: "hidden"
+  });
+  const [height, setHeight] = useState({
+    one: "67px",
+    two: "67px"
+  });
+  const [color, setColor] = useState({
+    one: "#1e4ed6",
+    two: "#1e4ed6"
+  });
+  const [size, setSize] = useState({
+    one: "26px",
+    two: "26px"
+  });
+  const [line, setLine] = useState({
+    one: "underline",
+    two: "underline"
+  });
+
+  const handleClickOne = () => {
+    if (visible.one === "visible") {
+      setVisible({ ...visible, one: "hidden" });
+      setHeight({ ...height, one: "67px" });
+      setSize({ ...size, one: "26px" });
+      setColor({ ...color, one: "#1e4ed6" });
+      setLine({ ...line, one: "underline" });
+    } else {
+      setVisible({ ...visible, one: "visible" });
+      setHeight({ ...height, one: "375px" });
+      setSize({ ...size, one: "20px" });
+      setColor({ ...color, one: "black" });
+      setLine({ ...line, one: "none" });
+    }
+  };
+
+  const handleClickTwo = () => {
+    if (visible.two === "visible") {
+      setVisible({ ...visible, two: "hidden" });
+      setHeight({ ...height, two: "67px" });
+      setSize({ ...size, two: "26px" });
+      setColor({ ...color, two: "#1e4ed6" });
+      setLine({ ...line, two: "underline" });
+    }
+    else {
+      setVisible({ ...visible, two: "visible" });
+      setHeight({ ...height, two: "375px" });
+      setSize({ ...size, two: "20px" });
+      setColor({ ...color, two: "black" });
+      setLine({ ...line, two: "none" });
+    }
+  };
+
   return (
     <Container style={{ margin: 0, padding: 0, maxWidth: 500 }}
       sx={{
@@ -13,11 +71,13 @@ export default function HowToPlay() {
         height: '100%',
         my: 1
       }}>
-      <Box
+      <Box style={{ transition: 'height 450ms ease-out' }}
         sx={{
+          visibility: visible.one,
+          height: height.one,
+
           backgroundColor: 'aliceblue',
           width: '100%',
-          height: '375px',
           display: 'flex',
           justifyContent: 'space-between',
           mt: 5,
@@ -25,14 +85,28 @@ export default function HowToPlay() {
         }}>
         <div className="how-to how-to-description"
           style={{
+            overflow: 'hidden', borderBottom: '5px solid #ffffff00',
             marginLeft: '5px',
-            padding: '10px', paddingRight: '10px',
+            padding: '10px 15px',
             width: '43%', fontSize: "14px"
           }}
         >
-          <h2 style={{
-            fontSize: '20px', paddingLeft: '0px', margin: '0px', marginBottom: '10px'
-          }}>How To Play</h2>
+          <Button onClick={handleClickOne}
+            sx={{
+              visibility: 'visible',
+              color: color.one,
+              fontSize: size.one,
+              textDecoration: line.one,
+              textUnderlineOffset: '6px',
+              textDecorationThickness: '5px',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'flex-start',
+              width: '218px', right: '20px', fontWeight: '800', paddingRight: '0px', paddingLeft: '20px', margin: '0px', marginBottom: '0px',
+              '&:hover': {
+                backgroundColor: '#cbe2ff6b'
+              }
+            }}>How To Play</Button>
 
           <p style={{ marginBottom: '14px' }}
           >Put on your thinking cap!</p>
@@ -45,7 +119,7 @@ export default function HowToPlay() {
         <Paper elevation={3}
           sx={{
             p: 1, width: '59%', display: 'flex',
-            alignItems: 'center', justifyContent: 'center'
+            alignItems: 'center', justifyContent: 'center', overflow: 'hidden', border: '20px solid white'
           }}
         >
           <div stlye={{ fontSize: '12px' }} className="how-to">
@@ -62,8 +136,9 @@ export default function HowToPlay() {
       </Box>
       <Box
         sx={{
+          visibility: visible.two,
+          height: height.two,
           width: '100%',
-          height: '350px',
           backgroundColor: '#f0f2ff',
           display: 'flex',
           justifyContent: 'space-between',
@@ -72,21 +147,31 @@ export default function HowToPlay() {
         <div className="how-to about-description"
           style={{
             marginLeft: '5px',
-            padding: '10px', paddingRight: '10px',
-            width: '52%', fontSize: "14px", 
+            padding: '10px 15px',
+            width: '38%', fontSize: "14px",
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between'
           }}
         >
           <div >
-            <h2 style={{
-              fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
-            }}>About</h2>
+            <Button onClick={handleClickTwo}
+              sx={{
+                visibility: 'visible',
+                color: color.two,
+                fontSize: size.two,
+                textDecoration: line.two,
+                textUnderlineOffset: '6px',
+                textDecorationThickness: '5px',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'flex-start',
+                width: '194px', right: '21px', fontWeight: '800', paddingRight: '0px', paddingLeft: '22px', margin: '0px', marginBottom: '0px'
+              }}>About</Button>
 
             <p style={{ margin: 0 }}>Live, snappy interaction between players as they progress from the home screen, to the lobby, the game room, and finally the Podium.
             </p>
           </div>
           <br></br>
-          <div style={{paddingBottom: '11px'}}>Development <br></br> and Design:
+          <div style={{ paddingBottom: '11px' }}>Development <br></br> and Design:
             <div style={{ paddingTop: '10px' }}>
               <a href="https://github.com/N-Kovacs" style={{ paddingRight: '5px' }}> <img src="/github-mark.svg" width="18" height="18" alt="GitHub-link"></img></a>Nicholas Kovacs </div>
             <div>
@@ -102,7 +187,7 @@ export default function HowToPlay() {
             p: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between'
           }}
         >
-          <ul style={{ listStyle: 'square' }}>
+          <ul style={{ listStyle: 'square', paddingLeft: '24px' }}>
             <li>Uses Websockets via Socket.Io for an instant, real-time UX</li>
             <li>React Router for page navigation</li>
             <li>Functional design using MUI</li>
