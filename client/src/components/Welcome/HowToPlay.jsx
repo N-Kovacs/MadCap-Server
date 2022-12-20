@@ -104,7 +104,7 @@ export default function HowToPlay() {
               justifyContent: 'flex-start',
               width: '218px', right: '20px', fontWeight: '800', paddingRight: '0px', paddingLeft: '20px', margin: '0px', marginBottom: '0px',
               '&:hover': {
-                backgroundColor: '#cbe2ff6b'
+                backgroundColor: '#f9fbff29'
               }
             }}>How To Play</Button>
 
@@ -164,7 +164,10 @@ export default function HowToPlay() {
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'flex-start',
-                width: '194px', right: '21px', fontWeight: '800', paddingRight: '0px', paddingLeft: '22px', margin: '0px', marginBottom: '0px'
+                width: '194px', right: '21px', fontWeight: '800', paddingRight: '0px', paddingLeft: '22px', margin: '0px', marginBottom: '0px',
+                '&:hover': {
+                  backgroundColor: '#f9fbff29'
+                }
               }}>About</Button>
 
             <p style={{ margin: 0 }}>Live, snappy interaction between players as they progress from the home screen, to the lobby, the game room, and finally the Podium.
