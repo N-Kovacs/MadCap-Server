@@ -20,8 +20,8 @@ export default function HowToPlay() {
     two: "#1e4ed6"
   });
   const [size, setSize] = useState({
-    one: "26px",
-    two: "26px"
+    one: "28.5px",
+    two: "27px"
   });
   const [line, setLine] = useState({
     one: "underline",
@@ -85,7 +85,7 @@ export default function HowToPlay() {
         }}>
         <div className="how-to how-to-description"
           style={{
-            overflow: 'hidden', borderBottom: '5px solid #ffffff00',
+            overflow: 'hidden',
             marginLeft: '5px',
             padding: '10px 15px',
             width: '43%', fontSize: "14px"
@@ -97,8 +97,8 @@ export default function HowToPlay() {
               color: color.one,
               fontSize: size.one,
               textDecoration: line.one,
-              textUnderlineOffset: '6px',
-              textDecorationThickness: '5px',
+              textUnderlineOffset: '5.5px',
+              textDecorationThickness: '8px',
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'flex-start',
@@ -159,8 +159,8 @@ export default function HowToPlay() {
                 color: color.two,
                 fontSize: size.two,
                 textDecoration: line.two,
-                textUnderlineOffset: '6px',
-                textDecorationThickness: '5px',
+                textUnderlineOffset: '5.5px',
+                textDecorationThickness: '6px',
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'flex-start',
