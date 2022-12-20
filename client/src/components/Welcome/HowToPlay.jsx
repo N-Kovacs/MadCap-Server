@@ -17,7 +17,7 @@ export default function HowToPlay() {
         sx={{
           backgroundColor: 'aliceblue',
           width: '100%',
-          height: '57%',
+          height: '375px',
           display: 'flex',
           justifyContent: 'space-between',
           mt: 5,
@@ -35,11 +35,11 @@ export default function HowToPlay() {
           }}>How To Play</h2>
 
           <p style={{ marginBottom: '14px' }}
-          >Put on your thinking cap and get ready for a word rush!</p>
-          <p>Create your own unique word game and invite your friends for the ultimate word rush in a fast-paced, multiplayer environment.</p>
+          >Put on your thinking cap!</p>
+          <p>Create your own unique word game and invite your friends to the ultimate word rush in a fast-paced, multiplayer environment.</p>
           <p>Beat the clock with as many guesses as possible without overlapping on any available letters.</p>
           <p>Type '/' to chat during game.</p>
-          <p><br></br>Let's gooo!</p>
+          <p><br></br>Okay! Let's gooo!</p>
         </div>
 
         <Paper elevation={3}
@@ -73,10 +73,11 @@ export default function HowToPlay() {
           style={{
             marginLeft: '5px',
             padding: '10px', paddingRight: '10px',
-            width: '43%', fontSize: "14px"
+            width: '52%', fontSize: "14px", 
+            display: 'flex', flexDirection: 'column', justifyContent: 'space-between'
           }}
         >
-          <div>
+          <div >
             <h2 style={{
               fontSize: '20px', paddingLeft: '0px', marginBottom: '10px', margin: '0px'
             }}>About</h2>
@@ -85,7 +86,7 @@ export default function HowToPlay() {
             </p>
           </div>
           <br></br>
-          <div>Development <br></br> and Design:
+          <div style={{paddingBottom: '11px'}}>Development <br></br> and Design:
             <div style={{ paddingTop: '10px' }}>
               <a href="https://github.com/N-Kovacs" style={{ paddingRight: '5px' }}> <img src="/github-mark.svg" width="18" height="18" alt="GitHub-link"></img></a>Nicholas Kovacs </div>
             <div>
@@ -98,7 +99,7 @@ export default function HowToPlay() {
         </div>
         <Paper elevation={3}
           sx={{
-            p: 1, display: 'flex', flexDirection: 'column', alignItems: 'center'
+            p: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between'
           }}
         >
           <ul style={{ listStyle: 'square' }}>
