@@ -64,7 +64,9 @@ export default function HowToPlay() {
   };
 
   return (
-    <Container style={{ margin: 0, padding: 0, maxWidth: 500 }}
+    <Container
+      className='how-to-container'
+      style={{ margin: 0, padding: 0, maxWidth: 500 }}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -91,8 +93,7 @@ export default function HowToPlay() {
             marginLeft: '5px',
             padding: '10px 15px',
             width: '43%', fontSize: "14px"
-          }}
-        >
+          }}>
           <Button onClick={handleClickOne}
             sx={{
               visibility: 'visible',
@@ -100,13 +101,14 @@ export default function HowToPlay() {
               fontSize: size.one,
               textDecoration: line.one,
               textUnderlineOffset: '5.5px',
-              textDecorationThickness: '8px',
+              textDecorationThickness: '9px',
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'flex-start',
               width: '218px', right: '20px', fontWeight: '800', paddingRight: '0px', paddingLeft: '20px', margin: '0px', marginBottom: '0px',
               '&:hover': {
-                backgroundColor: '#00000000'
+                backgroundColor: '#00000000',
+                textDecorationColor: 'red'
               }
             }}>How To Play</Button>
 
@@ -122,8 +124,7 @@ export default function HowToPlay() {
           sx={{
             p: 1, width: '59%', display: 'flex',
             alignItems: 'center', justifyContent: 'center', overflow: 'hidden', border: '20px solid white'
-          }}
-        >
+          }}>
           <div stlye={{ fontSize: '12px' }} className="how-to">
             <div className="img-examples">
               <img alt="vote" src="./vote-captured-ex.png" />
@@ -153,8 +154,7 @@ export default function HowToPlay() {
             padding: '10px 15px',
             width: '38%', fontSize: "14px",
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between'
-          }}
-        >
+          }}>
           <div >
             <Button onClick={handleClickTwo}
               sx={{

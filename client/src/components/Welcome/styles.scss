@@ -16,7 +16,6 @@
   margin-bottom: 12px;
   z-index: 1000;
 }
-
 .tri-avatar {
   display: flex;
   justify-content: center;
@@ -30,14 +29,10 @@
 }
 
 .how-to h2 {
-  /* margin-left: 5px; */
   margin: 5px, 0, 5px, 0;
   padding: 12px;
 }
 
-#enter-username {
-  /* background-color: red; */
-}
 
 #enter-username-label {
   display: block !important;
@@ -69,5 +64,161 @@
 
   img {
     width: 90%;
+  }
+}
+
+.MuiBox-root.welcome-box {
+ animation: avatarFadeIn 2000ms ease 0s normal;
+}
+.MuiContainer-root.how-to-container {
+ animation: howToFadeIn 3000ms ease-in 0s normal;
+}
+
+
+
+////////////////////////////////
+/////  Avatar FadeIn
+/////////////////////////////
+
+@keyframes avatarFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  23% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-moz-keyframes avatarFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  23% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-webkit-keyframes avatarFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  23% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-o-keyframes avatarFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  23% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-ms-keyframes avatarFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  23% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+////////////////////////////////
+/////  HowTo FadeIn
+/////////////////////////////
+
+@keyframes howToFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-moz-keyframes howToFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-webkit-keyframes howToFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-o-keyframes howToFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-ms-keyframes howToFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
   }
 }

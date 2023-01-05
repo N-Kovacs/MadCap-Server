@@ -88,7 +88,7 @@ export default function ActionAvatar(props) {
   useEffect(() => {
     props.setAvatar(images[activeStep].imgPath);
     props.setColor(images[activeStep].color);
-  }, [activeStep]);
+  }, [activeStep, props]);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -103,7 +103,8 @@ export default function ActionAvatar(props) {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, maxHeight: 210, flexGrow: 1 }}>
+    <Box
+    sx={{ maxWidth: 400, maxHeight: 210, flexGrow: 1 }}>
       <div className="tri-avatar">
         <img alt="tri" src="./tri-border.png"
         />
