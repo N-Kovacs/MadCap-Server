@@ -70,7 +70,7 @@ export default function GamePlayersList(props) {
           backgroundColor: '#ffffff', 
           overflow: 'scroll',
           // maxHeight: '342px' 
-          maxHeight: '375px' 
+          maxHeight: '418px' 
           // paddingRight: '10px', 
           }}
           elevation={3} sx={{ pl: '8px' }}>

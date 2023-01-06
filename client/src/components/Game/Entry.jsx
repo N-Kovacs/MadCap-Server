@@ -51,7 +51,7 @@ export default function Entry(props) {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'flex-end',
-          height: '26px'
+          height: '31px'
         }}>
         <input id="message-box"
           style={{ width: '100%', border: '1px solid #bcbcbc'  }}
